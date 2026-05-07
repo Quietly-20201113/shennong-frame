@@ -108,7 +108,7 @@ async function onBtnClick(value: ValueType) {
   <ShennongButtonGroup
     :size="props.size"
     :gap="props.gap"
-    class="vben-check-button-group"
+    class="shennong-check-button-group"
   >
     <Button
       v-for="(btn, index) in props.options"
@@ -145,7 +145,7 @@ async function onBtnClick(value: ValueType) {
   </ShennongButtonGroup>
 </template>
 <style lang="scss" scoped>
-.vben-check-button-group {
+.shennong-check-button-group {
   display: flex;
   flex-wrap: wrap;
 

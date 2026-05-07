@@ -213,21 +213,21 @@ function createCustomImage(
         }
 
         const wrapper = document.createElement('div');
-        wrapper.className = 'vben-tiptap-upload-wrapper';
+        wrapper.className = 'shennong-tiptap-upload-wrapper';
 
         const img = document.createElement('img');
         img.src = node.attrs.src;
-        img.className = 'vben-tiptap__image';
+        img.className = 'shennong-tiptap__image';
         wrapper.append(img);
 
         const spinner = document.createElement('div');
-        spinner.className = 'vben-tiptap-upload-spinner';
+        spinner.className = 'shennong-tiptap-upload-spinner';
         wrapper.append(spinner);
 
         const progressBar = document.createElement('div');
-        progressBar.className = 'vben-tiptap-upload-progress';
+        progressBar.className = 'shennong-tiptap-upload-progress';
         const progressFill = document.createElement('div');
-        progressFill.className = 'vben-tiptap-upload-progress-fill';
+        progressFill.className = 'shennong-tiptap-upload-progress-fill';
         progressBar.append(progressFill);
         wrapper.append(progressBar);
 
@@ -439,13 +439,13 @@ export function createDefaultTiptapExtensions(
         ).configure({
           allowBase64: true,
           HTMLAttributes: {
-            class: 'vben-tiptap__image',
+            class: 'shennong-tiptap__image',
           },
         })
       : Image.configure({
           allowBase64: true,
           HTMLAttributes: {
-            class: 'vben-tiptap__image',
+            class: 'shennong-tiptap__image',
           },
         }),
     Placeholder.configure({

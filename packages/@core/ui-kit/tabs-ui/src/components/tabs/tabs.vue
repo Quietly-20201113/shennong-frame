@@ -16,7 +16,7 @@ defineOptions({
   inheritAttrs: false,
 });
 const props = withDefaults(defineProps<Props>(), {
-  contentClass: 'vben-tabs-content',
+  contentClass: 'shennong-tabs-content',
   contextMenus: () => [],
   tabs: () => [],
 });

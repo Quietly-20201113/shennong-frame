@@ -67,7 +67,7 @@ const formSchema = computed((): ShennongFormSchema[] => {
             h(
               'a',
               {
-                class: 'vben-link ml-1',
+                class: 'shennong-link ml-1',
                 href: '',
               },
               `${$t('authentication.privacyPolicy')} & ${$t('authentication.terms')}`,

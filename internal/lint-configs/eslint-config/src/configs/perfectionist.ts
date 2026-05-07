@@ -24,12 +24,12 @@ export async function perfectionist(): Promise<Linter.Config[]> {
             customGroups: [
               {
                 selector: 'type',
-                groupName: 'vben-core-type',
+                groupName: 'shennong-core-type',
                 elementNamePattern: '^@shennong-core/.+',
               },
               {
                 selector: 'type',
-                groupName: 'vben-type',
+                groupName: 'shennong-type',
                 elementNamePattern: '^@shennong/.+',
               },
               {
@@ -42,7 +42,7 @@ export async function perfectionist(): Promise<Linter.Config[]> {
                 elementNamePattern: '^@shennong/.+',
               },
               {
-                groupName: 'vben-core',
+                groupName: 'shennong-core',
                 elementNamePattern: '^@shennong-core/.+',
               },
               {
@@ -54,14 +54,14 @@ export async function perfectionist(): Promise<Linter.Config[]> {
             groups: [
               ['type-external', 'type-builtin', 'type-import'],
               'vue-type',
-              'vben-type',
-              'vben-core-type',
+              'shennong-type',
+              'shennong-core-type',
               ['type-parent', 'type-sibling', 'type-index'],
               ['type-internal'],
               'value-builtin',
               'vue',
               'vben',
-              'vben-core',
+              'shennong-core',
               'value-external',
               'value-internal',
               ['value-parent', 'value-sibling', 'value-index'],

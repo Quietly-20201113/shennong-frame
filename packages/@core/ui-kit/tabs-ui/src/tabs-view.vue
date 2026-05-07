@@ -16,7 +16,7 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<Props>(), {
-  contentClass: 'vben-tabs-content',
+  contentClass: 'shennong-tabs-content',
   draggable: true,
   styleType: 'chrome',
   wheelable: true,

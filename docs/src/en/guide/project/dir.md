@@ -67,6 +67,6 @@ The repository uses Monorepo management, and the project structure is as follows
 │   └── vsh # VSH script
 ├── stylelint.config.mjs # Stylelint configuration file
 ├── turbo.json # Turbo configuration file
-├── vben-admin.code-workspace # VS Code workspace configuration file
+├── shennong-admin.code-workspace # VS Code workspace configuration file
 └── vitest.config.ts # Vitest configuration file
 ```

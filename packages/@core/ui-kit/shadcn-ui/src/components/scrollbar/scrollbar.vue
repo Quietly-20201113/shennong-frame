@@ -94,7 +94,7 @@ function handleScroll(event: Event) {
   <ScrollArea
     :class="[cn(props.class), computedShadowClasses]"
     :on-scroll="handleScroll"
-    class="vben-scrollbar relative"
+    class="shennong-scrollbar relative"
   >
     <div
       v-if="showShadowTop"
@@ -122,7 +122,7 @@ function handleScroll(event: Event) {
 </template>
 
 <style scoped>
-.vben-scrollbar {
+.shennong-scrollbar {
   &:not(.both-shadow).left-shadow {
     mask-image: linear-gradient(90deg, transparent, #000 16px);
   }

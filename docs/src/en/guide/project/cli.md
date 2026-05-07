@@ -76,7 +76,7 @@ pnpm vsh publint
 
 ### vsh code-workspace
 
-Generate `vben-admin.code-workspace` file. Currently, it does not need to be executed manually and will be executed automatically when code is committed.
+Generate `shennong-admin.code-workspace` file. Currently, it does not need to be executed manually and will be executed automatically when code is committed.
 
 #### Usage
 

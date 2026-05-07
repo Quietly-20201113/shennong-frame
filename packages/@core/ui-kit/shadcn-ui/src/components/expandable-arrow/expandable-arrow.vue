@@ -12,7 +12,7 @@ const collapsed = defineModel({ default: false });
 
 <template>
   <div
-    :class="cn('vben-link inline-flex items-center', props.class)"
+    :class="cn('shennong-link inline-flex items-center', props.class)"
     @click="collapsed = !collapsed"
   >
     <slot :is-expanded="collapsed">

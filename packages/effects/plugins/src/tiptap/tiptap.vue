@@ -42,7 +42,7 @@ const contentMinHeight = computed(() =>
     : props.minHeight,
 );
 const tiptapContentClass = cn(
-  'vben-tiptap-content vben-tiptap__content',
+  'shennong-tiptap-content shennong-tiptap__content',
   'text-foreground min-h-(--shennong-tiptap-min-height) leading-7 outline-none',
 );
 const blobUrlTracker = new Set<string>();
@@ -155,7 +155,7 @@ onBeforeUnmount(() => {
 <template>
   <div
     :style="{ '--shennong-tiptap-min-height': contentMinHeight }"
-    class="vben-tiptap overflow-hidden rounded-xl border border-border bg-card"
+    class="shennong-tiptap overflow-hidden rounded-xl border border-border bg-card"
   >
     <div
       v-if="toolbar"
@@ -304,8 +304,8 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
-.vben-tiptap
-  :deep(.vben-tiptap__content p.is-editor-empty:first-child::before) {
+.shennong-tiptap
+  :deep(.shennong-tiptap__content p.is-editor-empty:first-child::before) {
   float: left;
   height: 0;
   color: hsl(var(--input-placeholder));

@@ -67,6 +67,6 @@
 │   └── vsh # VSH 脚本
 ├── stylelint.config.mjs # Stylelint 配置文件
 ├── turbo.json # Turbo 配置文件
-├── vben-admin.code-workspace # VS Code 工作区配置文件
+├── shennong-admin.code-workspace # VS Code 工作区配置文件
 └── vitest.config.ts # Vitest 配置文件
 ```

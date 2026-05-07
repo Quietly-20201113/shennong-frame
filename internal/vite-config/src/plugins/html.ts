@@ -16,7 +16,7 @@ const HTML_MINIFY_OPTIONS = {
 
 function viteHtmlPlugin(options: HtmlMinifierOptions = {}): PluginOption {
   return {
-    name: 'vben-native-html',
+    name: 'shennong-native-html',
     transformIndexHtml: {
       order: 'post',
       async handler(html, ctx) {

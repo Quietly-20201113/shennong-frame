@@ -221,7 +221,7 @@ defineExpose({
   </CollapsibleRoot>
 </template>
 <style>
-.vben-collapsible-params {
+.shennong-collapsible-params {
   .wrapper {
     --column1: 11.25rem;
     --column2: 18.25rem;

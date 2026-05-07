@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="vben-contributors vp-doc">
+  <div class="shennong-contributors vp-doc">
     <p>Contributors</p>
     <a href="https://github.com/vbenjs/vue-vben-admin/graphs/contributors">
       <img
@@ -13,7 +13,7 @@
 </template>
 
 <style scoped>
-.vben-contributors {
+.shennong-contributors {
   display: flex;
   flex-direction: column;
   align-items: center;

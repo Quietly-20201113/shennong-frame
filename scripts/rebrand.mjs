@@ -109,7 +109,22 @@ const REPLACEMENTS = [
   ["join('vben-admin.code-workspace')", "join('shennong-frame.code-workspace')"],
 
   // CSS BEM 类名前缀（DEFAULT_NAMESPACE 派生）
-  ['.vben-link', '.shennong-link'],
+  // 必须改：DEFAULT_NAMESPACE 已改成 'shennong'，模板中硬编码的 vben- 类前缀
+  // 与 CSS 选择器 .vben-xxx 不会被替换会导致样式不匹配，UI 崩溃。
+  // 4 个前缀覆盖：CSS 选择器 / 双引号 class / 单引号 class / 模板字符串
+  ['.vben-', '.shennong-'],
+  ['"vben-', '"shennong-'],
+  ["'vben-", "'shennong-"],
+  ['`vben-', '`shennong-'],
+  // 空格分隔（CSS 动画名 / 多 class 列表中第二个 class）
+  [' vben-', ' shennong-'],
+
+  // SCSS BEM 命名空间声明（每个 .vue / .scss 文件可能本地覆盖默认值）
+  // 必须改：与 TS 的 DEFAULT_NAMESPACE 同源；299+ 文件本地声明覆盖了 design 包默认值。
+  // 三种引号变体全覆盖：
+  ['$namespace: vben;', '$namespace: shennong;'],
+  ["$namespace: 'vben'", "$namespace: 'shennong'"],
+  ['$namespace: "vben"', '$namespace: "shennong"'],
 ];
 
 // ───────────────────── 黑名单：跳过的目录 ─────────────────────

@@ -370,7 +370,7 @@ function getActivePaths() {
 </template>
 
 <style lang="scss">
-$namespace: vben;
+$namespace: shennong;
 
 @mixin menu-item-active {
   color: var(--menu-item-active-color);
@@ -509,7 +509,7 @@ $namespace: vben;
     --menu-item-padding-x: 12px;
   }
 
-  // .vben-menu__popup,
+  // .shennong-menu__popup,
   &.is-horizontal {
     --menu-item-padding-y: 0px;
     --menu-item-padding-x: 10px;

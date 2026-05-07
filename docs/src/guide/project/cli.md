@@ -83,7 +83,7 @@ pnpm vsh publint
 
 ### vsh code-workspace
 
-生成 `vben-admin.code-workspace` 文件，目前不需要手动执行，会在代码提交时自动执行。
+生成 `shennong-admin.code-workspace` 文件，目前不需要手动执行，会在代码提交时自动执行。
 
 #### 用法
 
