@@ -11,11 +11,10 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "#build": "pnpm exec tsdown"
+    "build": "pnpm exec tsdown"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "sideEffects": [
     "**/*.css"
