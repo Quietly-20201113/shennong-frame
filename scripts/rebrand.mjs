@@ -132,6 +132,7 @@ const SKIP_FILES = new Set([
   'README.zh-CN.md',
   'README.ja-JP.md',
   'rebrand.mjs',     // 不替换自己
+  'MIGRATION.md',    // 维护手册中含 rebrand 映射示例文字，会被规则误伤
   'tea.yaml',        // tea.xyz 元数据，与品牌无关
 ]);
 
@@ -217,13 +218,21 @@ function renameWorkspaceFile() {
   }
 }
 
-// ───────────────────── 删除 lock 文件 ─────────────────────
-function removeLockFile() {
+// ───────────────────── 条件删除 lock 文件 ─────────────────────
+// 仅当 lock 文件本身含 vben 字样（说明里面有旧 scope 引用）才删除。
+// 首次 fork 后跑脚本会触发删除；之后再跑（lock 已 install 重生成）不会动。
+function removeLockFileIfStale() {
   const lockPath = path.join(ROOT, 'pnpm-lock.yaml');
-  if (fs.existsSync(lockPath)) {
-    if (!DRY_RUN) fs.unlinkSync(lockPath);
-    console.log(`  [删除] pnpm-lock.yaml （pnpm install 时重新生成）`);
+  if (!fs.existsSync(lockPath)) return;
+  let content;
+  try {
+    content = fs.readFileSync(lockPath, 'utf8');
+  } catch {
+    return;
   }
+  if (!/@vben(-core)?\//.test(content)) return; // lock 已干净，不动
+  if (!DRY_RUN) fs.unlinkSync(lockPath);
+  console.log(`  [删除] pnpm-lock.yaml （含旧 scope 引用，需重新 install 生成）`);
 }
 
 // ───────────────────── 主流程 ─────────────────────
@@ -234,7 +243,7 @@ console.log('━'.repeat(60));
 
 walk(ROOT);
 renameWorkspaceFile();
-removeLockFile();
+removeLockFileIfStale();
 
 console.log('');
 console.log('━'.repeat(60));
