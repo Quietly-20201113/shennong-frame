@@ -99,6 +99,9 @@ export const useAuthStore = defineStore('auth', () => {
 
   async function fetchUserInfo() {
     const userInfo = await getUserInfoApi();
+    // 神农 ERP 不沿用 mock/上游后端返回的 homePath（vben demo 会返回 /workspace 或
+    // /analytics 等已删的演示路由），统一走 preferences.app.defaultHomePath = /welcome
+    userInfo.homePath = preferences.app.defaultHomePath;
     userStore.setUserInfo(userInfo);
     return userInfo;
   }
