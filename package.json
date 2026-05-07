@@ -44,6 +44,7 @@
     "commit": "czg",
     "dev": "turbo-run dev",
     "dev:antd": "pnpm -F @shennong/web-antd run dev",
+    "dev:erp-admin": "pnpm -F @shennong/erp-admin run dev",
     "dev:antdv-next": "pnpm -F @shennong/web-antdv-next run dev",
     "dev:docs": "pnpm -F @shennong/docs run dev",
     "dev:ele": "pnpm -F @shennong/web-ele run dev",
