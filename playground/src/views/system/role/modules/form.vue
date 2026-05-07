@@ -1,18 +1,18 @@
 <script lang="ts" setup>
 import type { DataNode } from 'ant-design-vue/es/tree';
 
-import type { Recordable } from '@vben/types';
+import type { Recordable } from '@shennong/types';
 
 import type { SystemRoleApi } from '#/api/system/role';
 
 import { computed, nextTick, ref } from 'vue';
 
-import { Tree, useVbenDrawer } from '@vben/common-ui';
-import { IconifyIcon } from '@vben/icons';
+import { Tree, useShennongDrawer } from '@shennong/common-ui';
+import { IconifyIcon } from '@shennong/icons';
 
 import { Spin } from 'ant-design-vue';
 
-import { useVbenForm } from '#/adapter/form';
+import { useShennongForm } from '#/adapter/form';
 import { getMenuList } from '#/api/system/menu';
 import { createRole, updateRole } from '#/api/system/role';
 import { $t } from '#/locales';
@@ -23,7 +23,7 @@ const emits = defineEmits(['success']);
 
 const formData = ref<SystemRoleApi.SystemRole>();
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useShennongForm({
   schema: useFormSchema(),
   showDefaultActions: false,
 });
@@ -32,7 +32,7 @@ const permissions = ref<DataNode[]>([]);
 const loadingPermissions = ref(false);
 
 const id = ref();
-const [Drawer, drawerApi] = useVbenDrawer({
+const [Drawer, drawerApi] = useShennongDrawer({
   async onConfirm() {
     const { valid } = await formApi.validate();
     if (!valid) return;

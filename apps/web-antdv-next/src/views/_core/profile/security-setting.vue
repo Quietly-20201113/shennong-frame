@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { ProfileSecuritySetting } from '@vben/common-ui';
+import { ProfileSecuritySetting } from '@shennong/common-ui';
 
 const formSchema = computed(() => {
   return [

@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import type { VbenFormSchema } from '@vben/common-ui';
-import type { BasicOption } from '@vben/types';
+import type { ShennongFormSchema } from '@shennong/common-ui';
+import type { BasicOption } from '@shennong/types';
 
 import { computed, markRaw } from 'vue';
 
-import { AuthenticationLogin, SliderCaptcha, z } from '@vben/common-ui';
-import { $t } from '@vben/locales';
+import { AuthenticationLogin, SliderCaptcha, z } from '@shennong/common-ui';
+import { $t } from '@shennong/locales';
 
 import { useAuthStore } from '#/store';
 
@@ -28,10 +28,10 @@ const MOCK_USER_OPTIONS: BasicOption[] = [
   },
 ];
 
-const formSchema = computed((): VbenFormSchema[] => {
+const formSchema = computed((): ShennongFormSchema[] => {
   return [
     {
-      component: 'VbenSelect',
+      component: 'ShennongSelect',
       componentProps: {
         options: MOCK_USER_OPTIONS,
         placeholder: $t('authentication.selectAccount'),
@@ -45,7 +45,7 @@ const formSchema = computed((): VbenFormSchema[] => {
         .default('vben'),
     },
     {
-      component: 'VbenInput',
+      component: 'ShennongInput',
       componentProps: {
         placeholder: $t('authentication.usernameTip'),
       },
@@ -70,7 +70,7 @@ const formSchema = computed((): VbenFormSchema[] => {
       rules: z.string().min(1, { message: $t('authentication.usernameTip') }),
     },
     {
-      component: 'VbenInputPassword',
+      component: 'ShennongInputPassword',
       componentProps: {
         placeholder: $t('authentication.password'),
       },

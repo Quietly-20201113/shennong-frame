@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useSlots } from 'vue';
 
-import { CircleHelp } from '@vben/icons';
+import { CircleHelp } from '@shennong/icons';
 
-import { Switch, VbenTooltip } from '@vben-core/shadcn-ui';
+import { Switch, ShennongTooltip } from '@shennong-core/shadcn-ui';
 
 defineOptions({
   name: 'PreferenceSwitchItem',
@@ -34,7 +34,7 @@ function handleClick() {
     <span class="flex items-center text-sm">
       <slot></slot>
 
-      <VbenTooltip v-if="slots.tip || tip" side="bottom">
+      <ShennongTooltip v-if="slots.tip || tip" side="bottom">
         <template #trigger>
           <CircleHelp class="ml-1 size-3 cursor-help" />
         </template>
@@ -45,7 +45,7 @@ function handleClick() {
             </p>
           </template>
         </slot>
-      </VbenTooltip>
+      </ShennongTooltip>
     </span>
     <span v-if="$slots.shortcut" class="mr-2 ml-auto text-xs opacity-60">
       <slot name="shortcut"></slot>

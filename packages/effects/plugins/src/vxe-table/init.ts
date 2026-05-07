@@ -2,7 +2,7 @@ import type { SetupVxeTable } from './types';
 
 import { defineComponent, watch } from 'vue';
 
-import { usePreferences } from '@vben/preferences';
+import { usePreferences } from '@shennong/preferences';
 
 import {
   VxeButton,
@@ -49,12 +49,12 @@ function normalizeVxeLocale<T extends Record<string, any>>(localeModule: T) {
 
 export function useTableForm(...args: any[]) {
   const pluginsOptions = injectPluginsOptions();
-  const contextFormFactory = pluginsOptions?.form?.useVbenForm;
+  const contextFormFactory = pluginsOptions?.form?.useShennongForm;
 
   const factory = tableFormFactory || contextFormFactory;
   if (!factory) {
     throw new Error(
-      'useTableForm is not initialized. Please provide useVbenForm via setupVbenVxeTable() or providePluginsOptions()',
+      'useTableForm is not initialized. Please provide useShennongForm via setupShennongVxeTable() or providePluginsOptions()',
     );
   }
 
@@ -108,14 +108,14 @@ export function initVxeTable() {
   isInit = true;
 }
 
-export function setupVbenVxeTable(setupOptions: SetupVxeTable) {
-  const { configVxeTable, useVbenForm: useVbenFormFromParam } = setupOptions;
+export function setupShennongVxeTable(setupOptions: SetupVxeTable) {
+  const { configVxeTable, useShennongForm: useShennongFormFromParam } = setupOptions;
 
   initVxeTable();
 
-  // 优先使用参数传入的 useVbenForm，否则清空让 context 注入生效
-  if (useVbenFormFromParam) {
-    tableFormFactory = useVbenFormFromParam;
+  // 优先使用参数传入的 useShennongForm，否则清空让 context 注入生效
+  if (useShennongFormFromParam) {
+    tableFormFactory = useShennongFormFromParam;
   }
   const { isDark, locale } = usePreferences();
 

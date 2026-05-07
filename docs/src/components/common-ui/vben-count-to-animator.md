@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Vben CountToAnimator 数字动画
+# Shennong CountToAnimator 数字动画
 
 `CountToAnimator` 用于展示数字滚动动画效果。
 

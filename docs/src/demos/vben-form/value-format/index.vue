@@ -3,12 +3,12 @@ import { computed, nextTick, onMounted, ref, watch } from 'vue';
 
 import { Button, Card, message, Space, Tag } from 'ant-design-vue';
 
-import { useVbenForm } from '#/adapter/form';
+import { useShennongForm } from '#/adapter/form';
 
 const transformedValues = ref<Record<string, any>>({});
 const liveValues = ref<Record<string, any>>({});
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useShennongForm({
   commonConfig: {
     componentProps: {
       class: 'w-full',

@@ -35,7 +35,7 @@ In the development environment, if you need to handle CORS, configure the API en
 
 ```ts{8-16}
 // apps/web-antd/vite.config.mts
-import { defineConfig } from '@vben/vite-config';
+import { defineConfig } from '@shennong/vite-config';
 
 export default defineConfig(async () => {
   return {
@@ -108,7 +108,7 @@ In the production environment, if CORS issues arise, you can use `nginx` to prox
 
 ## API Request Configuration
 
-The project comes with a default basic request configuration based on `axios`, provided by the `@vben/request` package. The project does not overly complicate things but simply wraps some common configurations. If there are other requirements, you can add or adjust the configurations as needed. Depending on the app, different component libraries and `store` might be used, so under the `src/api/request.ts` folder in the application directory, there are corresponding request configuration files. For example, in the `web-antd` project, there's a `src/api/request.ts` file where you can configure according to your needs.
+The project comes with a default basic request configuration based on `axios`, provided by the `@shennong/request` package. The project does not overly complicate things but simply wraps some common configurations. If there are other requirements, you can add or adjust the configurations as needed. Depending on the app, different component libraries and `store` might be used, so under the `src/api/request.ts` folder in the application directory, there are corresponding request configuration files. For example, in the `web-antd` project, there's a `src/api/request.ts` file where you can configure according to your needs.
 
 ### Request Examples
 
@@ -163,16 +163,16 @@ The `src/api/request.ts` within the application can be configured according to t
 /**
  * This file can be adjusted according to business logic
  */
-import type { HttpResponse } from '@vben/request';
+import type { HttpResponse } from '@shennong/request';
 
-import { useAppConfig } from '@vben/hooks';
-import { preferences } from '@vben/preferences';
+import { useAppConfig } from '@shennong/hooks';
+import { preferences } from '@shennong/preferences';
 import {
   authenticateResponseInterceptor,
   errorMessageResponseInterceptor,
   RequestClient,
-} from '@vben/request';
-import { useAccessStore } from '@vben/stores';
+} from '@shennong/request';
+import { useAccessStore } from '@shennong/stores';
 
 import { message } from 'ant-design-vue';
 
@@ -297,7 +297,7 @@ The project provides a default logic for refreshing tokens. To enable it, follow
 Adjust the `preferences.ts` in the corresponding application directory to ensure `enableRefreshToken='true'`.
 
 ```ts
-import { defineOverridesPreferences } from '@vben/preferences';
+import { defineOverridesPreferences } from '@shennong/preferences';
 
 export const overridesPreferences = defineOverridesPreferences({
   // overrides

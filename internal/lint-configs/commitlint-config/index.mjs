@@ -1,6 +1,6 @@
 import { execSync } from 'node:child_process';
 
-import { getPackagesSync } from '@vben/node-utils';
+import { getPackagesSync } from '@shennong/node-utils';
 
 const { packages } = getPackagesSync();
 

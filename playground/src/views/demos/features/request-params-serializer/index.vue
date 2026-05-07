@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, ref, watchEffect } from 'vue';
 
-import { Page } from '@vben/common-ui';
+import { Page } from '@shennong/common-ui';
 
 import { Card, Radio, RadioGroup } from 'ant-design-vue';
 

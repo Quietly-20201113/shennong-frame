@@ -1,17 +1,17 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 
-import { Settings } from '@vben/icons';
-import { $t, loadLocaleMessages } from '@vben/locales';
-import { preferences, updatePreferences } from '@vben/preferences';
-import { capitalizeFirstLetter } from '@vben/utils';
+import { Settings } from '@shennong/icons';
+import { $t, loadLocaleMessages } from '@shennong/locales';
+import { preferences, updatePreferences } from '@shennong/preferences';
+import { capitalizeFirstLetter } from '@shennong/utils';
 
-import { useVbenDrawer } from '@vben-core/popup-ui';
-import { VbenButton } from '@vben-core/shadcn-ui';
+import { useShennongDrawer } from '@shennong-core/popup-ui';
+import { ShennongButton } from '@shennong-core/shadcn-ui';
 
 import PreferencesDrawer from './preferences-drawer.vue';
 
-const [Drawer, drawerApi] = useVbenDrawer({
+const [Drawer, drawerApi] = useShennongDrawer({
   connectedComponent: PreferencesDrawer,
 });
 
@@ -60,12 +60,12 @@ const listen = computed(() => {
 
     <div @click="() => drawerApi.open()">
       <slot>
-        <VbenButton
+        <ShennongButton
           :title="$t('preferences.title')"
           class="flex-col-center size-10 cursor-pointer rounded-l-lg rounded-r-none border-none bg-primary"
         >
           <Settings class="size-5" />
-        </VbenButton>
+        </ShennongButton>
       </slot>
     </div>
   </div>

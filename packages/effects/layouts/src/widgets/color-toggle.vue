@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import type { BuiltinThemeType } from '@vben/types';
+import type { BuiltinThemeType } from '@shennong/types';
 
-import { Palette } from '@vben/icons';
+import { Palette } from '@shennong/icons';
 import {
   COLOR_PRESETS,
   preferences,
   updatePreferences,
-} from '@vben/preferences';
+} from '@shennong/preferences';
 
-import { VbenIconButton } from '@vben-core/shadcn-ui';
+import { ShennongIconButton } from '@shennong-core/shadcn-ui';
 
 defineOptions({
   name: 'AuthenticationColorToggle',
@@ -30,7 +30,7 @@ function handleUpdate(colorPrimary: string, type: BuiltinThemeType) {
       class="flex w-0 overflow-hidden transition-all duration-500 ease-out group-hover:w-60"
     >
       <template v-for="preset in COLOR_PRESETS" :key="preset.color">
-        <VbenIconButton
+        <ShennongIconButton
           class="flex-center shrink-0"
           @click="handleUpdate(preset.color, preset.type)"
         >
@@ -53,12 +53,12 @@ function handleUpdate(colorPrimary: string, type: BuiltinThemeType) {
               />
             </svg>
           </div>
-        </VbenIconButton>
+        </ShennongIconButton>
       </template>
     </div>
 
-    <VbenIconButton>
+    <ShennongIconButton>
       <Palette class="size-4 text-primary" />
-    </VbenIconButton>
+    </ShennongIconButton>
   </div>
 </template>

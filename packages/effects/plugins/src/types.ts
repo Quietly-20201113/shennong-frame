@@ -1,24 +1,24 @@
 import type { Component } from 'vue';
 
-export interface VbenPluginsFormOptions {
-  useVbenForm: (...args: any[]) => any;
+export interface ShennongPluginsFormOptions {
+  useShennongForm: (...args: any[]) => any;
 }
 
-export interface VbenPluginsModalOptions {
-  useVbenModal?: () => any;
+export interface ShennongPluginsModalOptions {
+  useShennongModal?: () => any;
 }
 
-export interface VbenPluginsMessageOptions {
+export interface ShennongPluginsMessageOptions {
   useMessage?: () => any;
 }
 
-export interface VbenPluginsComponentsOptions {
+export interface ShennongPluginsComponentsOptions {
   [key: string]: Component;
 }
 
-export interface VbenPluginsOptions {
-  form?: VbenPluginsFormOptions;
-  modal?: VbenPluginsModalOptions;
-  message?: VbenPluginsMessageOptions;
-  components?: VbenPluginsComponentsOptions;
+export interface ShennongPluginsOptions {
+  form?: ShennongPluginsFormOptions;
+  modal?: ShennongPluginsModalOptions;
+  message?: ShennongPluginsMessageOptions;
+  components?: ShennongPluginsComponentsOptions;
 }

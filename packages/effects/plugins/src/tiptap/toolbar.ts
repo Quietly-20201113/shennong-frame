@@ -27,11 +27,11 @@ import {
   Underline,
   Undo2,
   Unlink2,
-} from '@vben/icons';
-import { $t } from '@vben/locales';
-import { COLOR_PRESETS } from '@vben/preferences';
+} from '@shennong/icons';
+import { $t } from '@shennong/locales';
+import { COLOR_PRESETS } from '@shennong/preferences';
 
-import { prompt } from '@vben-core/popup-ui';
+import { prompt } from '@shennong-core/popup-ui';
 
 const headingLevels = [1, 2, 3, 4] as const;
 const editorColorPresets = [

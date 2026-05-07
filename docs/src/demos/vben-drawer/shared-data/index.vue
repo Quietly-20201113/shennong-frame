@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { useVbenDrawer, VbenButton } from '@vben/common-ui';
+import { useShennongDrawer, ShennongButton } from '@shennong/common-ui';
 
 import ExtraDrawer from './drawer.vue';
 
-const [Drawer, drawerApi] = useVbenDrawer({
+const [Drawer, drawerApi] = useShennongDrawer({
   // 连接抽离的组件
   connectedComponent: ExtraDrawer,
 });
@@ -22,6 +22,6 @@ function open() {
   <div>
     <Drawer />
 
-    <VbenButton @click="open">Open</VbenButton>
+    <ShennongButton @click="open">Open</ShennongButton>
   </div>
 </template>

@@ -1,20 +1,20 @@
 <script lang="ts" setup>
-import type { VbenFormSchema } from '@vben/common-ui';
-import type { Recordable } from '@vben/types';
+import type { ShennongFormSchema } from '@shennong/common-ui';
+import type { Recordable } from '@shennong/types';
 
 import { computed, h, ref } from 'vue';
 
-import { AuthenticationRegister, z } from '@vben/common-ui';
-import { $t } from '@vben/locales';
+import { AuthenticationRegister, z } from '@shennong/common-ui';
+import { $t } from '@shennong/locales';
 
 defineOptions({ name: 'Register' });
 
 const loading = ref(false);
 
-const formSchema = computed((): VbenFormSchema[] => {
+const formSchema = computed((): ShennongFormSchema[] => {
   return [
     {
-      component: 'VbenInput',
+      component: 'ShennongInput',
       componentProps: {
         placeholder: $t('authentication.usernameTip'),
       },
@@ -23,7 +23,7 @@ const formSchema = computed((): VbenFormSchema[] => {
       rules: z.string().min(1, { message: $t('authentication.usernameTip') }),
     },
     {
-      component: 'VbenInputPassword',
+      component: 'ShennongInputPassword',
       componentProps: {
         passwordStrength: true,
         placeholder: $t('authentication.password'),
@@ -38,7 +38,7 @@ const formSchema = computed((): VbenFormSchema[] => {
       rules: z.string().min(1, { message: $t('authentication.passwordTip') }),
     },
     {
-      component: 'VbenInputPassword',
+      component: 'ShennongInputPassword',
       componentProps: {
         placeholder: $t('authentication.confirmPassword'),
       },
@@ -58,7 +58,7 @@ const formSchema = computed((): VbenFormSchema[] => {
       label: $t('authentication.confirmPassword'),
     },
     {
-      component: 'VbenCheckbox',
+      component: 'ShennongCheckbox',
       fieldName: 'agreePolicy',
       renderComponentContent: () => ({
         default: () =>

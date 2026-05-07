@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import type { VbenFormSchema } from '@vben/common-ui';
-import type { Recordable } from '@vben/types';
+import type { ShennongFormSchema } from '@shennong/common-ui';
+import type { Recordable } from '@shennong/types';
 
 import { computed, ref, useTemplateRef } from 'vue';
 
-import { AuthenticationCodeLogin, z } from '@vben/common-ui';
-import { $t } from '@vben/locales';
+import { AuthenticationCodeLogin, z } from '@shennong/common-ui';
+import { $t } from '@shennong/locales';
 
 import { message } from 'ant-design-vue';
 
@@ -32,10 +32,10 @@ function sendCodeApi(phoneNumber: string) {
     }, 3000);
   });
 }
-const formSchema = computed((): VbenFormSchema[] => {
+const formSchema = computed((): ShennongFormSchema[] => {
   return [
     {
-      component: 'VbenInput',
+      component: 'ShennongInput',
       componentProps: {
         placeholder: $t('authentication.mobile'),
       },
@@ -49,7 +49,7 @@ const formSchema = computed((): VbenFormSchema[] => {
         }),
     },
     {
-      component: 'VbenPinInput',
+      component: 'ShennongPinInput',
       componentProps: {
         codeLength: CODE_LENGTH,
         createText: (countdown: number) => {

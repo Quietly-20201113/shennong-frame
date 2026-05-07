@@ -4,26 +4,26 @@ import type {
   VxeTableGridOptions,
 } from '#/adapter/vxe-table';
 
-import { Page, useVbenDrawer } from '@vben/common-ui';
-import { IconifyIcon, Plus } from '@vben/icons';
-import { $t } from '@vben/locales';
+import { Page, useShennongDrawer } from '@shennong/common-ui';
+import { IconifyIcon, Plus } from '@shennong/icons';
+import { $t } from '@shennong/locales';
 
-import { MenuBadge } from '@vben-core/menu-ui';
+import { MenuBadge } from '@shennong-core/menu-ui';
 
 import { Button, message } from 'ant-design-vue';
 
-import { useVbenVxeGrid } from '#/adapter/vxe-table';
+import { useShennongVxeGrid } from '#/adapter/vxe-table';
 import { deleteMenu, getMenuList, SystemMenuApi } from '#/api/system/menu';
 
 import { useColumns } from './data';
 import Form from './modules/form.vue';
 
-const [FormDrawer, formDrawerApi] = useVbenDrawer({
+const [FormDrawer, formDrawerApi] = useShennongDrawer({
   connectedComponent: Form,
   destroyOnClose: true,
 });
 
-const [Grid, gridApi] = useVbenVxeGrid({
+const [Grid, gridApi] = useShennongVxeGrid({
   gridOptions: {
     columns: useColumns(onActionClick),
     height: 'auto',

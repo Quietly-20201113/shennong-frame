@@ -4,10 +4,10 @@ import type { FallbackProps } from './fallback';
 import { computed, defineAsyncComponent } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { ArrowLeft, RotateCw } from '@vben/icons';
-import { $t } from '@vben/locales';
+import { ArrowLeft, RotateCw } from '@shennong/icons';
+import { $t } from '@shennong/locales';
 
-import { VbenButton } from '@vben-core/shadcn-ui';
+import { ShennongButton } from '@shennong-core/shadcn-ui';
 
 interface Props extends FallbackProps {}
 
@@ -151,14 +151,14 @@ function refresh() {
         {{ descText }}
       </p>
       <slot v-if="$slots.action" name="action"></slot>
-      <VbenButton v-else-if="showBack" size="lg" @click="back">
+      <ShennongButton v-else-if="showBack" size="lg" @click="back">
         <ArrowLeft class="mr-2 size-4" />
         {{ $t('common.backToHome') }}
-      </VbenButton>
-      <VbenButton v-else-if="showRefresh" size="lg" @click="refresh">
+      </ShennongButton>
+      <ShennongButton v-else-if="showRefresh" size="lg" @click="refresh">
         <RotateCw class="mr-2 size-4" />
         {{ $t('common.refresh') }}
-      </VbenButton>
+      </ShennongButton>
     </div>
   </div>
 </template>

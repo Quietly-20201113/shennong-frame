@@ -2,8 +2,8 @@ import type { App, Directive, DirectiveBinding } from 'vue';
 
 import { h, render } from 'vue';
 
-import { VbenLoading, VbenSpinner } from '@vben-core/shadcn-ui';
-import { isString } from '@vben-core/shared/utils';
+import { ShennongLoading, ShennongSpinner } from '@shennong-core/shadcn-ui';
+import { isString } from '@shennong-core/shared/utils';
 
 const LOADING_INSTANCE_KEY = Symbol('loading');
 const SPINNER_INSTANCE_KEY = Symbol('spinner');
@@ -12,7 +12,7 @@ const CLASS_NAME_RELATIVE = 'spinner-parent--relative';
 
 const loadingDirective: Directive = {
   mounted(el, binding) {
-    const instance = h(VbenLoading, getOptions(binding));
+    const instance = h(ShennongLoading, getOptions(binding));
     render(instance, el);
 
     el.classList.add(CLASS_NAME_RELATIVE);
@@ -58,7 +58,7 @@ function getOptions(binding: DirectiveBinding) {
 
 const spinningDirective: Directive = {
   mounted(el, binding) {
-    const instance = h(VbenSpinner, getOptions(binding));
+    const instance = h(ShennongSpinner, getOptions(binding));
     render(instance, el);
 
     el.classList.add(CLASS_NAME_RELATIVE);

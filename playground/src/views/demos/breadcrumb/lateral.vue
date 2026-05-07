@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router';
 
-import { Fallback } from '@vben/common-ui';
+import { Fallback } from '@shennong/common-ui';
 
 import { Button } from 'ant-design-vue';
 

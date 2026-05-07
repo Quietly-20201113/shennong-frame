@@ -1,6 +1,6 @@
-import type { VxeTableGridColumns } from '@vben/plugins/vxe-table';
+import type { VxeTableGridColumns } from '@shennong/plugins/vxe-table';
 
-import type { VbenFormSchema } from '#/adapter/form';
+import type { ShennongFormSchema } from '#/adapter/form';
 import type { OnActionClickFn } from '#/adapter/vxe-table';
 import type { SystemDeptApi } from '#/api/system/dept';
 
@@ -11,7 +11,7 @@ import { $t } from '#/locales';
 /**
  * 获取编辑表单的字段配置。如果没有使用多语言，可以直接export一个数组常量
  */
-export function useSchema(): VbenFormSchema[] {
+export function useSchema(): ShennongFormSchema[] {
   return [
     {
       component: 'Input',

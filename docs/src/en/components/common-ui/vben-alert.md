@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Vben Alert
+# Shennong Alert
 
 `Alert` provides lightweight JavaScript-driven dialogs for simple `alert`, `confirm`, and `prompt` style interactions.
 

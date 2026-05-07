@@ -1,12 +1,12 @@
 {
-  "name": "@vben-core/menu-ui",
+  "name": "@shennong-core/menu-ui",
   "version": "5.7.0",
-  "homepage": "https://github.com/vbenjs/vue-vben-admin",
-  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
+  "homepage": "",
+  "bugs": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
-    "directory": "packages/@vben-core/uikit/menu-ui"
+    "url": "",
+    "directory": "packages/@shennong-core/uikit/menu-ui"
   },
   "license": "MIT",
   "type": "module",
@@ -40,12 +40,12 @@
     }
   },
   "dependencies": {
-    "@vben-core/composables": "workspace:*",
-    "@vben-core/design": "workspace:*",
-    "@vben-core/icons": "workspace:*",
-    "@vben-core/shadcn-ui": "workspace:*",
-    "@vben-core/shared": "workspace:*",
-    "@vben-core/typings": "workspace:*",
+    "@shennong-core/composables": "workspace:*",
+    "@shennong-core/design": "workspace:*",
+    "@shennong-core/icons": "workspace:*",
+    "@shennong-core/shadcn-ui": "workspace:*",
+    "@shennong-core/shared": "workspace:*",
+    "@shennong-core/typings": "workspace:*",
     "@vueuse/core": "catalog:",
     "qs": "catalog:",
     "vue": "catalog:"

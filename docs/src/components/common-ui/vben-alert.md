@@ -2,13 +2,13 @@
 outline: deep
 ---
 
-# Vben Alert 轻量提示框
+# Shennong Alert 轻量提示框
 
 `Alert` 提供了一组纯 JavaScript 调用的轻量提示框能力，适合快速创建 `alert`、`confirm`、`prompt` 这类简单交互。
 
 ::: info 适用场景
 
-`Alert` 与 `Modal` 的能力有部分重叠，但更适合临时确认、简单提示和轻量输入场景。复杂弹窗仍然建议使用 `Vben Modal`。:::
+`Alert` 与 `Modal` 的能力有部分重叠，但更适合临时确认、简单提示和轻量输入场景。复杂弹窗仍然建议使用 `Shennong Modal`。:::
 
 ::: tip 注意
 

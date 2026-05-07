@@ -1,17 +1,17 @@
 <script lang="ts" setup>
-import type { TabDefinition } from '@vben-core/typings';
+import type { TabDefinition } from '@shennong-core/typings';
 
 import type { TabConfig, TabsProps } from '../../types';
 
 import { computed } from 'vue';
 
-import { Pin, X } from '@vben-core/icons';
-import { VbenContextMenu, VbenIcon } from '@vben-core/shadcn-ui';
+import { Pin, X } from '@shennong-core/icons';
+import { ShennongContextMenu, ShennongIcon } from '@shennong-core/shadcn-ui';
 
 interface Props extends TabsProps {}
 
 defineOptions({
-  name: 'VbenTabs',
+  name: 'ShennongTabs',
 
   inheritAttrs: false,
 });
@@ -101,7 +101,7 @@ function onMouseDown(e: MouseEvent, tab: TabConfig) {
         @click="active = tab.key"
         @mousedown="onMouseDown($event, tab)"
       >
-        <VbenContextMenu
+        <ShennongContextMenu
           :handler-data="tab"
           :menus="contextMenus"
           :modal="false"
@@ -129,7 +129,7 @@ function onMouseDown(e: MouseEvent, tab: TabConfig) {
             <div
               class="mx-3 mr-4 flex h-full items-center overflow-hidden rounded-tl-[5px] rounded-tr-[5px] pr-3 text-accent-foreground transition-all duration-300 group-[.is-active]:text-primary group-[.is-active]:dark:text-accent-foreground"
             >
-              <VbenIcon
+              <ShennongIcon
                 v-if="showIcon"
                 :icon="tab.icon"
                 class="mr-2 flex size-4 items-center overflow-hidden group-hover:animate-[shrink_0.3s_ease-in-out]"
@@ -141,7 +141,7 @@ function onMouseDown(e: MouseEvent, tab: TabConfig) {
               </span>
             </div>
           </div>
-        </VbenContextMenu>
+        </ShennongContextMenu>
       </div>
     </TransitionGroup>
   </div>

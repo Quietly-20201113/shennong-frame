@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import { useVbenDrawer } from '@vben/common-ui';
+import { useShennongDrawer } from '@shennong/common-ui';
 
-import { useVbenForm } from '#/adapter/form';
+import { useShennongForm } from '#/adapter/form';
 
 defineOptions({
   name: 'FormDrawerDemo',
 });
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useShennongForm({
   schema: [
     {
       component: 'Input',
@@ -30,7 +30,7 @@ const [Form, formApi] = useVbenForm({
   ],
   showDefaultActions: false,
 });
-const [Drawer, drawerApi] = useVbenDrawer({
+const [Drawer, drawerApi] = useShennongDrawer({
   onCancel() {
     drawerApi.close();
   },

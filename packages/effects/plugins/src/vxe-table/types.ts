@@ -7,13 +7,13 @@ import type {
 
 import type { Ref } from 'vue';
 
-import type { ClassType, DeepPartial } from '@vben/types';
+import type { ClassType, DeepPartial } from '@shennong/types';
 
-import type { BaseFormComponentType, VbenFormProps } from '@vben-core/form-ui';
+import type { BaseFormComponentType, ShennongFormProps } from '@shennong-core/form-ui';
 
 import type { VxeGridApi } from './api';
 
-import { useVbenForm } from '@vben-core/form-ui';
+import { useShennongForm } from '@shennong-core/form-ui';
 
 export interface VxePaginationInfo {
   currentPage: number;
@@ -74,7 +74,7 @@ export interface VxeGridProps<
   /**
    * 表单配置
    */
-  formOptions?: VbenFormProps<D, P>;
+  formOptions?: ShennongFormProps<D, P>;
   /**
    * 显示搜索表单
    */
@@ -97,5 +97,5 @@ export type ExtendedVxeGridApi<
 
 export interface SetupVxeTable {
   configVxeTable: (ui: VxeUIExport) => void;
-  useVbenForm?: typeof useVbenForm;
+  useShennongForm?: typeof useShennongForm;
 }

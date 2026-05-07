@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Recordable } from '@vben/types';
+import type { Recordable } from '@shennong/types';
 
 import type {
   OnActionClickParams,
@@ -7,24 +7,24 @@ import type {
 } from '#/adapter/vxe-table';
 import type { SystemRoleApi } from '#/api';
 
-import { Page, useVbenDrawer } from '@vben/common-ui';
-import { Plus } from '@vben/icons';
+import { Page, useShennongDrawer } from '@shennong/common-ui';
+import { Plus } from '@shennong/icons';
 
 import { Button, message, Modal } from 'ant-design-vue';
 
-import { useVbenVxeGrid } from '#/adapter/vxe-table';
+import { useShennongVxeGrid } from '#/adapter/vxe-table';
 import { deleteRole, getRoleList, updateRole } from '#/api';
 import { $t } from '#/locales';
 
 import { useColumns, useGridFormSchema } from './data';
 import Form from './modules/form.vue';
 
-const [FormDrawer, formDrawerApi] = useVbenDrawer({
+const [FormDrawer, formDrawerApi] = useShennongDrawer({
   connectedComponent: Form,
   destroyOnClose: true,
 });
 
-const [Grid, gridApi] = useVbenVxeGrid({
+const [Grid, gridApi] = useShennongVxeGrid({
   formOptions: {
     fieldMappingTime: [['createTime', ['startTime', 'endTime']]],
     schema: useGridFormSchema(),

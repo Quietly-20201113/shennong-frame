@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import type { Recordable } from '@vben/types';
+import type { Recordable } from '@shennong/types';
 
-import type { VbenFormSchema } from '@vben-core/form-ui';
+import type { ShennongFormSchema } from '@shennong-core/form-ui';
 
 import { computed, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { $t } from '@vben/locales';
+import { $t } from '@shennong/locales';
 
-import { useVbenForm } from '@vben-core/form-ui';
-import { VbenButton } from '@vben-core/shadcn-ui';
+import { useShennongForm } from '@shennong-core/form-ui';
+import { ShennongButton } from '@shennong-core/shadcn-ui';
 
 import Title from './auth-title.vue';
 
 interface Props {
-  formSchema: VbenFormSchema[];
+  formSchema: ShennongFormSchema[];
   /**
    * @zh_CN 是否处于加载处理状态
    */
@@ -60,7 +60,7 @@ const emit = defineEmits<{
 
 const router = useRouter();
 
-const [Form, formApi] = useVbenForm(
+const [Form, formApi] = useShennongForm(
   reactive({
     commonConfig: {
       hideLabel: true,
@@ -103,7 +103,7 @@ defineExpose({
       </template>
     </Title>
     <Form />
-    <VbenButton
+    <ShennongButton
       :class="{
         'cursor-wait': loading,
       }"
@@ -114,14 +114,14 @@ defineExpose({
       <slot name="submitButtonText">
         {{ submitButtonText || $t('common.login') }}
       </slot>
-    </VbenButton>
-    <VbenButton
+    </ShennongButton>
+    <ShennongButton
       v-if="showBack"
       class="mt-4 w-full"
       variant="outline"
       @click="goToLogin()"
     >
       {{ $t('common.back') }}
-    </VbenButton>
+    </ShennongButton>
   </div>
 </template>

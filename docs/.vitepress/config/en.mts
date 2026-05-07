@@ -5,7 +5,7 @@ import { defineConfig } from 'vitepress';
 import { version } from '../../../package.json';
 
 export const en = defineConfig({
-  description: 'Vben Admin & Enterprise level management system framework',
+  description: 'Shennong Admin & Enterprise level management system framework',
   lang: 'en-US',
   themeConfig: {
     darkModeSwitchLabel: 'Theme',
@@ -20,7 +20,7 @@ export const en = defineConfig({
       text: 'Edit this page on GitHub',
     },
     footer: {
-      copyright: `Copyright © 2020-${new Date().getFullYear()} Vben`,
+      copyright: `Copyright © 2020-${new Date().getFullYear()} Shennong`,
       message: 'Released under the MIT License.',
     },
     langMenuLabel: 'Language',
@@ -59,7 +59,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       items: [
         {
           link: 'introduction/vben',
-          text: 'About Vben Admin',
+          text: 'About Shennong Admin',
         },
         {
           link: 'introduction/why',
@@ -234,7 +234,7 @@ function nav(): DefaultTheme.NavItem[] {
       text: 'Demo',
       items: [
         {
-          text: 'Vben Admin',
+          text: 'Shennong Admin',
           items: [
             {
               link: 'https://www.vben.pro',
@@ -259,7 +259,7 @@ function nav(): DefaultTheme.NavItem[] {
           items: [
             {
               link: 'https://vben.vvbin.cn',
-              text: 'Vben Admin 2.x',
+              text: 'Shennong Admin 2.x',
             },
           ],
         },

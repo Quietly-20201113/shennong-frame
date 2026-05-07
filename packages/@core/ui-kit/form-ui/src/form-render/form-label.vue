@@ -3,10 +3,10 @@ import type { CustomRenderType } from '../types';
 
 import {
   FormLabel,
-  VbenHelpTooltip,
-  VbenRenderContent,
-} from '@vben-core/shadcn-ui';
-import { cn } from '@vben-core/shared/utils';
+  ShennongHelpTooltip,
+  ShennongRenderContent,
+} from '@shennong-core/shadcn-ui';
+import { cn } from '@shennong-core/shared/utils';
 
 interface Props {
   class?: string;
@@ -23,9 +23,9 @@ const props = defineProps<Props>();
   <FormLabel :class="cn('flex items-center', props.class)">
     <span v-if="required" class="mr-0.5 text-destructive">*</span>
     <slot></slot>
-    <VbenHelpTooltip v-if="help" trigger-class="size-3.5 ml-1">
-      <VbenRenderContent :content="help" />
-    </VbenHelpTooltip>
+    <ShennongHelpTooltip v-if="help" trigger-class="size-3.5 ml-1">
+      <ShennongRenderContent :content="help" />
+    </ShennongHelpTooltip>
     <slot name="extra"></slot>
     <span v-if="colon && label" class="ml-0.5">:</span>
   </FormLabel>

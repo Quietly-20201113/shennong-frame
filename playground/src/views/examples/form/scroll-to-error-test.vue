@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-import { Page } from '@vben/common-ui';
+import { Page } from '@shennong/common-ui';
 
 import { Button, Card, Switch } from 'ant-design-vue';
 
-import { useVbenForm } from '#/adapter/form';
+import { useShennongForm } from '#/adapter/form';
 
 defineOptions({
   name: 'ScrollToErrorTest',
@@ -13,7 +13,7 @@ defineOptions({
 
 const scrollEnabled = ref(true);
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useShennongForm({
   scrollToFirstError: scrollEnabled.value,
   schema: [
     {

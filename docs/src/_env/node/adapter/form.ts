@@ -1,4 +1,4 @@
-export const useVbenForm = () => {};
+export const useShennongForm = () => {};
 export const z = {};
-export type VbenFormSchema = any;
-export type VbenFormProps = any;
+export type ShennongFormSchema = any;
+export type ShennongFormProps = any;

@@ -35,7 +35,7 @@ VITE_GLOB_API_URL=/api
 
 ```ts{8-16}
 // apps/web-antd/vite.config.mts
-import { defineConfig } from '@vben/vite-config';
+import { defineConfig } from '@shennong/vite-config';
 
 export default defineConfig(async () => {
   return {
@@ -108,7 +108,7 @@ VITE_GLOB_API_URL=https://mock-napi.vben.pro/api
 
 ## 接口请求配置
 
-项目中默认自带了基于 `axios` 封装的基础的请求配置，核心由 `@vben/request` 包提供。项目没有过多的封装，只是简单的封装了一些常用的配置，如有其他需求，可以自行增加或者调整配置。针对不同的app，可能是用到了不同的组件库以及`store`,所以在应用目录下的`src/api/request.ts`文件夹下，有对应的请求配置文件,如`web-antd`项目下的`src/api/request.ts`文件,可以根据自己的需求进行配置。
+项目中默认自带了基于 `axios` 封装的基础的请求配置，核心由 `@shennong/request` 包提供。项目没有过多的封装，只是简单的封装了一些常用的配置，如有其他需求，可以自行增加或者调整配置。针对不同的app，可能是用到了不同的组件库以及`store`,所以在应用目录下的`src/api/request.ts`文件夹下，有对应的请求配置文件,如`web-antd`项目下的`src/api/request.ts`文件,可以根据自己的需求进行配置。
 
 ### 扩展的配置
 
@@ -193,16 +193,16 @@ export async function deleteUserApi(userId: number) {
 /**
  * 该文件可自行根据业务逻辑进行调整
  */
-import type { HttpResponse } from '@vben/request';
+import type { HttpResponse } from '@shennong/request';
 
-import { useAppConfig } from '@vben/hooks';
-import { preferences } from '@vben/preferences';
+import { useAppConfig } from '@shennong/hooks';
+import { preferences } from '@shennong/preferences';
 import {
   authenticateResponseInterceptor,
   errorMessageResponseInterceptor,
   RequestClient,
-} from '@vben/request';
-import { useAccessStore } from '@vben/stores';
+} from '@shennong/request';
+import { useAccessStore } from '@shennong/stores';
 
 import { message } from 'ant-design-vue';
 
@@ -328,7 +328,7 @@ export const otherRequestClient = createRequestClient(otherApiURL);
 调整对应应用目录下的`preferences.ts`，确保`enableRefreshToken='true'`。
 
 ```ts
-import { defineOverridesPreferences } from '@vben/preferences';
+import { defineOverridesPreferences } from '@shennong/preferences';
 
 export const overridesPreferences = defineOverridesPreferences({
   // overrides

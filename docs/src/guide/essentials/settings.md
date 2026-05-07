@@ -31,10 +31,10 @@
 
 ```bash [.env]
 # 应用标题
-VITE_APP_TITLE=Vben Admin
+VITE_APP_TITLE=Shennong Admin
 
 # 应用命名空间，用于缓存、store等功能的前缀，确保隔离
-VITE_APP_NAMESPACE=vben-web-antd
+VITE_APP_NAMESPACE=shennong-web-antd
 ```
 
 ```bash [.env.development]
@@ -91,11 +91,11 @@ VITE_ARCHIVER=true
 `_app.config.js` 是一个动态配置文件，可以在项目构建之后，根据不同的环境动态修改配置。内容如下：
 
 ```ts
-window._VBEN_ADMIN_PRO_APP_CONF_ = {
+window._SHENNONG_ADMIN_PRO_APP_CONF_ = {
   VITE_GLOB_API_URL: 'https://mock-napi.vben.pro/api',
 };
-Object.freeze(window._VBEN_ADMIN_PRO_APP_CONF_);
-Object.defineProperty(window, '_VBEN_ADMIN_PRO_APP_CONF_', {
+Object.freeze(window._SHENNONG_ADMIN_PRO_APP_CONF_);
+Object.defineProperty(window, '_SHENNONG_ADMIN_PRO_APP_CONF_', {
   configurable: false,
   writable: false,
 });
@@ -107,7 +107,7 @@ Object.defineProperty(window, '_VBEN_ADMIN_PRO_APP_CONF_', {
 
 ### 使用
 
-想要获取 `_app.config.js` 内的变量，需要使用`@vben/hooks`提供的 `useAppConfig`方法。
+想要获取 `_app.config.js` 内的变量，需要使用`@shennong/hooks`提供的 `useAppConfig`方法。
 
 ```ts
 const { apiURL } = useAppConfig(import.meta.env, import.meta.env.PROD);
@@ -126,7 +126,7 @@ const { apiURL } = useAppConfig(import.meta.env, import.meta.env.PROD);
 - 在 `packages/types/global.d.ts`,新增对应的类型定义，如：
 
   ```ts
-  export interface VbenAdminProAppConfigRaw {
+  export interface ShennongAdminProAppConfigRaw {
     VITE_GLOB_API_URL: string;
     VITE_GLOB_OTHER_API_URL: string; // [!code ++]
   }
@@ -144,10 +144,10 @@ const { apiURL } = useAppConfig(import.meta.env, import.meta.env.PROD);
     env: Record<string, any>,
     isProduction: boolean,
   ): ApplicationConfig {
-    // 生产环境下，直接使用 window._VBEN_ADMIN_PRO_APP_CONF_ 全局变量
+    // 生产环境下，直接使用 window._SHENNONG_ADMIN_PRO_APP_CONF_ 全局变量
     const config = isProduction
-      ? window._VBEN_ADMIN_PRO_APP_CONF_
-      : (env as VbenAdminProAppConfigRaw);
+      ? window._SHENNONG_ADMIN_PRO_APP_CONF_
+      : (env as ShennongAdminProAppConfigRaw);
 
     const { VITE_GLOB_API_URL, VITE_GLOB_OTHER_API_URL } = config; // [!code ++]
 
@@ -179,8 +179,8 @@ const { otherApiURL } = useAppConfig(import.meta.env, import.meta.env.PROD);
 如果你找不到文档说明，可以尝试自己配置好以后，点击`复制偏好设置`，覆盖项目默认即可。配置文件位于应用目录下的`preferences.ts`，在这里，你可以覆盖框架默认的配置，实现自定义配置。
 
 ```ts
-import { useAppConfig } from '@vben/hooks';
-import { defineOverridesPreferences } from '@vben/preferences';
+import { useAppConfig } from '@shennong/hooks';
+import { defineOverridesPreferences } from '@shennong/preferences';
 
 /**
  * @description 项目配置文件
@@ -202,7 +202,7 @@ export const overridesPreferences = defineOverridesPreferences({
 import {
   defineOverridesPreferences,
   definePreferencesExtension,
-} from '@vben/preferences';
+} from '@shennong/preferences';
 
 interface ProjectPreferencesExtension {
   defaultTableSize: number;
@@ -274,7 +274,7 @@ export const preferencesExtension =
 #### 2. 初始化偏好设置时传入 `extension`
 
 ```ts
-import { initPreferences } from '@vben/preferences';
+import { initPreferences } from '@shennong/preferences';
 
 import { overridesPreferences, preferencesExtension } from './preferences';
 
@@ -294,7 +294,7 @@ import {
   getCustomPreferences,
   updateCustomPreferences,
   usePreferences,
-} from '@vben/preferences';
+} from '@shennong/preferences';
 
 interface ProjectPreferencesExtension {
   defaultTableSize: number;
@@ -374,7 +374,7 @@ const defaultPreferences: Preferences = {
     layout: 'sidebar-nav',
     locale: 'zh-CN',
     loginExpiredMode: 'page',
-    name: 'Vben Admin',
+    name: 'Shennong Admin',
     preferencesButtonPosition: 'auto',
     watermark: false,
     zIndex: 200,
@@ -387,7 +387,7 @@ const defaultPreferences: Preferences = {
     styleType: 'normal',
   },
   copyright: {
-    companyName: 'Vben',
+    companyName: 'Shennong',
     companySiteLink: 'https://www.vben.pro',
     date: '2024',
     enable: true,

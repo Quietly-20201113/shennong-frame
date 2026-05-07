@@ -1,7 +1,7 @@
 import type { Preferences } from './types';
 
-import { generatorColorVariables } from '@vben-core/shared/color';
-import { updateCSSVariables as executeUpdateCSSVariables } from '@vben-core/shared/utils';
+import { generatorColorVariables } from '@shennong-core/shared/color';
+import { updateCSSVariables as executeUpdateCSSVariables } from '@shennong-core/shared/utils';
 
 import { BUILT_IN_THEME_PRESETS } from './constants';
 

@@ -851,7 +851,7 @@ defineExpose({ getCropImage });
 </template>
 
 <style scoped>
-@reference "@vben/tailwind-config/theme";
+@reference "@shennong/tailwind-config/theme";
 
 .cropper-action-wrapper {
   @apply box-border flex items-center justify-center;

@@ -2,16 +2,16 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
-import { useContentMaximize, useTabs } from '@vben/hooks';
-import { preferences } from '@vben/preferences';
-import { useTabbarStore } from '@vben/stores';
+import { useContentMaximize, useTabs } from '@shennong/hooks';
+import { preferences } from '@shennong/preferences';
+import { useTabbarStore } from '@shennong/stores';
 
 import {
   TabsToolMore,
   TabsToolRefresh,
   TabsToolScreen,
   TabsView,
-} from '@vben-core/tabs-ui';
+} from '@shennong-core/tabs-ui';
 
 import { useTabbar } from './use-tabbar';
 

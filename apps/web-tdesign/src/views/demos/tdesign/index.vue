@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Page } from '@vben/common-ui';
+import { Page } from '@shennong/common-ui';
 
 import { Button, Card, Space } from 'tdesign-vue-next';
 

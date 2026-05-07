@@ -1,11 +1,11 @@
 {
-  "name": "@vben-core/preferences",
+  "name": "@shennong-core/preferences",
   "version": "5.7.0",
-  "homepage": "https://github.com/vbenjs/vue-vben-admin",
-  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
+  "homepage": "",
+  "bugs": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
+    "url": "",
     "directory": "packages/@core/preferences"
   },
   "license": "MIT",
@@ -40,8 +40,8 @@
     }
   },
   "dependencies": {
-    "@vben-core/shared": "workspace:*",
-    "@vben-core/typings": "workspace:*",
+    "@shennong-core/shared": "workspace:*",
+    "@shennong-core/typings": "workspace:*",
     "@vueuse/core": "catalog:",
     "vue": "catalog:"
   }

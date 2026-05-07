@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { h } from 'vue';
 
-import { alert, prompt, useAlertContext, VbenButton } from '@vben/common-ui';
+import { alert, prompt, useAlertContext, ShennongButton } from '@shennong/common-ui';
 
 import { Input, RadioGroup, Select } from 'ant-design-vue';
 import { BadgeJapaneseYen } from 'lucide-vue-next';
@@ -110,9 +110,9 @@ function showAsyncPrompt() {
 </script>
 <template>
   <div class="flex gap-4">
-    <VbenButton @click="showPrompt">Prompt</VbenButton>
-    <VbenButton @click="showSlotsPrompt"> Prompt With slots </VbenButton>
-    <VbenButton @click="showSelectPrompt">Prompt With Select</VbenButton>
-    <VbenButton @click="showAsyncPrompt">Prompt With Async</VbenButton>
+    <ShennongButton @click="showPrompt">Prompt</ShennongButton>
+    <ShennongButton @click="showSlotsPrompt"> Prompt With slots </ShennongButton>
+    <ShennongButton @click="showSelectPrompt">Prompt With Select</ShennongButton>
+    <ShennongButton @click="showAsyncPrompt">Prompt With Async</ShennongButton>
   </div>
 </template>

@@ -5,7 +5,7 @@ import type { AlertProps } from './alert';
 
 import { computed, h, nextTick, ref } from 'vue';
 
-import { useSimpleLocale } from '@vben-core/composables';
+import { useSimpleLocale } from '@shennong-core/composables';
 import {
   CircleAlert,
   CircleCheckBig,
@@ -13,7 +13,7 @@ import {
   CircleX,
   Info,
   X,
-} from '@vben-core/icons';
+} from '@shennong-core/icons';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -21,12 +21,12 @@ import {
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogTitle,
-  VbenButton,
-  VbenLoading,
-  VbenRenderContent,
-} from '@vben-core/shadcn-ui';
-import { globalShareState } from '@vben-core/shared/global-state';
-import { cn } from '@vben-core/shared/utils';
+  ShennongButton,
+  ShennongLoading,
+  ShennongRenderContent,
+} from '@shennong-core/shadcn-ui';
+import { globalShareState } from '@shennong-core/shared/global-state';
+import { cn } from '@shennong-core/shared/utils';
 
 import { provideAlertContext } from './alert';
 
@@ -161,7 +161,7 @@ async function handleOpenChange(val: boolean) {
             <component :is="getIconRender" class="mr-2" />
             <span class="flex-auto">{{ $t(title) }}</span>
             <AlertDialogCancel v-if="showCancel" as-child>
-              <VbenButton
+              <ShennongButton
                 variant="ghost"
                 size="icon"
                 class="rounded-full"
@@ -169,24 +169,24 @@ async function handleOpenChange(val: boolean) {
                 @click="handleCancel"
               >
                 <X class="size-4 text-muted-foreground" />
-              </VbenButton>
+              </ShennongButton>
             </AlertDialogCancel>
           </div>
         </AlertDialogTitle>
         <AlertDialogDescription>
           <div class="m-4 min-h-7.5">
-            <VbenRenderContent :content="content" render-br />
+            <ShennongRenderContent :content="content" render-br />
           </div>
-          <VbenLoading v-if="loading && contentMasking" :spinning="loading" />
+          <ShennongLoading v-if="loading && contentMasking" :spinning="loading" />
         </AlertDialogDescription>
         <div
           class="flex items-center justify-end gap-x-2"
           :class="`justify-${buttonAlign}`"
         >
-          <VbenRenderContent :content="footer" />
+          <ShennongRenderContent :content="footer" />
           <AlertDialogCancel v-if="showCancel" as-child>
             <component
-              :is="components.DefaultButton || VbenButton"
+              :is="components.DefaultButton || ShennongButton"
               :disabled="loading"
               variant="ghost"
               @click="handleCancel"
@@ -196,7 +196,7 @@ async function handleOpenChange(val: boolean) {
           </AlertDialogCancel>
           <AlertDialogAction as-child>
             <component
-              :is="components.PrimaryButton || VbenButton"
+              :is="components.PrimaryButton || ShennongButton"
               :loading="loading"
               @click="handleConfirm"
             >

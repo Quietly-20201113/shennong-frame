@@ -2,14 +2,14 @@
 outline: deep
 ---
 
-# Vben Drawer
+# Shennong Drawer
 
-`Vben Drawer` is the shared drawer wrapper used by the framework. It supports auto-height layout, loading state, connected components, and an imperative API similar to the modal API.
+`Shennong Drawer` is the shared drawer wrapper used by the framework. It supports auto-height layout, loading state, connected components, and an imperative API similar to the modal API.
 
 ## Basic Usage
 
 ```ts
-const [Drawer, drawerApi] = useVbenDrawer({
+const [Drawer, drawerApi] = useShennongDrawer({
   // props
   // events
 });

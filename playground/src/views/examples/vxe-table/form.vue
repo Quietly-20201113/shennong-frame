@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import type { VbenFormProps } from '#/adapter/form';
+import type { ShennongFormProps } from '#/adapter/form';
 import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 
-import { Page } from '@vben/common-ui';
+import { Page } from '@shennong/common-ui';
 
 import { message } from 'ant-design-vue';
 import dayjs from 'dayjs';
 
-import { useVbenVxeGrid } from '#/adapter/vxe-table';
+import { useShennongVxeGrid } from '#/adapter/vxe-table';
 import { getExampleTableApi } from '#/api';
 
 interface RowType {
@@ -19,7 +19,7 @@ interface RowType {
   releaseDate: string;
 }
 
-const formOptions: VbenFormProps = {
+const formOptions: ShennongFormProps = {
   // 默认展开
   collapsed: false,
   fieldMappingTime: [['date', ['start', 'end']]],
@@ -114,7 +114,7 @@ const gridOptions: VxeTableGridOptions<RowType> = {
   },
 };
 
-const [Grid] = useVbenVxeGrid({
+const [Grid] = useShennongVxeGrid({
   formOptions,
   gridOptions,
 });

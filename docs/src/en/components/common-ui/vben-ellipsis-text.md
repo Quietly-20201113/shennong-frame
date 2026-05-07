@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Vben EllipsisText
+# Shennong EllipsisText
 
 `EllipsisText` displays long text with truncation, tooltip support, and optional expand/collapse behavior.
 

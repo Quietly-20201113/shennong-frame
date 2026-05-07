@@ -1,38 +1,38 @@
 import type {
   BaseFormComponentType,
   ExtendedFormApi,
-  VbenFormProps,
+  ShennongFormProps,
 } from './types';
 
 import { defineComponent, h, isReactive, onBeforeUnmount, watch } from 'vue';
 
-import { useStore } from '@vben-core/shared/store';
+import { useStore } from '@shennong-core/shared/store';
 
 import { FormApi } from './form-api';
-import VbenUseForm from './vben-use-form.vue';
+import ShennongUseForm from './shennong-use-form.vue';
 
-export function useVbenForm<
+export function useShennongForm<
   T extends BaseFormComponentType = BaseFormComponentType,
   P extends Record<string, any> = Record<never, never>,
->(options: VbenFormProps<T, P>) {
+>(options: ShennongFormProps<T, P>) {
   const IS_REACTIVE = isReactive(options);
-  const api = new FormApi(options as unknown as VbenFormProps);
+  const api = new FormApi(options as unknown as ShennongFormProps);
   const extendedApi: ExtendedFormApi = api as never;
   extendedApi.useStore = (selector) => {
     return useStore(api.store, selector);
   };
 
   const Form = defineComponent(
-    (props: VbenFormProps, { attrs, slots }) => {
+    (props: ShennongFormProps, { attrs, slots }) => {
       onBeforeUnmount(() => {
         api.unmount();
       });
       api.setState({ ...props, ...attrs });
       return () =>
-        h(VbenUseForm, { ...props, ...attrs, formApi: extendedApi }, slots);
+        h(ShennongUseForm, { ...props, ...attrs, formApi: extendedApi }, slots);
     },
     {
-      name: 'VbenUseForm',
+      name: 'ShennongUseForm',
       inheritAttrs: false,
     },
   );

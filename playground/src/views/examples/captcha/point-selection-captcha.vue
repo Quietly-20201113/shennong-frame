@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import type { CaptchaPoint } from '@vben/common-ui';
+import type { CaptchaPoint } from '@shennong/common-ui';
 
 import { reactive, ref } from 'vue';
 
-import { Page, PointSelectionCaptcha } from '@vben/common-ui';
+import { Page, PointSelectionCaptcha } from '@shennong/common-ui';
 
 import { Card, Input, InputNumber, message, Switch } from 'ant-design-vue';
 

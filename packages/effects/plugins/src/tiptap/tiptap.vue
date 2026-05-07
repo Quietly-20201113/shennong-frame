@@ -3,17 +3,17 @@ import type {
   TipTapProps,
   ToolbarAction,
   ToolbarMenuItem,
-  VbenTiptapChangeEvent,
+  ShennongTiptapChangeEvent,
 } from './types';
 
 import { computed, onBeforeUnmount, reactive, watch } from 'vue';
 
-import { Check, ChevronDown, Eye } from '@vben/icons';
-import { $t } from '@vben/locales';
+import { Check, ChevronDown, Eye } from '@shennong/icons';
+import { $t } from '@shennong/locales';
 
-import { useVbenModal } from '@vben-core/popup-ui';
-import { VbenIconButton, VbenPopover } from '@vben-core/shadcn-ui';
-import { cn } from '@vben-core/shared/utils';
+import { useShennongModal } from '@shennong-core/popup-ui';
+import { ShennongIconButton, ShennongPopover } from '@shennong-core/shadcn-ui';
+import { cn } from '@shennong-core/shared/utils';
 
 import { EditorContent, useEditor } from '@tiptap/vue-3';
 
@@ -33,7 +33,7 @@ const props = withDefaults(defineProps<TipTapProps>(), {
   toolbar: true,
 });
 const emit = defineEmits<{
-  change: [payload: VbenTiptapChangeEvent];
+  change: [payload: ShennongTiptapChangeEvent];
 }>();
 const modelValue = defineModel<string>({ default: '' });
 const contentMinHeight = computed(() =>
@@ -43,7 +43,7 @@ const contentMinHeight = computed(() =>
 );
 const tiptapContentClass = cn(
   'vben-tiptap-content vben-tiptap__content',
-  'text-foreground min-h-(--vben-tiptap-min-height) leading-7 outline-none',
+  'text-foreground min-h-(--shennong-tiptap-min-height) leading-7 outline-none',
 );
 const blobUrlTracker = new Set<string>();
 const editor = useEditor({
@@ -82,7 +82,7 @@ const toolbarGroups = computed<ToolbarAction[][]>(() => {
 const previewContent = computed(
   () => editor.value?.getHTML() ?? modelValue.value,
 );
-const [PreviewModal, previewModalApi] = useVbenModal({
+const [PreviewModal, previewModalApi] = useShennongModal({
   footer: false,
   fullscreenButton: false,
 });
@@ -154,7 +154,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div
-    :style="{ '--vben-tiptap-min-height': contentMinHeight }"
+    :style="{ '--shennong-tiptap-min-height': contentMinHeight }"
     class="vben-tiptap overflow-hidden rounded-xl border border-border bg-card"
   >
     <div
@@ -167,7 +167,7 @@ onBeforeUnmount(() => {
         class="flex items-center gap-1"
       >
         <template v-for="action in group" :key="action.label">
-          <VbenPopover
+          <ShennongPopover
             v-if="action.menu || action.palette"
             :open="action.menu ? getMenuOpen(action) : undefined"
             :content-props="{ align: 'start', side: 'bottom', sideOffset: 8 }"
@@ -175,7 +175,7 @@ onBeforeUnmount(() => {
             @update:open="action.menu ? setMenuOpen(action, $event) : undefined"
           >
             <template #trigger>
-              <VbenIconButton
+              <ShennongIconButton
                 :aria-label="action.label"
                 :class="getToolbarButtonClass(action)"
                 :disabled="!canRunAction(action)"
@@ -203,7 +203,7 @@ onBeforeUnmount(() => {
                   :style="{ backgroundColor: getActionIndicatorColor(action) }"
                   class="absolute bottom-1 left-1/2 h-1 w-4 -translate-x-1/2 rounded-full shadow-[0_0_0_1px_hsl(var(--card)/0.7)]"
                 ></span>
-              </VbenIconButton>
+              </ShennongIconButton>
             </template>
             <div
               v-if="action.palette"
@@ -251,8 +251,8 @@ onBeforeUnmount(() => {
                 />
               </button>
             </div>
-          </VbenPopover>
-          <VbenIconButton
+          </ShennongPopover>
+          <ShennongIconButton
             v-else
             :aria-label="action.label"
             :class="getToolbarButtonClass(action)"
@@ -267,7 +267,7 @@ onBeforeUnmount(() => {
               :style="{ backgroundColor: getActionIndicatorColor(action) }"
               class="absolute bottom-1 left-1/2 h-1 w-4 -translate-x-1/2 rounded-full shadow-[0_0_0_1px_hsl(var(--card)/0.7)]"
             ></span>
-          </VbenIconButton>
+          </ShennongIconButton>
         </template>
         <div
           v-if="groupIndex < toolbarGroups.length - 1"
@@ -275,7 +275,7 @@ onBeforeUnmount(() => {
         ></div>
       </div>
       <div v-if="previewable" class="ml-auto flex items-center">
-        <VbenIconButton
+        <ShennongIconButton
           :aria-label="$t('ui.tiptap.toolbar.preview')"
           :class="
             getToolbarButtonClass({
@@ -289,7 +289,7 @@ onBeforeUnmount(() => {
           @click="openPreviewModal"
         >
           <Eye class="size-4" />
-        </VbenIconButton>
+        </ShennongIconButton>
       </div>
     </div>
     <EditorContent v-if="editor" :editor="editor" class="p-4" />

@@ -3,7 +3,7 @@ import type { VxeGridProps } from '#/adapter/vxe-table';
 
 import { Button, Image, Switch, Tag } from 'ant-design-vue';
 
-import { useVbenVxeGrid } from '#/adapter/vxe-table';
+import { useShennongVxeGrid } from '#/adapter/vxe-table';
 
 import { getExampleTableApi } from '../mock-api';
 
@@ -82,7 +82,7 @@ const gridOptions: VxeGridProps<RowType> = {
   },
 };
 
-const [Grid] = useVbenVxeGrid({ gridOptions });
+const [Grid] = useShennongVxeGrid({ gridOptions });
 </script>
 
 <template>

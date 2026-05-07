@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { MenuRecordRaw } from '@vben/types';
+import type { MenuRecordRaw } from '@shennong/types';
 
 import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 
@@ -9,11 +9,11 @@ import {
   CornerDownLeft,
   MdiKeyboardEsc,
   Search,
-} from '@vben/icons';
-import { $t } from '@vben/locales';
-import { isWindowsOs } from '@vben/utils';
+} from '@shennong/icons';
+import { $t } from '@shennong/locales';
+import { isWindowsOs } from '@shennong/utils';
 
-import { useVbenModal } from '@vben-core/popup-ui';
+import { useShennongModal } from '@shennong-core/popup-ui';
 
 import { useMagicKeys, whenever } from '@vueuse/core';
 
@@ -34,7 +34,7 @@ const props = withDefaults(
 const keyword = ref('');
 const searchInputRef = ref<HTMLInputElement>();
 
-const [Modal, modalApi] = useVbenModal({
+const [Modal, modalApi] = useShennongModal({
   onCancel() {
     modalApi.close();
   },

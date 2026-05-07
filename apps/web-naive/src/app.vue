@@ -3,8 +3,8 @@ import type { GlobalThemeOverrides } from 'naive-ui';
 
 import { computed } from 'vue';
 
-import { useNaiveDesignTokens } from '@vben/hooks';
-import { preferences } from '@vben/preferences';
+import { useNaiveDesignTokens } from '@shennong/hooks';
+import { preferences } from '@shennong/preferences';
 
 import {
   darkTheme,

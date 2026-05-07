@@ -7,8 +7,8 @@ import {
   confirm,
   Page,
   prompt,
-  useVbenModal,
-} from '@vben/common-ui';
+  useShennongModal,
+} from '@shennong/common-ui';
 
 import { Button, Card, Flex, message } from 'ant-design-vue';
 
@@ -25,41 +25,41 @@ import SharedDataDemo from './shared-data-demo.vue';
 
 defineOptions({ name: 'ModalExample' });
 
-const [BaseModal, baseModalApi] = useVbenModal({
+const [BaseModal, baseModalApi] = useShennongModal({
   // 连接抽离的组件
   connectedComponent: BaseDemo,
 });
 
-const [InContentModal, inContentModalApi] = useVbenModal({
+const [InContentModal, inContentModalApi] = useShennongModal({
   // 连接抽离的组件
   connectedComponent: InContentModalDemo,
 });
 
-const [AutoHeightModal, autoHeightModalApi] = useVbenModal({
+const [AutoHeightModal, autoHeightModalApi] = useShennongModal({
   connectedComponent: AutoHeightDemo,
 });
 
-const [DragModal, dragModalApi] = useVbenModal({
+const [DragModal, dragModalApi] = useShennongModal({
   connectedComponent: DragDemo,
 });
 
-const [DynamicModal, dynamicModalApi] = useVbenModal({
+const [DynamicModal, dynamicModalApi] = useShennongModal({
   connectedComponent: DynamicDemo,
 });
 
-const [SharedDataModal, sharedModalApi] = useVbenModal({
+const [SharedDataModal, sharedModalApi] = useShennongModal({
   connectedComponent: SharedDataDemo,
 });
 
-const [FormModal, formModalApi] = useVbenModal({
+const [FormModal, formModalApi] = useShennongModal({
   connectedComponent: FormModalDemo,
 });
 
-const [NestedModal, nestedModalApi] = useVbenModal({
+const [NestedModal, nestedModalApi] = useShennongModal({
   connectedComponent: NestedDemo,
 });
 
-const [BlurModal, blurModalApi] = useVbenModal({
+const [BlurModal, blurModalApi] = useShennongModal({
   connectedComponent: BlurDemo,
 });
 

@@ -1,12 +1,12 @@
 {
-  "name": "@vben/vite-config",
+  "name": "@shennong/vite-config",
   "version": "5.7.0",
   "private": true,
-  "homepage": "https://github.com/vbenjs/vue-vben-admin",
-  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
+  "homepage": "",
+  "bugs": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
+    "url": "",
     "directory": "internal/vite-config"
   },
   "license": "MIT",
@@ -30,7 +30,7 @@
     "@intlify/unplugin-vue-i18n": "catalog:",
     "@jspm/generator": "catalog:",
     "@tailwindcss/vite": "catalog:",
-    "@vben/node-utils": "workspace:*",
+    "@shennong/node-utils": "workspace:*",
     "archiver": "catalog:",
     "cheerio": "catalog:",
     "get-port": "catalog:",

@@ -1,183 +1,183 @@
 {
   "folders": [
     {
-      "name": "@vben/backend-mock",
+      "name": "@shennong/backend-mock",
       "path": "apps/backend-mock"
     },
     {
-      "name": "@vben/web-antd",
+      "name": "@shennong/web-antd",
       "path": "apps/web-antd"
     },
     {
-      "name": "@vben/web-antdv-next",
+      "name": "@shennong/web-antdv-next",
       "path": "apps/web-antdv-next"
     },
     {
-      "name": "@vben/web-ele",
+      "name": "@shennong/web-ele",
       "path": "apps/web-ele"
     },
     {
-      "name": "@vben/web-naive",
+      "name": "@shennong/web-naive",
       "path": "apps/web-naive"
     },
     {
-      "name": "@vben/web-tdesign",
+      "name": "@shennong/web-tdesign",
       "path": "apps/web-tdesign"
     },
     {
-      "name": "@vben/docs",
+      "name": "@shennong/docs",
       "path": "docs"
     },
     {
-      "name": "@vben/commitlint-config",
+      "name": "@shennong/commitlint-config",
       "path": "internal/lint-configs/commitlint-config"
     },
     {
-      "name": "@vben/eslint-config",
+      "name": "@shennong/eslint-config",
       "path": "internal/lint-configs/eslint-config"
     },
     {
-      "name": "@vben/oxfmt-config",
+      "name": "@shennong/oxfmt-config",
       "path": "internal/lint-configs/oxfmt-config"
     },
     {
-      "name": "@vben/oxlint-config",
+      "name": "@shennong/oxlint-config",
       "path": "internal/lint-configs/oxlint-config"
     },
     {
-      "name": "@vben/stylelint-config",
+      "name": "@shennong/stylelint-config",
       "path": "internal/lint-configs/stylelint-config"
     },
     {
-      "name": "@vben/node-utils",
+      "name": "@shennong/node-utils",
       "path": "internal/node-utils"
     },
     {
-      "name": "@vben/tailwind-config",
+      "name": "@shennong/tailwind-config",
       "path": "internal/tailwind-config"
     },
     {
-      "name": "@vben/tsconfig",
+      "name": "@shennong/tsconfig",
       "path": "internal/tsconfig"
     },
     {
-      "name": "@vben/vite-config",
+      "name": "@shennong/vite-config",
       "path": "internal/vite-config"
     },
     {
-      "name": "@vben-core/design",
+      "name": "@shennong-core/design",
       "path": "packages/@core/base/design"
     },
     {
-      "name": "@vben-core/icons",
+      "name": "@shennong-core/icons",
       "path": "packages/@core/base/icons"
     },
     {
-      "name": "@vben-core/shared",
+      "name": "@shennong-core/shared",
       "path": "packages/@core/base/shared"
     },
     {
-      "name": "@vben-core/typings",
+      "name": "@shennong-core/typings",
       "path": "packages/@core/base/typings"
     },
     {
-      "name": "@vben-core/composables",
+      "name": "@shennong-core/composables",
       "path": "packages/@core/composables"
     },
     {
-      "name": "@vben-core/preferences",
+      "name": "@shennong-core/preferences",
       "path": "packages/@core/preferences"
     },
     {
-      "name": "@vben-core/form-ui",
+      "name": "@shennong-core/form-ui",
       "path": "packages/@core/ui-kit/form-ui"
     },
     {
-      "name": "@vben-core/layout-ui",
+      "name": "@shennong-core/layout-ui",
       "path": "packages/@core/ui-kit/layout-ui"
     },
     {
-      "name": "@vben-core/menu-ui",
+      "name": "@shennong-core/menu-ui",
       "path": "packages/@core/ui-kit/menu-ui"
     },
     {
-      "name": "@vben-core/popup-ui",
+      "name": "@shennong-core/popup-ui",
       "path": "packages/@core/ui-kit/popup-ui"
     },
     {
-      "name": "@vben-core/shadcn-ui",
+      "name": "@shennong-core/shadcn-ui",
       "path": "packages/@core/ui-kit/shadcn-ui"
     },
     {
-      "name": "@vben-core/tabs-ui",
+      "name": "@shennong-core/tabs-ui",
       "path": "packages/@core/ui-kit/tabs-ui"
     },
     {
-      "name": "@vben/constants",
+      "name": "@shennong/constants",
       "path": "packages/constants"
     },
     {
-      "name": "@vben/access",
+      "name": "@shennong/access",
       "path": "packages/effects/access"
     },
     {
-      "name": "@vben/common-ui",
+      "name": "@shennong/common-ui",
       "path": "packages/effects/common-ui"
     },
     {
-      "name": "@vben/hooks",
+      "name": "@shennong/hooks",
       "path": "packages/effects/hooks"
     },
     {
-      "name": "@vben/layouts",
+      "name": "@shennong/layouts",
       "path": "packages/effects/layouts"
     },
     {
-      "name": "@vben/plugins",
+      "name": "@shennong/plugins",
       "path": "packages/effects/plugins"
     },
     {
-      "name": "@vben/request",
+      "name": "@shennong/request",
       "path": "packages/effects/request"
     },
     {
-      "name": "@vben/icons",
+      "name": "@shennong/icons",
       "path": "packages/icons"
     },
     {
-      "name": "@vben/locales",
+      "name": "@shennong/locales",
       "path": "packages/locales"
     },
     {
-      "name": "@vben/preferences",
+      "name": "@shennong/preferences",
       "path": "packages/preferences"
     },
     {
-      "name": "@vben/stores",
+      "name": "@shennong/stores",
       "path": "packages/stores"
     },
     {
-      "name": "@vben/styles",
+      "name": "@shennong/styles",
       "path": "packages/styles"
     },
     {
-      "name": "@vben/types",
+      "name": "@shennong/types",
       "path": "packages/types"
     },
     {
-      "name": "@vben/utils",
+      "name": "@shennong/utils",
       "path": "packages/utils"
     },
     {
-      "name": "@vben/playground",
+      "name": "@shennong/playground",
       "path": "playground"
     },
     {
-      "name": "@vben/turbo-run",
+      "name": "@shennong/turbo-run",
       "path": "scripts/turbo-run"
     },
     {
-      "name": "@vben/vsh",
+      "name": "@shennong/vsh",
       "path": "scripts/vsh"
     }
   ]

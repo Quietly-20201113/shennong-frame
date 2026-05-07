@@ -5,7 +5,7 @@ import type { VxeGridProps } from '#/adapter/vxe-table';
 
 import { Button } from 'ant-design-vue';
 
-import { useVbenVxeGrid } from '#/adapter/vxe-table';
+import { useShennongVxeGrid } from '#/adapter/vxe-table';
 
 import { MOCK_API_DATA } from '../table-data';
 
@@ -91,7 +91,7 @@ const gridOptions: VxeGridProps<RowType> = {
   },
 };
 
-const [Grid, gridApi] = useVbenVxeGrid({
+const [Grid, gridApi] = useShennongVxeGrid({
   gridOptions,
 });
 </script>

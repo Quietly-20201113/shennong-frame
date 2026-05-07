@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import type { VbenButtonProps } from './button';
+import type { ShennongButtonProps } from './button';
 
 import { computed } from 'vue';
 
-import { LoaderCircle } from '@vben-core/icons';
-import { cn } from '@vben-core/shared/utils';
+import { LoaderCircle } from '@shennong-core/icons';
+import { cn } from '@shennong-core/shared/utils';
 
 import { Primitive } from 'reka-ui';
 
 import { buttonVariants } from '../../ui';
 
-interface Props extends VbenButtonProps {}
+interface Props extends ShennongButtonProps {}
 
 const props = withDefaults(defineProps<Props>(), {
   as: 'button',

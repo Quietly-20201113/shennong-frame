@@ -1,14 +1,14 @@
 import type { Component, VNode } from 'vue';
 
-import type { Recordable } from '@vben-core/typings';
+import type { Recordable } from '@shennong-core/typings';
 
 import type { AlertProps, BeforeCloseScope, PromptProps } from './alert';
 
 import { h, nextTick, ref, render } from 'vue';
 
-import { useSimpleLocale } from '@vben-core/composables';
-import { Input, VbenRenderContent } from '@vben-core/shadcn-ui';
-import { isFunction, isString } from '@vben-core/shared/utils';
+import { useSimpleLocale } from '@shennong-core/composables';
+import { Input, ShennongRenderContent } from '@shennong-core/shadcn-ui';
+import { isFunction, isString } from '@shennong-core/shared/utils';
 
 import Alert from './alert.vue';
 
@@ -145,7 +145,7 @@ export async function vbenPrompt<T = any>(
   const modelValue = ref<T | undefined>(defaultValue);
   const inputComponentRef = ref<null | VNode>(null);
   const staticContents: Component[] = [
-    h(VbenRenderContent, { content, renderBr: true }),
+    h(ShennongRenderContent, { content, renderBr: true }),
   ];
 
   const modelPropName = _modelPropName || 'modelValue';

@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import type { VxeGridProps } from '#/adapter/vxe-table';
 
-import { Page } from '@vben/common-ui';
+import { Page } from '@shennong/common-ui';
 
 import { Button, message } from 'ant-design-vue';
 
-import { useVbenVxeGrid } from '#/adapter/vxe-table';
+import { useShennongVxeGrid } from '#/adapter/vxe-table';
 import { getExampleTableApi } from '#/api';
 
 interface RowType {
@@ -50,7 +50,7 @@ const gridOptions: VxeGridProps<RowType> = {
   showOverflow: true,
 };
 
-const [Grid, gridApi] = useVbenVxeGrid({ gridOptions });
+const [Grid, gridApi] = useShennongVxeGrid({ gridOptions });
 
 function hasEditStatus(row: RowType) {
   return gridApi.grid?.isEditByRow(row);

@@ -88,12 +88,12 @@ pnpm dev
 ```bash
 │
 ◆  Select the app you need to run [dev]:
-│  ● @vben/web-antd
-│  ○ @vben/web-antdv-next
-│  ○ @vben/web-ele
-│  ○ @vben/web-naive
-│  ○ @vben/docs
-│  ● @vben/playground
+│  ● @shennong/web-antd
+│  ○ @shennong/web-antdv-next
+│  ○ @shennong/web-ele
+│  ○ @shennong/web-naive
+│  ○ @shennong/docs
+│  ● @shennong/playground
 └
 ```
 

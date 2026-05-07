@@ -1,4 +1,4 @@
-export { default as VbenCollapsibleParams } from './collapsible-params.vue';
-export { default as VbenCollapsible } from './collapsible.vue';
+export { default as ShennongCollapsibleParams } from './collapsible-params.vue';
+export { default as ShennongCollapsible } from './collapsible.vue';
 
 export * from './type';

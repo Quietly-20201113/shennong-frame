@@ -1,11 +1,11 @@
-import type { Recordable, UserInfo } from '@vben/types';
+import type { Recordable, UserInfo } from '@shennong/types';
 
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { LOGIN_PATH } from '@vben/constants';
-import { preferences } from '@vben/preferences';
-import { resetAllStores, useAccessStore, useUserStore } from '@vben/stores';
+import { LOGIN_PATH } from '@shennong/constants';
+import { preferences } from '@shennong/preferences';
+import { resetAllStores, useAccessStore, useUserStore } from '@shennong/stores';
 
 import { notification } from 'antdv-next';
 import { defineStore } from 'pinia';

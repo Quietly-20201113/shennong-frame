@@ -1,8 +1,8 @@
 import type { RequestClient } from './request-client';
 import type { MakeErrorMessageFn, ResponseInterceptorConfig } from './types';
 
-import { $t } from '@vben/locales';
-import { isFunction } from '@vben/utils';
+import { $t } from '@shennong/locales';
+import { isFunction } from '@shennong/utils';
 
 import axios from 'axios';
 

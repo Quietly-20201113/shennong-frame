@@ -8,7 +8,7 @@
 
 ## 项目结构
 
-项目中的样式文件存放在 `@vben/styles`，包含一些全局样式，如重置样式、全局变量等，它继承了 `@vben-core/design` 的样式和能力，可以根据项目需求进行覆盖。
+项目中的样式文件存放在 `@shennong/styles`，包含一些全局样式，如重置样式、全局变量等，它继承了 `@shennong-core/design` 的样式和能力，可以根据项目需求进行覆盖。
 
 ## Scss
 
@@ -61,7 +61,7 @@ $font-size: 30px;
 
 ```vue
 <script lang="ts" setup>
-import { useNamespace } from '@vben/hooks';
+import { useNamespace } from '@shennong/hooks';
 
 const { b, e, is } = useNamespace('menu');
 </script>
@@ -72,7 +72,7 @@ const { b, e, is } = useNamespace('menu');
 </template>
 <style lang="scss" scoped>
 // 如果你在应用内使用，这行代码可以省略，已经在所有的应用内全局引入了
-@use '@vben/styles/global' as *;
+@use '@shennong/styles/global' as *;
 @include b('menu') {
   color: black;
 

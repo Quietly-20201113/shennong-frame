@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import type { VbenFormSchema } from '#/adapter/form';
+import type { ShennongFormSchema } from '#/adapter/form';
 
 import { computed } from 'vue';
 
-import { ProfilePasswordSetting, z } from '@vben/common-ui';
+import { ProfilePasswordSetting, z } from '@shennong/common-ui';
 
 import { message } from 'antdv-next';
 
-const formSchema = computed((): VbenFormSchema[] => {
+const formSchema = computed((): ShennongFormSchema[] => {
   return [
     {
       fieldName: 'oldPassword',
       label: '旧密码',
-      component: 'VbenInputPassword',
+      component: 'ShennongInputPassword',
       componentProps: {
         placeholder: '请输入旧密码',
       },
@@ -20,7 +20,7 @@ const formSchema = computed((): VbenFormSchema[] => {
     {
       fieldName: 'newPassword',
       label: '新密码',
-      component: 'VbenInputPassword',
+      component: 'ShennongInputPassword',
       componentProps: {
         passwordStrength: true,
         placeholder: '请输入新密码',
@@ -29,7 +29,7 @@ const formSchema = computed((): VbenFormSchema[] => {
     {
       fieldName: 'confirmPassword',
       label: '确认密码',
-      component: 'VbenInputPassword',
+      component: 'ShennongInputPassword',
       componentProps: {
         passwordStrength: true,
         placeholder: '请再次输入新密码',

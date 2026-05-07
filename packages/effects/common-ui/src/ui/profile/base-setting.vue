@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import type { Recordable } from '@vben/types';
+import type { Recordable } from '@shennong/types';
 
-import type { VbenFormSchema } from '@vben-core/form-ui';
+import type { ShennongFormSchema } from '@shennong-core/form-ui';
 
 import { computed, reactive } from 'vue';
 
-import { $t } from '@vben/locales';
+import { $t } from '@shennong/locales';
 
-import { useVbenForm } from '@vben-core/form-ui';
-import { VbenButton } from '@vben-core/shadcn-ui';
+import { useShennongForm } from '@shennong-core/form-ui';
+import { ShennongButton } from '@shennong-core/shadcn-ui';
 
 interface Props {
-  formSchema?: VbenFormSchema[];
+  formSchema?: ShennongFormSchema[];
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -22,7 +22,7 @@ const emit = defineEmits<{
   submit: [Recordable<any>];
 }>();
 
-const [Form, formApi] = useVbenForm(
+const [Form, formApi] = useShennongForm(
   reactive({
     commonConfig: {
       // 所有表单项
@@ -51,8 +51,8 @@ defineExpose({
 <template>
   <div @keydown.enter.prevent="handleSubmit">
     <Form />
-    <VbenButton type="submit" class="mt-4" @click="handleSubmit">
+    <ShennongButton type="submit" class="mt-4" @click="handleSubmit">
       {{ $t('profile.updateBasicProfile') }}
-    </VbenButton>
+    </ShennongButton>
   </div>
 </template>

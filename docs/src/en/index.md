@@ -4,12 +4,12 @@ layout: home
 sidebar: false
 
 hero:
-  name: Vben Admin
+  name: Shennong Admin
   text: Enterprise-Level Management System Framework
   tagline: Fully Upgraded, Ready to Use, Simple and Efficient
   image:
     src: https://unpkg.com/@vbenjs/static-source@0.1.7/source/logo-v1.webp
-    alt: Vben Admin
+    alt: Shennong Admin
   actions:
     - theme: brand
       text: Get Started ->
@@ -73,4 +73,4 @@ features:
     linkText: Official Site
 ---
 
-<VbenContributors />
+<ShennongContributors />

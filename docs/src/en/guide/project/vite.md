@@ -6,7 +6,7 @@ The project encapsulates a layer of Vite configuration and integrates some plugi
 
 ```ts
 // vite.config.mts
-import { defineConfig } from '@vben/vite-config';
+import { defineConfig } from '@shennong/vite-config';
 
 export default defineConfig(async () => {
   return {
@@ -21,7 +21,7 @@ export default defineConfig(async () => {
 
 ```ts
 // vite.config.mts
-import { defineConfig } from '@vben/vite-config';
+import { defineConfig } from '@shennong/vite-config';
 
 export default defineConfig(async () => {
   return {

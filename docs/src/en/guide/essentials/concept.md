@@ -29,7 +29,7 @@ Importing a package in `package.json`:
 ```json {3}
 {
   "dependencies": {
-    "@vben/utils": "workspace:*"
+    "@shennong/utils": "workspace:*"
   }
 }
 ```
@@ -39,7 +39,7 @@ Importing a package in `package.json`:
 Importing a package in the code:
 
 ```ts
-import { isString } from '@vben/utils';
+import { isString } from '@shennong/utils';
 ```
 
 ## Aliases

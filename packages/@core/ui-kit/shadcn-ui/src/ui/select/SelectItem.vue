@@ -3,7 +3,7 @@ import type { SelectItemProps } from 'reka-ui';
 
 import { computed } from 'vue';
 
-import { cn } from '@vben-core/shared/utils';
+import { cn } from '@shennong-core/shared/utils';
 
 import { Check } from 'lucide-vue-next';
 import {

@@ -3,7 +3,7 @@ import type { CSSProperties } from 'vue';
 
 import { computed, useTemplateRef } from 'vue';
 
-import { VbenSpineText } from '@vben-core/shadcn-ui';
+import { ShennongSpineText } from '@shennong-core/shadcn-ui';
 
 const props = defineProps<{
   contentStyle: CSSProperties;
@@ -39,9 +39,9 @@ defineExpose({
     class="absolute top-0 flex-center size-full text-xs select-none"
   >
     <slot name="text">
-      <VbenSpineText class="flex h-full items-center">
+      <ShennongSpineText class="flex h-full items-center">
         {{ isPassing ? successText : text }}
-      </VbenSpineText>
+      </ShennongSpineText>
     </slot>
   </div>
 </template>

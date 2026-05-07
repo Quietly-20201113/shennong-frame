@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import type { TabDefinition } from '@vben-core/typings';
+import type { TabDefinition } from '@shennong-core/typings';
 
 import type { TabConfig, TabsProps } from '../../types';
 
 import { computed, ref } from 'vue';
 
-import { Pin, X } from '@vben-core/icons';
-import { VbenContextMenu, VbenIcon } from '@vben-core/shadcn-ui';
+import { Pin, X } from '@shennong-core/icons';
+import { ShennongContextMenu, ShennongIcon } from '@shennong-core/shadcn-ui';
 
 interface Props extends TabsProps {}
 
 defineOptions({
-  name: 'VbenTabsChrome',
+  name: 'ShennongTabsChrome',
   inheritAttrs: false,
 });
 
@@ -99,7 +99,7 @@ function onMouseDown(e: MouseEvent, tab: TabConfig) {
         @click="active = tab.key"
         @mousedown="onMouseDown($event, tab)"
       >
-        <VbenContextMenu
+        <ShennongContextMenu
           :handler-data="tab"
           :menus="contextMenus"
           :modal="false"
@@ -155,7 +155,7 @@ function onMouseDown(e: MouseEvent, tab: TabConfig) {
             <div
               class="tabs-chrome__item-main z-2 mx-[calc(var(--gap)*2)] my-0 flex h-full items-center overflow-hidden rounded-tl-[5px] rounded-tr-[5px] pr-4 pl-2 text-accent-foreground duration-150 group-[.is-active]:text-primary group-[.is-active]:dark:text-accent-foreground"
             >
-              <VbenIcon
+              <ShennongIcon
                 v-if="showIcon"
                 :icon="tab.icon"
                 class="mr-1 flex size-4 items-center overflow-hidden group-hover:animate-[shrink_0.3s_ease-in-out]"
@@ -166,14 +166,14 @@ function onMouseDown(e: MouseEvent, tab: TabConfig) {
               </span>
             </div>
           </div>
-        </VbenContextMenu>
+        </ShennongContextMenu>
       </div>
     </TransitionGroup>
   </div>
 </template>
 
 <style scoped>
-@reference "@vben/tailwind-config/theme";
+@reference "@shennong/tailwind-config/theme";
 
 .tabs-chrome__item:not(.dragging) {
   @apply cursor-pointer;

@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue';
 
-import { LockKeyhole } from '@vben/icons';
-import { $t, useI18n } from '@vben/locales';
-import { storeToRefs, useAccessStore } from '@vben/stores';
+import { LockKeyhole } from '@shennong/icons';
+import { $t, useI18n } from '@shennong/locales';
+import { storeToRefs, useAccessStore } from '@shennong/stores';
 
-import { useScrollLock } from '@vben-core/composables';
-import { useVbenForm, z } from '@vben-core/form-ui';
-import { VbenAvatar, VbenButton } from '@vben-core/shadcn-ui';
+import { useScrollLock } from '@shennong-core/composables';
+import { useShennongForm, z } from '@shennong-core/form-ui';
+import { ShennongAvatar, ShennongButton } from '@shennong-core/shadcn-ui';
 
 import { useDateFormat, useNow } from '@vueuse/core';
 
@@ -37,7 +37,7 @@ const date = useDateFormat(now, 'YYYY-MM-DD dddd', { locales: locale.value });
 const showUnlockForm = ref(false);
 const { lockScreenPassword } = storeToRefs(accessStore);
 
-const [Form, { form, validate, getFieldComponentRef }] = useVbenForm(
+const [Form, { form, validate, getFieldComponentRef }] = useShennongForm(
   reactive({
     commonConfig: {
       hideLabel: true,
@@ -45,7 +45,7 @@ const [Form, { form, validate, getFieldComponentRef }] = useVbenForm(
     },
     schema: computed(() => [
       {
-        component: 'VbenInputPassword' as const,
+        component: 'ShennongInputPassword' as const,
         componentProps: {
           placeholder: $t('ui.widgets.lockScreen.placeholder'),
         },
@@ -129,27 +129,27 @@ useScrollLock();
         @keydown.enter.prevent="handleSubmit"
       >
         <div class="mb-10 flex-col-center w-[90%] max-w-75 px-4">
-          <VbenAvatar :src="avatar" class="enter-x mb-6 size-20" />
+          <ShennongAvatar :src="avatar" class="enter-x mb-6 size-20" />
           <div class="enter-x mb-2 w-full items-center">
             <Form />
           </div>
-          <VbenButton class="enter-x w-full" @click="handleSubmit">
+          <ShennongButton class="enter-x w-full" @click="handleSubmit">
             {{ $t('ui.widgets.lockScreen.entry') }}
-          </VbenButton>
-          <VbenButton
+          </ShennongButton>
+          <ShennongButton
             class="enter-x my-2 w-full"
             variant="ghost"
             @click="$emit('toLogin')"
           >
             {{ $t('ui.widgets.lockScreen.backToLogin') }}
-          </VbenButton>
-          <VbenButton
+          </ShennongButton>
+          <ShennongButton
             class="enter-x mr-2 w-full"
             variant="ghost"
             @click="toggleUnlockForm"
           >
             {{ $t('common.back') }}
-          </VbenButton>
+          </ShennongButton>
         </div>
       </div>
     </transition>

@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import { Page } from '@vben/common-ui';
+import { Page } from '@shennong/common-ui';
 import {
   downloadFileFromBase64,
   downloadFileFromBlobPart,
   downloadFileFromImageUrl,
   downloadFileFromUrl,
-} from '@vben/utils';
+} from '@shennong/utils';
 
 import { Button, Card } from 'ant-design-vue';
 

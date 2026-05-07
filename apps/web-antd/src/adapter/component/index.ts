@@ -37,9 +37,9 @@ import type {
   ApiComponentSharedProps,
   BaseFormComponentType,
   IconPickerProps,
-} from '@vben/common-ui';
-import type { Sortable } from '@vben/hooks';
-import type { Recordable } from '@vben/types';
+} from '@shennong/common-ui';
+import type { Sortable } from '@shennong/hooks';
+import type { Recordable } from '@shennong/types';
 
 import {
   computed,
@@ -60,11 +60,11 @@ import {
   globalShareState,
   IconPicker,
   VCropper,
-} from '@vben/common-ui';
-import { useSortable } from '@vben/hooks';
-import { IconifyIcon } from '@vben/icons';
-import { $t } from '@vben/locales';
-import { isEmpty } from '@vben/utils';
+} from '@shennong/common-ui';
+import { useSortable } from '@shennong/hooks';
+import { IconifyIcon } from '@shennong/icons';
+import { $t } from '@shennong/locales';
+import { isEmpty } from '@shennong/utils';
 
 import { message, Modal, notification } from 'ant-design-vue';
 

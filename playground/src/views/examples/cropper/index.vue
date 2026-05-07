@@ -3,7 +3,7 @@ import type { UploadChangeParam } from 'ant-design-vue';
 
 import { ref } from 'vue';
 
-import { Page, VCropper } from '@vben/common-ui';
+import { Page, VCropper } from '@shennong/common-ui';
 
 import { Button, Card, Select, Upload } from 'ant-design-vue';
 

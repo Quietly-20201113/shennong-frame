@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { cn } from '@vben-core/shared/utils';
+import { cn } from '@shennong-core/shared/utils';
 
-defineOptions({ name: 'VbenButtonGroup' });
+defineOptions({ name: 'ShennongButtonGroup' });
 
 withDefaults(
   defineProps<{

@@ -2,7 +2,7 @@
 
 ::: tip About Icon Management
 
-- The icons in the project are mainly provided by the `@vben/icons` package. It is recommended to manage them within this package for unified management and maintenance.
+- The icons in the project are mainly provided by the `@shennong/icons` package. It is recommended to manage them within this package for unified management and maintenance.
 - If you are using `Vscode`, it is recommended to install the [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify) plugin, which makes it easy to find and use icons.
 
 :::
@@ -19,7 +19,7 @@ You can add new icons in the `packages/icons/src/iconify` directory:
 
 ```ts
 // packages/icons/src/iconify/index.ts
-import { createIconifyIcon } from '@vben-core/icons';
+import { createIconifyIcon } from '@shennong-core/icons';
 
 export const MdiKeyboardEsc = createIconifyIcon('mdi:keyboard-esc');
 ```
@@ -28,7 +28,7 @@ export const MdiKeyboardEsc = createIconifyIcon('mdi:keyboard-esc');
 
 ```vue
 <script setup lang="ts">
-import { MdiKeyboardEsc } from '@vben/icons';
+import { MdiKeyboardEsc } from '@shennong/icons';
 </script>
 
 <template>
@@ -47,7 +47,7 @@ You can add new icon files `test.svg` in the `packages/icons/src/svg/icons` dire
 
 ```ts
 // packages/icons/src/svg/index.ts
-import { createIconifyIcon } from '@vben-core/icons';
+import { createIconifyIcon } from '@shennong-core/icons';
 
 const SvgTestIcon = createIconifyIcon('svg:test');
 
@@ -58,7 +58,7 @@ export { SvgTestIcon };
 
 ```vue
 <script setup lang="ts">
-import { SvgTestIcon } from '@vben/icons';
+import { SvgTestIcon } from '@shennong/icons';
 </script>
 
 <template>

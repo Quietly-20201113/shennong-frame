@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import type { VbenFormProps } from '#/adapter/form';
+import type { ShennongFormProps } from '#/adapter/form';
 import type { VxeGridProps } from '#/adapter/vxe-table';
 
 import { message } from 'ant-design-vue';
 
-import { useVbenVxeGrid } from '#/adapter/vxe-table';
+import { useShennongVxeGrid } from '#/adapter/vxe-table';
 
 import { getExampleTableApi } from '../mock-api';
 
@@ -17,7 +17,7 @@ interface RowType {
   releaseDate: string;
 }
 
-const formOptions: VbenFormProps = {
+const formOptions: ShennongFormProps = {
   // 默认展开
   collapsed: false,
   schema: [
@@ -117,7 +117,7 @@ const gridOptions: VxeGridProps<RowType> = {
   },
 };
 
-const [Grid] = useVbenVxeGrid({ formOptions, gridOptions });
+const [Grid] = useShennongVxeGrid({ formOptions, gridOptions });
 </script>
 
 <template>

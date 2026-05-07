@@ -3,13 +3,13 @@ import type { UploadFile } from 'ant-design-vue';
 
 import { h, ref, toRaw } from 'vue';
 
-import { Page } from '@vben/common-ui';
+import { Page } from '@shennong/common-ui';
 
 import { useDebounceFn } from '@vueuse/core';
 import { Button, Card, message, Spin, Tag } from 'ant-design-vue';
 import dayjs from 'dayjs';
 
-import { useVbenForm, z } from '#/adapter/form';
+import { useShennongForm, z } from '#/adapter/form';
 import { getAllMenusApi } from '#/api';
 import { upload_file } from '#/api/examples/upload';
 import { $t } from '#/locales';
@@ -33,7 +33,7 @@ function fetchRemoteOptions({ keyword = '选项' }: Record<string, any>) {
   });
 }
 
-const [BaseForm, baseFormApi] = useVbenForm({
+const [BaseForm, baseFormApi] = useShennongForm({
   // 所有表单项共用，可单独在表单内覆盖
   commonConfig: {
     // 在label后显示一个冒号
@@ -492,9 +492,9 @@ function handleSetFormValue() {
     treeSelect: 'leaf1',
     username: '1',
     richEditor: `
-      <h1>Vben Tiptap</h1>
+      <h1>Shennong Tiptap</h1>
       <p>这个编辑器已经被封装在 <code>packages/effects/plugins/src/tiptap</code> 中。</p>
-      <p>你可以直接在各个 app 里通过 <code>@vben/plugins/tiptap</code> 引入。</p>
+      <p>你可以直接在各个 app 里通过 <code>@shennong/plugins/tiptap</code> 引入。</p>
       <blockquote>默认内置 StarterKit、Underline、TextAlign、Placeholder。</blockquote>
     `,
   });

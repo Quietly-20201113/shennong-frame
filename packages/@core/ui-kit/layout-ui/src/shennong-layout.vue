@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { CSSProperties } from 'vue';
 
-import type { VbenLayoutProps } from './vben-layout';
+import type { ShennongLayoutProps } from './shennong-layout';
 
 import { computed, ref, watch } from 'vue';
 
@@ -9,10 +9,10 @@ import {
   SCROLL_FIXED_CLASS,
   useLayoutFooterStyle,
   useLayoutHeaderStyle,
-} from '@vben-core/composables';
-import { IconifyIcon } from '@vben-core/icons';
-import { VbenIconButton } from '@vben-core/shadcn-ui';
-import { ELEMENT_ID_MAIN_CONTENT } from '@vben-core/shared/constants';
+} from '@shennong-core/composables';
+import { IconifyIcon } from '@shennong-core/icons';
+import { ShennongIconButton } from '@shennong-core/shadcn-ui';
+import { ELEMENT_ID_MAIN_CONTENT } from '@shennong-core/shared/constants';
 
 import { useMouse, useScroll, useThrottleFn } from '@vueuse/core';
 
@@ -25,10 +25,10 @@ import {
 } from './components';
 import { useLayout } from './hooks/use-layout';
 
-interface Props extends VbenLayoutProps {}
+interface Props extends ShennongLayoutProps {}
 
 defineOptions({
-  name: 'VbenLayout',
+  name: 'ShennongLayout',
 });
 
 const props = withDefaults(defineProps<Props>(), {
@@ -571,14 +571,14 @@ const idMainContent = ELEMENT_ID_MAIN_CONTENT;
           </template>
 
           <template #toggle-button>
-            <VbenIconButton
+            <ShennongIconButton
               v-if="showHeaderToggleButton"
               class="my-0 mr-1 rounded-md"
               @click="handleHeaderToggle"
             >
               <IconifyIcon v-if="showSidebar" icon="ep:fold" />
               <IconifyIcon v-else icon="ep:expand" />
-            </VbenIconButton>
+            </ShennongIconButton>
           </template>
           <slot name="header"></slot>
         </LayoutHeader>

@@ -1,16 +1,16 @@
 <script lang="ts" setup>
-import { Page, useVbenModal } from '@vben/common-ui';
+import { Page, useShennongModal } from '@shennong/common-ui';
 
 import { NButton, NCard, useMessage } from 'naive-ui';
 
-import { useVbenForm } from '#/adapter/form';
+import { useShennongForm } from '#/adapter/form';
 import { getAllMenusApi } from '#/api';
 
 import modalDemo from './modal.vue';
 
 const message = useMessage();
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useShennongForm({
   commonConfig: {
     // 所有表单项
     componentProps: {
@@ -157,7 +157,7 @@ function setFormValues() {
   });
 }
 
-const [Modal, modalApi] = useVbenModal({
+const [Modal, modalApi] = useShennongModal({
   connectedComponent: modalDemo,
 });
 </script>

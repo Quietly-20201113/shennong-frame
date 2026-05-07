@@ -2,8 +2,8 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { Page } from '@vben/common-ui';
-import { useTabs } from '@vben/hooks';
+import { Page } from '@shennong/common-ui';
+import { useTabs } from '@shennong/hooks';
 
 import { Button, Card, Input } from 'ant-design-vue';
 
@@ -24,7 +24,7 @@ const {
 
 function openTab() {
   // 这里就是路由跳转，也可以用path
-  router.push({ name: 'VbenAbout' });
+  router.push({ name: 'ShennongAbout' });
 }
 
 function openTabWithParams(id: number) {

@@ -2,9 +2,9 @@
 outline: deep
 ---
 
-# Vben Form
+# Shennong Form
 
-`Vben Form` is the shared form abstraction used across different UI-library variants such as `Ant Design Vue`, `Element Plus`, `Naive UI`, and other adapters added inside this repository.
+`Shennong Form` is the shared form abstraction used across different UI-library variants such as `Ant Design Vue`, `Element Plus`, `Naive UI`, and other adapters added inside this repository.
 
 > If some details are not obvious from the docs, check the live demos as well.
 
@@ -15,7 +15,7 @@ Each app keeps its own adapter layer under `src/adapter/form.ts` and `src/adapte
 The current adapter pattern is:
 
 - initialize the shared component adapter first
-- call `setupVbenForm(...)`
+- call `setupShennongForm(...)`
 - map special `v-model:*` prop names through `modelPropNameMap`
 - keep the form empty state aligned with the actual UI library behavior
 
@@ -23,19 +23,19 @@ The current adapter pattern is:
 
 ```ts
 import type {
-  VbenFormSchema as FormSchema,
-  VbenFormProps,
-} from '@vben/common-ui';
+  ShennongFormSchema as FormSchema,
+  ShennongFormProps,
+} from '@shennong/common-ui';
 
 import type { ComponentType } from './component';
 
-import { setupVbenForm, useVbenForm as useForm, z } from '@vben/common-ui';
-import { $t } from '@vben/locales';
+import { setupShennongForm, useShennongForm as useForm, z } from '@shennong/common-ui';
+import { $t } from '@shennong/locales';
 
 import { initComponentAdapter } from './component';
 
 initComponentAdapter();
-setupVbenForm<ComponentType>({
+setupShennongForm<ComponentType>({
   config: {
     baseModelPropName: 'value',
     emptyStateValue: null,
@@ -62,11 +62,11 @@ setupVbenForm<ComponentType>({
   },
 });
 
-const useVbenForm = useForm<ComponentType>;
+const useShennongForm = useForm<ComponentType>;
 
-export { useVbenForm, z };
-export type VbenFormSchema = FormSchema<ComponentType>;
-export type { VbenFormProps };
+export { useShennongForm, z };
+export type ShennongFormSchema = FormSchema<ComponentType>;
+export type { ShennongFormProps };
 ```
 
 ### Component Adapter Example
@@ -74,12 +74,12 @@ export type { VbenFormProps };
 ```ts
 import type { Component, SetupContext } from 'vue';
 
-import type { BaseFormComponentType } from '@vben/common-ui';
+import type { BaseFormComponentType } from '@shennong/common-ui';
 
 import { h } from 'vue';
 
-import { globalShareState } from '@vben/common-ui';
-import { $t } from '@vben/locales';
+import { globalShareState } from '@shennong/common-ui';
+import { $t } from '@shennong/locales';
 import {
   AutoComplete,
   Button,
@@ -187,7 +187,7 @@ export { initComponentAdapter };
 
 ## Basic Usage
 
-Create the form through `useVbenForm`:
+Create the form through `useShennongForm`:
 
 <DemoPreview dir="demos/vben-form/basic" />
 
@@ -203,7 +203,7 @@ Use `schema.valueFormat` when the component value is convenient for the UI but t
 
 ## Key API Notes
 
-- `useVbenForm` returns `[Form, formApi]`
+- `useShennongForm` returns `[Form, formApi]`
 - `formApi.getFieldComponentRef()` and `formApi.getFocusedField()` are available in current versions
 - `handleValuesChange(values, fieldsChanged)` includes the second parameter in newer versions
 - `fieldMappingTime` and `scrollToFirstError` are part of the current form props

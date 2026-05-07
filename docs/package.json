@@ -1,5 +1,5 @@
 {
-  "name": "@vben/docs",
+  "name": "@shennong/docs",
   "version": "5.7.0",
   "private": true,
   "scripts": {
@@ -14,11 +14,11 @@
     }
   },
   "dependencies": {
-    "@vben-core/shadcn-ui": "workspace:*",
-    "@vben/common-ui": "workspace:*",
-    "@vben/locales": "workspace:*",
-    "@vben/plugins": "workspace:*",
-    "@vben/styles": "workspace:*",
+    "@shennong-core/shadcn-ui": "workspace:*",
+    "@shennong/common-ui": "workspace:*",
+    "@shennong/locales": "workspace:*",
+    "@shennong/plugins": "workspace:*",
+    "@shennong/styles": "workspace:*",
     "ant-design-vue": "catalog:",
     "lucide-vue-next": "catalog:",
     "medium-zoom": "catalog:",
@@ -28,8 +28,8 @@
   "devDependencies": {
     "@nolebase/vitepress-plugin-git-changelog": "catalog:",
     "@tailwindcss/vite": "catalog:",
-    "@vben/tailwind-config": "workspace:*",
-    "@vben/vite-config": "workspace:*",
+    "@shennong/tailwind-config": "workspace:*",
+    "@shennong/vite-config": "workspace:*",
     "@vite-pwa/vitepress": "catalog:",
     "vitepress": "catalog:",
     "vue": "catalog:"

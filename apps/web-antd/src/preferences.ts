@@ -1,7 +1,7 @@
 import {
   defineOverridesPreferences,
   definePreferencesExtension,
-} from '@vben/preferences';
+} from '@shennong/preferences';
 
 interface WebAntdPreferencesExtension {
   defaultTableSize: number;

@@ -3,7 +3,7 @@ import type { ApplicationPluginOptions } from '../typing';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { fs } from '@vben/node-utils';
+import { fs } from '@shennong/node-utils';
 
 import dotenv from 'dotenv';
 
@@ -93,7 +93,7 @@ async function loadAndConvertEnv(
     .filter((item) => item === 'brotli' || item === 'gzip');
 
   return {
-    appTitle: getString(VITE_APP_TITLE, 'Vben Admin'),
+    appTitle: getString(VITE_APP_TITLE, 'Shennong Admin'),
     archiver: getBoolean(VITE_ARCHIVER),
     base: getString(VITE_BASE, '/'),
     compress: compressTypes.length > 0,

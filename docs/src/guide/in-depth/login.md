@@ -141,7 +141,7 @@ interface HttpResponse<T = any> {
 - 其次你需要在先将本地代理地址改为你的真实后端地址，你可以在应用下的 `vite.config.mts` 内配置：
 
 ```ts
-import { defineConfig } from '@vben/vite-config';
+import { defineConfig } from '@shennong/vite-config';
 
 export default defineConfig(async () => {
   return {

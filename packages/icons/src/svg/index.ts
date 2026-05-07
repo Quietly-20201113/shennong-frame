@@ -1,4 +1,4 @@
-import { createIconifyIcon } from '@vben-core/icons';
+import { createIconifyIcon } from '@shennong-core/icons';
 
 import './load.js';
 

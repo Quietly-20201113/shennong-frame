@@ -1,19 +1,19 @@
 <script lang="ts" setup>
 import type { RadioGroupProps } from 'ant-design-vue';
 
-import type { FormLayout } from '@vben/common-ui';
+import type { FormLayout } from '@shennong/common-ui';
 
-import type { CollapsibleParamSchema } from '@vben-core/shadcn-ui';
+import type { CollapsibleParamSchema } from '@shennong-core/shadcn-ui';
 
 import { h, ref } from 'vue';
 
-import { Page } from '@vben/common-ui';
+import { Page } from '@shennong/common-ui';
 
-import { VbenCollapsibleParams } from '@vben-core/shadcn-ui';
+import { ShennongCollapsibleParams } from '@shennong-core/shadcn-ui';
 
 import { Button, Card, message, RadioGroup } from 'ant-design-vue';
 
-import { useVbenForm, z } from '#/adapter/form';
+import { useShennongForm, z } from '#/adapter/form';
 
 import DocButton from '../doc-button.vue';
 
@@ -126,7 +126,7 @@ const paramsValidator = z
   })
   .required();
 
-const [BaseForm, baseFormApi] = useVbenForm({
+const [BaseForm, baseFormApi] = useShennongForm({
   showDefaultActions: false,
   // 所有表单项共用，可单独在表单内覆盖
   commonConfig: {
@@ -152,7 +152,7 @@ const [BaseForm, baseFormApi] = useVbenForm({
     },
     {
       // component:'CollapsibleParams',
-      component: h(VbenCollapsibleParams),
+      component: h(ShennongCollapsibleParams),
       componentProps: {
         params: paramsSchema,
         // maxHeight: 200, //限制最大高度，展开后可滚动
@@ -182,9 +182,9 @@ const [BaseForm, baseFormApi] = useVbenForm({
           };
         },
         trigger(values, __, controller) {
-          // 访问 form 内 VbenCollapsibleParams 的实例
+          // 访问 form 内 ShennongCollapsibleParams 的实例
           const paramsRef =
-            controller.getFieldComponentRef<typeof VbenCollapsibleParams>(
+            controller.getFieldComponentRef<typeof ShennongCollapsibleParams>(
               'params',
             );
           if (values.qat) {

@@ -11,7 +11,7 @@ When the interface returns a `401` status code, the framework will consider the 
 Upon login timeout, it will redirect to the login page.
 
 ```ts
-import { defineOverridesPreferences } from '@vben/preferences';
+import { defineOverridesPreferences } from '@shennong/preferences';
 
 export const overridesPreferences = defineOverridesPreferences({
   // overrides
@@ -30,7 +30,7 @@ When login times out, a login popup will open.
 Configuration:
 
 ```ts
-import { defineOverridesPreferences } from '@vben/preferences';
+import { defineOverridesPreferences } from '@shennong/preferences';
 
 export const overridesPreferences = defineOverridesPreferences({
   // overrides
@@ -73,7 +73,7 @@ export const overridesPreferences = defineOverridesPreferences({
 If you want to update the content of the watermark, you can do so. The parameters can be referred to [watermark-js-plus](https://zhensherlock.github.io/watermark-js-plus/):
 
 ```ts
-import { useWatermark } from '@vben/hooks';
+import { useWatermark } from '@shennong/hooks';
 
 const { destroyWatermark, updateWatermark } = useWatermark();
 

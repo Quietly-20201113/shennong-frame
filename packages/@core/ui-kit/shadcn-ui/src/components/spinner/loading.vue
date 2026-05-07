@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
 
-import { cn } from '@vben-core/shared/utils';
+import { cn } from '@shennong-core/shared/utils';
 
 interface Props {
   class?: string;
@@ -22,7 +22,7 @@ interface Props {
 }
 
 defineOptions({
-  name: 'VbenLoading',
+  name: 'ShennongLoading',
 });
 
 const props = withDefaults(defineProps<Props>(), {

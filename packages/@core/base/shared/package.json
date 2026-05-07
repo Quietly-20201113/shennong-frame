@@ -1,12 +1,12 @@
 {
-  "name": "@vben-core/shared",
+  "name": "@shennong-core/shared",
   "version": "5.7.0",
-  "homepage": "https://github.com/vbenjs/vue-vben-admin",
-  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
+  "homepage": "",
+  "bugs": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
-    "directory": "packages/@vben-core/base/shared"
+    "url": "",
+    "directory": "packages/@shennong-core/base/shared"
   },
   "license": "MIT",
   "type": "module",

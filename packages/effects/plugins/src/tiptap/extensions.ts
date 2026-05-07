@@ -3,11 +3,11 @@ import type { Node as ProseMirrorNode } from '@tiptap/pm/model';
 import type { EditorView } from '@tiptap/pm/view';
 import type { Extensions } from '@tiptap/vue-3';
 
-import type { ImageUploadOptions, VbenTiptapExtensionOptions } from './types';
+import type { ImageUploadOptions, ShennongTiptapExtensionOptions } from './types';
 
-import { $t } from '@vben/locales';
+import { $t } from '@shennong/locales';
 
-import { alert } from '@vben-core/popup-ui';
+import { alert } from '@shennong-core/popup-ui';
 
 import Document from '@tiptap/extension-document';
 import Highlight from '@tiptap/extension-highlight';
@@ -402,7 +402,7 @@ function createCustomImage(
 }
 
 export function createDefaultTiptapExtensions(
-  options: VbenTiptapExtensionOptions = {},
+  options: ShennongTiptapExtensionOptions = {},
 ): Extensions {
   return [
     Document,

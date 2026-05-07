@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed, toRaw, unref, watch } from 'vue';
 
-import { useSimpleLocale } from '@vben-core/composables';
-import { VbenExpandableArrow } from '@vben-core/shadcn-ui';
-import { cn, isFunction, triggerWindowResize } from '@vben-core/shared/utils';
+import { useSimpleLocale } from '@shennong-core/composables';
+import { ShennongExpandableArrow } from '@shennong-core/shadcn-ui';
+import { cn, isFunction, triggerWindowResize } from '@shennong-core/shared/utils';
 
 import { COMPONENT_MAP } from '../config';
 import { injectFormProps } from '../use-form-context';
@@ -170,13 +170,13 @@ defineExpose({
     <!-- 展开按钮前 -->
     <slot name="expand-before"></slot>
 
-    <VbenExpandableArrow
+    <ShennongExpandableArrow
       class="ml-[-0.3em]"
       v-if="rootProps.showCollapseButton"
       v-model:model-value="collapsed"
     >
       <span>{{ collapsed ? $t('expand') : $t('collapse') }}</span>
-    </VbenExpandableArrow>
+    </ShennongExpandableArrow>
 
     <!-- 展开按钮后 -->
     <slot name="expand-after"></slot>

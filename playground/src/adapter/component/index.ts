@@ -37,12 +37,12 @@ import type {
   ApiComponentSharedProps,
   BaseFormComponentType,
   IconPickerProps,
-} from '@vben/common-ui';
-import type { Sortable } from '@vben/hooks';
-import type { TipTapProps } from '@vben/plugins/tiptap';
-import type { Recordable } from '@vben/types';
+} from '@shennong/common-ui';
+import type { Sortable } from '@shennong/hooks';
+import type { TipTapProps } from '@shennong/plugins/tiptap';
+import type { Recordable } from '@shennong/types';
 
-import type { CollapsibleParamsProps } from '@vben-core/shadcn-ui';
+import type { CollapsibleParamsProps } from '@shennong-core/shadcn-ui';
 
 import {
   computed,
@@ -63,14 +63,14 @@ import {
   globalShareState,
   IconPicker,
   VCropper,
-} from '@vben/common-ui';
-import { useSortable } from '@vben/hooks';
-import { IconifyIcon } from '@vben/icons';
-import { $t } from '@vben/locales';
-import { VbenTiptap } from '@vben/plugins/tiptap';
-import { isEmpty } from '@vben/utils';
+} from '@shennong/common-ui';
+import { useSortable } from '@shennong/hooks';
+import { IconifyIcon } from '@shennong/icons';
+import { $t } from '@shennong/locales';
+import { ShennongTiptap } from '@shennong/plugins/tiptap';
+import { isEmpty } from '@shennong/utils';
 
-import { VbenCollapsibleParams } from '@vben-core/shadcn-ui';
+import { ShennongCollapsibleParams } from '@shennong-core/shadcn-ui';
 
 import { message, Modal, notification } from 'ant-design-vue';
 type AdapterUploadProps = UploadProps & {
@@ -722,7 +722,7 @@ async function initComponentAdapter() {
     RadioGroup,
     RangePicker,
     Rate,
-    RichEditor: withDefaultPlaceholder(VbenTiptap, 'input'),
+    RichEditor: withDefaultPlaceholder(ShennongTiptap, 'input'),
     Select: withDefaultPlaceholder(Select, 'select'),
     Space,
     Switch,
@@ -730,7 +730,7 @@ async function initComponentAdapter() {
     TimePicker,
     TreeSelect: withDefaultPlaceholder(TreeSelect, 'select'),
     Upload: withPreviewUpload(),
-    CollapsibleParams: VbenCollapsibleParams,
+    CollapsibleParams: ShennongCollapsibleParams,
   };
 
   // 将组件注册到全局共享状态中

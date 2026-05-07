@@ -2,9 +2,9 @@
 outline: deep
 ---
 
-# Vben Vxe Table 表格
+# Shennong Vxe Table 表格
 
-`Vben Vxe Table` 基于 [vxe-table](https://vxetable.cn/v4/#/grid/api?apiKey=grid) 和 `Vben Form` 做了二次封装，用于构建带搜索表单的列表页面。
+`Shennong Vxe Table` 基于 [vxe-table](https://vxetable.cn/v4/#/grid/api?apiKey=grid) 和 `Shennong Form` 做了二次封装，用于构建带搜索表单的列表页面。
 
 > 如果文档内没有覆盖到你需要的细节，可以结合在线示例和 [vxe-grid 官方 API](https://vxetable.cn/v4/#/grid/api?apiKey=grid) 一起查看。
 
@@ -23,13 +23,13 @@ outline: deep
 ```ts
 import { h } from 'vue';
 
-import { setupVbenVxeTable, useVbenVxeGrid } from '@vben/plugins/vxe-table';
+import { setupShennongVxeTable, useShennongVxeGrid } from '@shennong/plugins/vxe-table';
 
 import { Button, Image } from 'ant-design-vue';
 
-import { useVbenForm } from './form';
+import { useShennongForm } from './form';
 
-setupVbenVxeTable({
+setupShennongVxeTable({
   configVxeTable: (vxeUI) => {
     vxeUI.setConfig({
       grid: {
@@ -76,19 +76,19 @@ setupVbenVxeTable({
       },
     });
   },
-  useVbenForm,
+  useShennongForm,
 });
 
-export { useVbenVxeGrid };
+export { useShennongVxeGrid };
 
-export type * from '@vben/plugins/vxe-table';
+export type * from '@shennong/plugins/vxe-table';
 ```
 
 :::
 
 ## 基础表格
 
-通过 `useVbenVxeGrid` 创建一个基础表格。
+通过 `useShennongVxeGrid` 创建一个基础表格。
 
 <DemoPreview dir="demos/vben-vxe-table/basic" />
 
@@ -146,7 +146,7 @@ vxeUI.renderer.add('CellLink', {
 
 ## 搜索表单
 
-搜索区域底层使用的是 `Vben Form`。启用搜索表单后，可以通过 `gridOptions.toolbarConfig.search = true` 在工具栏中显示搜索面板开关按钮。
+搜索区域底层使用的是 `Shennong Form`。启用搜索表单后，可以通过 `gridOptions.toolbarConfig.search = true` 在工具栏中显示搜索面板开关按钮。
 
 所有以 `form-` 开头的具名插槽都会自动转发到搜索表单。
 
@@ -155,7 +155,7 @@ vxeUI.renderer.add('CellLink', {
 启用搜索表单时，表单和表格主体之间默认会显示一个分隔条。可以通过 `separator` 调整或关闭它。
 
 ```ts
-const [Grid] = useVbenVxeGrid({
+const [Grid] = useShennongVxeGrid({
   formOptions: {},
   gridOptions: {},
   separator: false,
@@ -188,13 +188,13 @@ const [Grid] = useVbenVxeGrid({
 
 ## API
 
-`useVbenVxeGrid` 返回一个数组，第一个元素是表格组件，第二个元素是表格 API。
+`useShennongVxeGrid` 返回一个数组，第一个元素是表格组件，第二个元素是表格 API。
 
 ```vue
 <script setup lang="ts">
-import { useVbenVxeGrid } from '#/adapter/vxe-table';
+import { useShennongVxeGrid } from '#/adapter/vxe-table';
 
-const [Grid, gridApi] = useVbenVxeGrid({
+const [Grid, gridApi] = useShennongVxeGrid({
   gridOptions: {},
   formOptions: {},
   gridEvents: {},
@@ -220,7 +220,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
 
 ## Props
 
-所有属性都通过 `useVbenVxeGrid` 的第一个参数传入。
+所有属性都通过 `useShennongVxeGrid` 的第一个参数传入。
 
 | 属性名 | 描述 | 类型 | 版本要求 |
 | --- | --- | --- | --- |
@@ -230,7 +230,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
 | gridClass | `vxe-grid` 的 class | `string` | - |
 | gridOptions | `vxe-grid` 配置 | `DeepPartial<VxeTableGridOptions>` | - |
 | gridEvents | `vxe-grid` 事件 | `DeepPartial<VxeGridListeners>` | - |
-| formOptions | 搜索表单配置 | `VbenFormProps` | - |
+| formOptions | 搜索表单配置 | `ShennongFormProps` | - |
 | showSearchForm | 是否显示搜索表单 | `boolean` | - |
 | separator | 搜索表单与表格主体之间的分隔条 | `boolean \| SeparatorOptions` | `>5.5.4` |
 

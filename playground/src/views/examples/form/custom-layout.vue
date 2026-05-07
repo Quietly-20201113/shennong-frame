@@ -1,15 +1,15 @@
 <script lang="ts" setup>
 import { h } from 'vue';
 
-import { Page } from '@vben/common-ui';
+import { Page } from '@shennong/common-ui';
 
 import { Card } from 'ant-design-vue';
 
-import { useVbenForm } from '#/adapter/form';
+import { useShennongForm } from '#/adapter/form';
 
 import DocButton from '../doc-button.vue';
 
-const [CustomLayoutForm] = useVbenForm({
+const [CustomLayoutForm] = useShennongForm({
   // 所有表单项共用，可单独在表单内覆盖
   commonConfig: {
     // 所有表单项

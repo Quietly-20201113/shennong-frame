@@ -7,7 +7,7 @@ import type {
 
 import { computed, isRef, ref, watch } from 'vue';
 
-import { get, isBoolean, isFunction } from '@vben-core/shared/utils';
+import { get, isBoolean, isFunction } from '@shennong-core/shared/utils';
 
 import { useFormValues } from 'vee-validate';
 
@@ -47,7 +47,7 @@ export default function useDependencies(
   }
 
   if (!values) {
-    throw new Error('useDependencies should be used within <VbenForm>');
+    throw new Error('useDependencies should be used within <ShennongForm>');
   }
 
   // 在 dependencies 里提供访问extendApi的能力

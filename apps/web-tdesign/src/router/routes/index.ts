@@ -1,6 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router';
 
-import { mergeRouteModules, traverseTreeValues } from '@vben/utils';
+import { mergeRouteModules, traverseTreeValues } from '@shennong/utils';
 
 import { coreRoutes, fallbackNotFoundRoute } from './core';
 

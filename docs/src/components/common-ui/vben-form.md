@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Vben Form 表单
+# Shennong Form 表单
 
 框架提供的表单组件，可适配 `Element Plus`、`Ant Design Vue`、`Naive UI` 等框架。
 
@@ -26,19 +26,19 @@ outline: deep
 
 ```ts
 import type {
-  VbenFormSchema as FormSchema,
-  VbenFormProps,
-} from '@vben/common-ui';
+  ShennongFormSchema as FormSchema,
+  ShennongFormProps,
+} from '@shennong/common-ui';
 
 import type { ComponentType } from './component';
 
-import { setupVbenForm, useVbenForm as useForm, z } from '@vben/common-ui';
-import { $t } from '@vben/locales';
+import { setupShennongForm, useShennongForm as useForm, z } from '@shennong/common-ui';
+import { $t } from '@shennong/locales';
 
 import { initComponentAdapter } from './component';
 
 initComponentAdapter();
-setupVbenForm<ComponentType>({
+setupShennongForm<ComponentType>({
   config: {
     // ant design vue组件库默认都是 v-model:value
     baseModelPropName: 'value',
@@ -70,11 +70,11 @@ setupVbenForm<ComponentType>({
   },
 });
 
-const useVbenForm = useForm<ComponentType>;
+const useShennongForm = useForm<ComponentType>;
 
-export { useVbenForm, z };
-export type VbenFormSchema = FormSchema<ComponentType>;
-export type { VbenFormProps };
+export { useShennongForm, z };
+export type ShennongFormSchema = FormSchema<ComponentType>;
+export type { ShennongFormProps };
 ```
 
 :::
@@ -87,13 +87,13 @@ export type { VbenFormProps };
  * 可用于 vben-form、vben-modal、vben-drawer 等组件使用,
  */
 
-import type { BaseFormComponentType } from '@vben/common-ui';
+import type { BaseFormComponentType } from '@shennong/common-ui';
 
 import type { Component, SetupContext } from 'vue';
 import { h } from 'vue';
 
-import { globalShareState } from '@vben/common-ui';
-import { $t } from '@vben/locales';
+import { globalShareState } from '@shennong/common-ui';
+import { $t } from '@shennong/locales';
 import {
   AutoComplete,
   Button,
@@ -220,7 +220,7 @@ export { initComponentAdapter };
 
 :::
 
-使用 `useVbenForm` 创建最基础的表单。
+使用 `useShennongForm` 创建最基础的表单。
 
 <DemoPreview dir="demos/vben-form/basic" />
 
@@ -268,15 +268,15 @@ _注意_ 需要指定 `dependencies` 的 `triggerFields` 属性，设置由谁�
 
 ## API
 
-`useVbenForm` 返回一个数组，第一个元素是表单组件，第二个元素是表单的方法。
+`useShennongForm` 返回一个数组，第一个元素是表单组件，第二个元素是表单的方法。
 
 ```vue
 <script setup lang="ts">
-import { useVbenForm } from '#/adapter/form';
+import { useShennongForm } from '#/adapter/form';
 
 // Form 为弹窗组件
 // formApi 为弹窗的方法
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useShennongForm({
   // 属性
   // 事件
 });
@@ -289,7 +289,7 @@ const [Form, formApi] = useVbenForm({
 
 ### FormApi
 
-useVbenForm 返回的第二个参数，是一个对象，包含了一些表单的方法。
+useShennongForm 返回的第二个参数，是一个对象，包含了一些表单的方法。
 
 | 方法名 | 描述 | 类型 | 版本号 |
 | --- | --- | --- | --- |
@@ -304,15 +304,15 @@ useVbenForm 返回的第二个参数，是一个对象，包含了一些表单�
 | resetValidate | 重置表单校验 | `()=>Promise<void>` | - |
 | updateSchema | 更新formSchema | `(schema:FormSchema[])=>void` | - |
 | setFieldValue | 设置字段值 | `(field: string, value: any, shouldValidate?: boolean)=>Promise<void>` | - |
-| setState | 设置组件状态（props） | `(stateOrFn:\| ((prev: VbenFormProps) => Partial<VbenFormProps>)\| Partial<VbenFormProps>)=>Promise<void>` | - |
-| getState | 获取组件状态（props） | `()=>Promise<VbenFormProps>` | - |
+| setState | 设置组件状态（props） | `(stateOrFn:\| ((prev: ShennongFormProps) => Partial<ShennongFormProps>)\| Partial<ShennongFormProps>)=>Promise<void>` | - |
+| getState | 获取组件状态（props） | `()=>Promise<ShennongFormProps>` | - |
 | form | 表单对象实例，可以操作表单，见 [useForm](https://vee-validate.logaretm.com/v4/api/use-form/) | - | - |
 | getFieldComponentRef | 获取指定字段的组件实例 | `<T=unknown>(fieldName: string)=>T` | >5.5.3 |
 | getFocusedField | 获取当前已获得焦点的字段 | `()=>string\|undefined` | >5.5.3 |
 
 ## Props
 
-所有属性都可以传入 `useVbenForm` 的第一个参数中。
+所有属性都可以传入 `useShennongForm` 的第一个参数中。
 
 | 属性名 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |

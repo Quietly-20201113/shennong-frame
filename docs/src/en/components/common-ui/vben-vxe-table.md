@@ -2,9 +2,9 @@
 outline: deep
 ---
 
-# Vben Vxe Table
+# Shennong Vxe Table
 
-`Vben Vxe Table` wraps `vxe-table` together with `Vben Form` so you can build searchable data grids with a shared API.
+`Shennong Vxe Table` wraps `vxe-table` together with `Shennong Form` so you can build searchable data grids with a shared API.
 
 ## Adapter Example
 
@@ -34,9 +34,9 @@ vxeUI.renderer.add('CellLink', {
 
 ```vue
 <script setup lang="ts">
-import { useVbenVxeGrid } from '#/adapter/vxe-table';
+import { useShennongVxeGrid } from '#/adapter/vxe-table';
 
-const [Grid, gridApi] = useVbenVxeGrid({
+const [Grid, gridApi] = useShennongVxeGrid({
   gridOptions: {},
   formOptions: {},
   gridEvents: {},
@@ -72,7 +72,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
 | `gridClass` | class for the `vxe-grid` node | `string` |
 | `gridOptions` | `vxe-grid` options | `DeepPartial<VxeTableGridOptions>` |
 | `gridEvents` | `vxe-grid` event handlers | `DeepPartial<VxeGridListeners>` |
-| `formOptions` | search form options | `VbenFormProps` |
+| `formOptions` | search form options | `ShennongFormProps` |
 | `showSearchForm` | whether the search form is visible | `boolean` |
 | `separator` | separator between the search form and table body | `boolean \| SeparatorOptions` |
 

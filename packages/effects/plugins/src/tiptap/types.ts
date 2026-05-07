@@ -41,13 +41,13 @@ export interface TipTapPreviewProps {
   minHeight?: number | string;
 }
 
-export interface VbenTiptapChangeEvent {
+export interface ShennongTiptapChangeEvent {
   html: string;
   json: JSONContent;
   text: string;
 }
 
-export interface VbenTiptapExtensionOptions {
+export interface ShennongTiptapExtensionOptions {
   imageUpload?: ImageUploadOptions;
   /** 内部使用：追踪 blob URL 以便组件销毁时清理 */
   _blobUrlTracker?: Set<string>;

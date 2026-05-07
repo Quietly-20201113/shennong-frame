@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { useVbenModal, VbenButton } from '@vben/common-ui';
+import { useShennongModal, ShennongButton } from '@shennong/common-ui';
 
-const [SlideModal, slideModalApi] = useVbenModal({
+const [SlideModal, slideModalApi] = useShennongModal({
   animationType: 'slide',
 });
 
-const [ScaleModal, scaleModalApi] = useVbenModal({
+const [ScaleModal, scaleModalApi] = useShennongModal({
   animationType: 'scale',
 });
 
@@ -21,8 +21,8 @@ function openScaleModal() {
 <template>
   <div class="space-y-4">
     <div class="flex gap-4">
-      <VbenButton @click="openSlideModal">滑动动画</VbenButton>
-      <VbenButton @click="openScaleModal">缩放动画</VbenButton>
+      <ShennongButton @click="openSlideModal">滑动动画</ShennongButton>
+      <ShennongButton @click="openScaleModal">缩放动画</ShennongButton>
     </div>
 
     <SlideModal title="滑动动画示例" class="w-125">

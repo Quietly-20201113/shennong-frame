@@ -1,15 +1,15 @@
 import type { RouteRecordRaw } from 'vue-router';
 
 import {
-  VBEN_ANT_PREVIEW_URL,
-  VBEN_ANTDV_NEXT_PREVIEW_URL,
-  VBEN_DOC_URL,
-  VBEN_ELE_PREVIEW_URL,
-  VBEN_GITHUB_URL,
-  VBEN_LOGO_URL,
-  VBEN_NAIVE_PREVIEW_URL,
-} from '@vben/constants';
-import { SvgAntdvLogoIcon, SvgAntdvNextLogoIcon } from '@vben/icons';
+  SHENNONG_ANT_PREVIEW_URL,
+  SHENNONG_ANTDV_NEXT_PREVIEW_URL,
+  SHENNONG_DOC_URL,
+  SHENNONG_ELE_PREVIEW_URL,
+  SHENNONG_GITHUB_URL,
+  SHENNONG_LOGO_URL,
+  SHENNONG_NAIVE_PREVIEW_URL,
+} from '@shennong/constants';
+import { SvgAntdvLogoIcon, SvgAntdvNextLogoIcon } from '@shennong/icons';
 
 import { IFrameView } from '#/layouts';
 import { $t } from '#/locales';
@@ -18,81 +18,81 @@ const routes: RouteRecordRaw[] = [
   {
     meta: {
       badgeType: 'dot',
-      icon: VBEN_LOGO_URL,
+      icon: SHENNONG_LOGO_URL,
       order: 9998,
       title: $t('demos.vben.title'),
     },
-    name: 'VbenProject',
+    name: 'ShennongProject',
     path: '/vben-admin',
     children: [
       {
-        name: 'VbenDocument',
+        name: 'ShennongDocument',
         path: '/vben-admin/document',
         component: IFrameView,
         meta: {
           icon: 'lucide:book-open-text',
-          link: VBEN_DOC_URL,
+          link: SHENNONG_DOC_URL,
           title: $t('demos.vben.document'),
         },
       },
       {
-        name: 'VbenGithub',
+        name: 'ShennongGithub',
         path: '/vben-admin/github',
         component: IFrameView,
         meta: {
           icon: 'mdi:github',
-          link: VBEN_GITHUB_URL,
+          link: SHENNONG_GITHUB_URL,
           title: 'Github',
         },
       },
       {
-        name: 'VbenNaive',
+        name: 'ShennongNaive',
         path: '/vben-admin/naive',
         component: IFrameView,
         meta: {
           badgeType: 'dot',
           icon: 'logos:naiveui',
-          link: VBEN_NAIVE_PREVIEW_URL,
+          link: SHENNONG_NAIVE_PREVIEW_URL,
           title: $t('demos.vben.naive-ui'),
         },
       },
       {
-        name: 'VbenAntdv',
+        name: 'ShennongAntdv',
         path: '/vben-admin/antdv',
         component: IFrameView,
         meta: {
           badgeType: 'dot',
           icon: SvgAntdvLogoIcon,
-          link: VBEN_ANT_PREVIEW_URL,
+          link: SHENNONG_ANT_PREVIEW_URL,
           title: $t('demos.vben.antdv'),
         },
       },
       {
-        name: 'VbenAntdVNext',
+        name: 'ShennongAntdVNext',
         path: '/vben-admin/antdv-next',
         component: IFrameView,
         meta: {
           badgeType: 'dot',
           icon: SvgAntdvNextLogoIcon,
-          link: VBEN_ANTDV_NEXT_PREVIEW_URL,
+          link: SHENNONG_ANTDV_NEXT_PREVIEW_URL,
           title: $t('demos.vben.antdv-next'),
         },
       },
       {
-        name: 'VbenElementPlus',
+        name: 'ShennongElementPlus',
         path: '/vben-admin/ele',
         component: IFrameView,
         meta: {
           badgeType: 'dot',
           icon: 'logos:element',
-          link: VBEN_ELE_PREVIEW_URL,
+          link: SHENNONG_ELE_PREVIEW_URL,
           title: $t('demos.vben.element-plus'),
         },
       },
     ],
   },
   {
-    name: 'VbenAbout',
+    name: 'ShennongAbout',
     path: '/vben-admin/about',
     component: () => import('#/views/_core/about/index.vue'),
     meta: {

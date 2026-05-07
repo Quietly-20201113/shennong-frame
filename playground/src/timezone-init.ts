@@ -1,4 +1,4 @@
-import { setTimezoneHandler } from '@vben/stores';
+import { setTimezoneHandler } from '@shennong/stores';
 
 import { getTimezoneApi, getTimezoneOptionsApi, setTimezoneApi } from '#/api';
 

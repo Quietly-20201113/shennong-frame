@@ -1,7 +1,7 @@
 import type { DrawerApiOptions, DrawerState } from './drawer';
 
-import { Store } from '@vben-core/shared/store';
-import { bindMethods, isFunction } from '@vben-core/shared/utils';
+import { Store } from '@shennong-core/shared/store';
+import { bindMethods, isFunction } from '@shennong-core/shared/utils';
 
 export class DrawerApi {
   // 共享数据

@@ -25,13 +25,13 @@ import type {
   ApiComponentSharedProps,
   BaseFormComponentType,
   IconPickerProps,
-} from '@vben/common-ui';
-import type { Recordable } from '@vben/types';
+} from '@shennong/common-ui';
+import type { Recordable } from '@shennong/types';
 
 import { defineAsyncComponent, defineComponent, h, ref } from 'vue';
 
-import { ApiComponent, globalShareState, IconPicker } from '@vben/common-ui';
-import { $t } from '@vben/locales';
+import { ApiComponent, globalShareState, IconPicker } from '@shennong/common-ui';
+import { $t } from '@shennong/locales';
 
 import { message } from '#/adapter/naive';
 

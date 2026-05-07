@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { h, ref } from 'vue';
 
-import { IconPicker, Page } from '@vben/common-ui';
+import { IconPicker, Page } from '@shennong/common-ui';
 import {
   MdiKeyboardEsc,
   SvgAvatar1Icon,
@@ -16,7 +16,7 @@ import {
   SvgGoogleIcon,
   SvgQQChatIcon,
   SvgWeChatIcon,
-} from '@vben/icons';
+} from '@shennong/icons';
 
 import { Card, Input } from 'ant-design-vue';
 

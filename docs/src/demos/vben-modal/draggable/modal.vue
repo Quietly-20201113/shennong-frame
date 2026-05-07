@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useVbenModal } from '@vben/common-ui';
+import { useShennongModal } from '@shennong/common-ui';
 
-const [Modal] = useVbenModal({
+const [Modal] = useShennongModal({
   draggable: true,
 });
 </script>

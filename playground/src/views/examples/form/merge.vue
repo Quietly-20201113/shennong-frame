@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-import { Page } from '@vben/common-ui';
+import { Page } from '@shennong/common-ui';
 
 import { Button, Card, message, Step, Steps, Switch } from 'ant-design-vue';
 
-import { useVbenForm } from '#/adapter/form';
+import { useShennongForm } from '#/adapter/form';
 
 const currentTab = ref(0);
 function onFirstSubmit(values: Record<string, any>) {
@@ -23,7 +23,7 @@ function onSecondSubmit(values: Record<string, any>) {
   });
 }
 
-const [FirstForm, firstFormApi] = useVbenForm({
+const [FirstForm, firstFormApi] = useShennongForm({
   commonConfig: {
     componentProps: {
       class: 'w-full',
@@ -50,7 +50,7 @@ const [FirstForm, firstFormApi] = useVbenForm({
   },
   wrapperClass: 'grid-cols-1 md:grid-cols-1 lg:grid-cols-1',
 });
-const [SecondForm, secondFormApi] = useVbenForm({
+const [SecondForm, secondFormApi] = useShennongForm({
   commonConfig: {
     componentProps: {
       class: 'w-full',

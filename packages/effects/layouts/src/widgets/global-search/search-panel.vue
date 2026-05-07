@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { MenuRecordRaw } from '@vben/types';
+import type { MenuRecordRaw } from '@shennong/types';
 
 import { nextTick, onMounted, ref, shallowRef, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { SearchX, X } from '@vben/icons';
-import { $t } from '@vben/locales';
-import { mapTree, traverseTreeValues, uniqueByField } from '@vben/utils';
+import { SearchX, X } from '@shennong/icons';
+import { $t } from '@shennong/locales';
+import { mapTree, traverseTreeValues, uniqueByField } from '@shennong/utils';
 
-import { VbenIcon, VbenScrollbar } from '@vben-core/shadcn-ui';
-import { isHttpUrl } from '@vben-core/shared/utils';
+import { ShennongIcon, ShennongScrollbar } from '@shennong-core/shadcn-ui';
+import { isHttpUrl } from '@shennong-core/shared/utils';
 
 import { onKeyStroke, useLocalStorage, useThrottleFn } from '@vueuse/core';
 
@@ -224,7 +224,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <VbenScrollbar>
+  <ShennongScrollbar>
     <div class="flex! h-full justify-center px-2 sm:max-h-112.5">
       <!-- 无搜索结果 -->
       <div
@@ -270,7 +270,7 @@ onMounted(() => {
           @click="handleEnter"
           @mouseenter="handleMouseenter"
         >
-          <VbenIcon :icon="item.icon" class="mr-2 size-5 shrink-0" fallback />
+          <ShennongIcon :icon="item.icon" class="mr-2 size-5 shrink-0" fallback />
 
           <span class="flex-1">{{ item.name }}</span>
           <div
@@ -282,5 +282,5 @@ onMounted(() => {
         </li>
       </ul>
     </div>
-  </VbenScrollbar>
+  </ShennongScrollbar>
 </template>

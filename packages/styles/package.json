@@ -1,11 +1,11 @@
 {
-  "name": "@vben/styles",
+  "name": "@shennong/styles",
   "version": "5.7.0",
-  "homepage": "https://github.com/vbenjs/vue-vben-admin",
-  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
+  "homepage": "",
+  "bugs": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
+    "url": "",
     "directory": "packages/styles"
   },
   "license": "MIT",
@@ -37,6 +37,6 @@
     }
   },
   "dependencies": {
-    "@vben-core/design": "workspace:*"
+    "@shennong-core/design": "workspace:*"
   }
 }

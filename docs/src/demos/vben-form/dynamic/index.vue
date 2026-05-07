@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { message } from 'ant-design-vue';
 
-import { useVbenForm } from '#/adapter/form';
+import { useShennongForm } from '#/adapter/form';
 
-const [Form] = useVbenForm({
+const [Form] = useShennongForm({
   // 提交函数
   handleSubmit: onSubmit,
   schema: [

@@ -3,7 +3,7 @@ import type { TipTapPreviewProps } from './types';
 
 import { computed } from 'vue';
 
-import { cn } from '@vben-core/shared/utils';
+import { cn } from '@shennong-core/shared/utils';
 
 import './style.css';
 const props = withDefaults(defineProps<TipTapPreviewProps>(), {

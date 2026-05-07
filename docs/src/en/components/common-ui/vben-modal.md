@@ -2,14 +2,14 @@
 outline: deep
 ---
 
-# Vben Modal
+# Shennong Modal
 
-`Vben Modal` is the shared modal wrapper used by the framework. It supports draggable behavior, fullscreen mode, auto-height handling, loading state, connected components, and an imperative API.
+`Shennong Modal` is the shared modal wrapper used by the framework. It supports draggable behavior, fullscreen mode, auto-height handling, loading state, connected components, and an imperative API.
 
 ## Basic Usage
 
 ```ts
-const [Modal, modalApi] = useVbenModal({
+const [Modal, modalApi] = useShennongModal({
   // props
   // events
 });
@@ -20,7 +20,7 @@ const [Modal, modalApi] = useVbenModal({
 ## Current Usage Notes
 
 - If you use `connectedComponent`, the inner and outer components share data through `modalApi.setData()` and `modalApi.getData()`.
-- When `connectedComponent` is present, avoid pushing extra modal props through the connected side. Prefer `useVbenModal(...)` or `modalApi.setState(...)`.
+- When `connectedComponent` is present, avoid pushing extra modal props through the connected side. Prefer `useShennongModal(...)` or `modalApi.setState(...)`.
 - Default modal behavior can be adjusted in `apps/<app>/src/bootstrap.ts` through `setDefaultModalProps(...)`.
 
 ## Key Props

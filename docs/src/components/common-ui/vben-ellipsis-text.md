@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Vben EllipsisText 省略文本
+# Shennong EllipsisText 省略文本
 
 `EllipsisText` 用于展示超长文本，支持省略、Tooltip 提示以及点击展开收起。
 

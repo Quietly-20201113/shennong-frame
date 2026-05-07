@@ -3,9 +3,9 @@ import type {
   LayoutHeaderModeType,
   LayoutType,
   ThemeModeType,
-} from '@vben-core/typings';
+} from '@shennong-core/typings';
 
-interface VbenLayoutProps {
+interface ShennongLayoutProps {
   /**
    * 内容区域定宽
    * @default 'wide'
@@ -177,4 +177,4 @@ interface VbenLayoutProps {
    */
   zIndex?: number;
 }
-export type { VbenLayoutProps };
+export type { ShennongLayoutProps };

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { SupportedLanguagesType } from '@vben/locales';
+import type { SupportedLanguagesType } from '@shennong/locales';
 
-import { SUPPORT_LANGUAGES } from '@vben/constants';
-import { Languages } from '@vben/icons';
-import { loadLocaleMessages } from '@vben/locales';
-import { preferences, updatePreferences } from '@vben/preferences';
+import { SUPPORT_LANGUAGES } from '@shennong/constants';
+import { Languages } from '@shennong/icons';
+import { loadLocaleMessages } from '@shennong/locales';
+import { preferences, updatePreferences } from '@shennong/preferences';
 
-import { VbenDropdownRadioMenu, VbenIconButton } from '@vben-core/shadcn-ui';
+import { ShennongDropdownRadioMenu, ShennongIconButton } from '@shennong-core/shadcn-ui';
 
 defineOptions({
   name: 'LanguageToggle',
@@ -26,14 +26,14 @@ async function handleUpdate(value: string | undefined) {
 
 <template>
   <div>
-    <VbenDropdownRadioMenu
+    <ShennongDropdownRadioMenu
       :menus="SUPPORT_LANGUAGES"
       :model-value="preferences.app.locale"
       @update:model-value="handleUpdate"
     >
-      <VbenIconButton class="hover:animate-[shrink_0.3s_ease-in-out]">
+      <ShennongIconButton class="hover:animate-[shrink_0.3s_ease-in-out]">
         <Languages class="size-4 text-foreground" />
-      </VbenIconButton>
-    </VbenDropdownRadioMenu>
+      </ShennongIconButton>
+    </ShennongDropdownRadioMenu>
   </div>
 </template>

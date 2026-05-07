@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Vben ApiComponent Api组件包装器
+# Shennong ApiComponent Api组件包装器
 
 框架提供的API“包装器”，它一般不独立使用，主要用于包装其它组件，为目标组件提供自动获取远程数据的能力，但仍然保持了目标组件的原始用法。
 
@@ -20,7 +20,7 @@ outline: deep
 
 ```vue
 <script lang="ts" setup>
-import { ApiComponent } from '@vben/common-ui';
+import { ApiComponent } from '@shennong/common-ui';
 
 import { Cascader } from 'ant-design-vue';
 

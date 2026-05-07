@@ -2,23 +2,23 @@
 import type { SetupContext } from 'vue';
 import type { RouteLocationNormalizedLoaded } from 'vue-router';
 
-import type { MenuRecordRaw } from '@vben/types';
+import type { MenuRecordRaw } from '@shennong/types';
 
 import { computed, onMounted, useSlots, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
-import { useRefresh } from '@vben/hooks';
-import { $t, i18n } from '@vben/locales';
+import { useRefresh } from '@shennong/hooks';
+import { $t, i18n } from '@shennong/locales';
 import {
   preferences,
   updatePreferences,
   usePreferences,
-} from '@vben/preferences';
-import { useAccessStore, useTabbarStore, useTimezoneStore } from '@vben/stores';
-import { cloneDeep, mapTree } from '@vben/utils';
+} from '@shennong/preferences';
+import { useAccessStore, useTabbarStore, useTimezoneStore } from '@shennong/stores';
+import { cloneDeep, mapTree } from '@shennong/utils';
 
-import { VbenAdminLayout } from '@vben-core/layout-ui';
-import { VbenBackTop, VbenLogo } from '@vben-core/shadcn-ui';
+import { ShennongAdminLayout } from '@shennong-core/layout-ui';
+import { ShennongBackTop, ShennongLogo } from '@shennong-core/shadcn-ui';
 
 import { Breadcrumb, CheckUpdates, Preferences } from '../widgets';
 import { LayoutContent, LayoutContentSpinner } from './content';
@@ -214,7 +214,7 @@ const headerSlots = computed(() => {
 </script>
 
 <template>
-  <VbenAdminLayout
+  <ShennongAdminLayout
     v-model:sidebar-extra-visible="sidebarExtraVisible"
     :content-compact="preferences.app.contentCompact"
     :content-compact-width="preferences.app.contentCompactWidth"
@@ -274,7 +274,7 @@ const headerSlots = computed(() => {
   >
     <!-- logo -->
     <template #logo>
-      <VbenLogo
+      <ShennongLogo
         v-if="preferences.logo.enable"
         :fit="preferences.logo.fit"
         :class="logoClass"
@@ -288,7 +288,7 @@ const headerSlots = computed(() => {
         <template v-if="$slots['logo-text']" #text>
           <slot name="logo-text"></slot>
         </template>
-      </VbenLogo>
+      </ShennongLogo>
     </template>
     <!-- 头部区域 -->
     <template #header>
@@ -369,7 +369,7 @@ const headerSlots = computed(() => {
       />
     </template>
     <template #side-extra-title>
-      <VbenLogo
+      <ShennongLogo
         v-if="preferences.logo.enable"
         :fit="preferences.logo.fit"
         :text="preferences.app.name"
@@ -378,7 +378,7 @@ const headerSlots = computed(() => {
         <template v-if="$slots['logo-text']" #text>
           <slot name="logo-text"></slot>
         </template>
-      </VbenLogo>
+      </ShennongLogo>
     </template>
 
     <template #tabbar>
@@ -425,7 +425,7 @@ const headerSlots = computed(() => {
           @clear-preferences-and-logout="clearPreferencesAndLogout"
         />
       </template>
-      <VbenBackTop />
+      <ShennongBackTop />
     </template>
-  </VbenAdminLayout>
+  </ShennongAdminLayout>
 </template>

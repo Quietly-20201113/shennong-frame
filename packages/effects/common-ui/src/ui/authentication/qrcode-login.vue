@@ -2,9 +2,9 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { $t } from '@vben/locales';
+import { $t } from '@shennong/locales';
 
-import { VbenButton } from '@vben-core/shadcn-ui';
+import { ShennongButton } from '@shennong-core/shadcn-ui';
 
 import { useQRCode } from '@vueuse/integrations/useQRCode';
 
@@ -93,13 +93,13 @@ function goToLogin() {
       </p>
     </div>
 
-    <VbenButton
+    <ShennongButton
       v-if="showBack"
       class="mt-4 w-full"
       variant="outline"
       @click="goToLogin()"
     >
       {{ $t('common.back') }}
-    </VbenButton>
+    </ShennongButton>
   </div>
 </template>

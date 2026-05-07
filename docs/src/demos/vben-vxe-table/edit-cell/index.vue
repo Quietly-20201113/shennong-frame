@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { VxeGridProps } from '#/adapter/vxe-table';
 
-import { useVbenVxeGrid } from '#/adapter/vxe-table';
+import { useShennongVxeGrid } from '#/adapter/vxe-table';
 
 import { getExampleTableApi } from '../mock-api';
 
@@ -45,7 +45,7 @@ const gridOptions: VxeGridProps<RowType> = {
   showOverflow: true,
 };
 
-const [Grid] = useVbenVxeGrid({ gridOptions });
+const [Grid] = useShennongVxeGrid({ gridOptions });
 </script>
 
 <template>

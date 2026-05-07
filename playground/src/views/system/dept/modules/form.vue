@@ -3,11 +3,11 @@ import type { SystemDeptApi } from '#/api/system/dept';
 
 import { computed, ref } from 'vue';
 
-import { useVbenModal } from '@vben/common-ui';
+import { useShennongModal } from '@shennong/common-ui';
 
 import { Button } from 'ant-design-vue';
 
-import { useVbenForm } from '#/adapter/form';
+import { useShennongForm } from '#/adapter/form';
 import { createDept, updateDept } from '#/api/system/dept';
 import { $t } from '#/locales';
 
@@ -21,7 +21,7 @@ const getTitle = computed(() => {
     : $t('ui.actionTitle.create', [$t('system.dept.name')]);
 });
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useShennongForm({
   layout: 'vertical',
   schema: useSchema(),
   showDefaultActions: false,
@@ -32,7 +32,7 @@ function resetForm() {
   formApi.setValues(formData.value || {});
 }
 
-const [Modal, modalApi] = useVbenModal({
+const [Modal, modalApi] = useShennongModal({
   async onConfirm() {
     const { valid } = await formApi.validate();
     if (valid) {

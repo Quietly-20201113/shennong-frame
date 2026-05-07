@@ -1,14 +1,14 @@
 <script lang="ts" setup>
-import type { BreadcrumbStyleType } from '@vben/types';
+import type { BreadcrumbStyleType } from '@shennong/types';
 
-import type { IBreadcrumb } from '@vben-core/shadcn-ui';
+import type { IBreadcrumb } from '@shennong-core/shadcn-ui';
 
 import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
-import { $t } from '@vben/locales';
+import { $t } from '@shennong/locales';
 
-import { VbenBreadcrumbView } from '@vben-core/shadcn-ui';
+import { ShennongBreadcrumbView } from '@shennong-core/shadcn-ui';
 
 interface Props {
   hideWhenOnlyOne?: boolean;
@@ -64,7 +64,7 @@ function handleSelect(path: string) {
 }
 </script>
 <template>
-  <VbenBreadcrumbView
+  <ShennongBreadcrumbView
     :breadcrumbs="breadcrumbs"
     :show-icon="showIcon"
     :style-type="type"

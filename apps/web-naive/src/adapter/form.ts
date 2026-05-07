@@ -1,15 +1,15 @@
 import type {
-  VbenFormProps as FormProps,
-  VbenFormSchema as FormSchema,
-} from '@vben/common-ui';
+  ShennongFormProps as FormProps,
+  ShennongFormSchema as FormSchema,
+} from '@shennong/common-ui';
 
 import type { ComponentPropsMap, ComponentType } from './component';
 
-import { setupVbenForm, useVbenForm as useForm, z } from '@vben/common-ui';
-import { $t } from '@vben/locales';
+import { setupShennongForm, useShennongForm as useForm, z } from '@shennong/common-ui';
+import { $t } from '@shennong/locales';
 
-async function initSetupVbenForm() {
-  setupVbenForm<ComponentType>({
+async function initSetupShennongForm() {
+  setupShennongForm<ComponentType>({
     config: {
       // naive-ui组件的空值为null,不能是undefined，否则重置表单时不生效
       emptyStateValue: null,
@@ -37,9 +37,9 @@ async function initSetupVbenForm() {
   });
 }
 
-const useVbenForm = useForm<ComponentType, ComponentPropsMap>;
+const useShennongForm = useForm<ComponentType, ComponentPropsMap>;
 
-export { initSetupVbenForm, useVbenForm, z };
+export { initSetupShennongForm, useShennongForm, z };
 
-export type VbenFormSchema = FormSchema<ComponentType, ComponentPropsMap>;
-export type VbenFormProps = FormProps<ComponentType, ComponentPropsMap>;
+export type ShennongFormSchema = FormSchema<ComponentType, ComponentPropsMap>;
+export type ShennongFormProps = FormProps<ComponentType, ComponentPropsMap>;

@@ -3,11 +3,11 @@ import type { PlaygroundPreferencesExtension } from '#/preferences';
 
 import { computed } from 'vue';
 
-import { Page } from '@vben/common-ui';
+import { Page } from '@shennong/common-ui';
 import {
   getCustomPreferences,
   updateCustomPreferences,
-} from '@vben/preferences';
+} from '@shennong/preferences';
 
 import { Alert, Button, Card, Space, Tag } from 'ant-design-vue';
 

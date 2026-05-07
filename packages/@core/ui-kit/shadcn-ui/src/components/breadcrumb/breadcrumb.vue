@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { BreadcrumbProps } from './types';
 
-import { ChevronDown } from '@vben-core/icons';
+import { ChevronDown } from '@shennong-core/icons';
 
 import {
   Breadcrumb,
@@ -15,7 +15,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '../../ui';
-import { VbenIcon } from '../icon';
+import { ShennongIcon } from '../icon';
 
 interface Props extends BreadcrumbProps {}
 
@@ -45,7 +45,7 @@ function handleClick(path?: string) {
             <div v-if="item.items?.length ?? 0 > 0">
               <DropdownMenu>
                 <DropdownMenuTrigger class="flex items-center gap-1">
-                  <VbenIcon v-if="showIcon" :icon="item.icon" class="size-5" />
+                  <ShennongIcon v-if="showIcon" :icon="item.icon" class="size-5" />
                   {{ item.title }}
                   <ChevronDown class="size-4" />
                 </DropdownMenuTrigger>
@@ -67,7 +67,7 @@ function handleClick(path?: string) {
               @click.stop="handleClick(item.path)"
             >
               <div class="flex-center">
-                <VbenIcon
+                <ShennongIcon
                   v-if="showIcon"
                   :class="{ 'size-5': item.isHome }"
                   :icon="item.icon"
@@ -78,7 +78,7 @@ function handleClick(path?: string) {
             </BreadcrumbLink>
             <BreadcrumbPage v-else>
               <div class="flex-center">
-                <VbenIcon
+                <ShennongIcon
                   v-if="showIcon"
                   :class="{ 'size-5': item.isHome }"
                   :icon="item.icon"

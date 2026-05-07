@@ -1,10 +1,10 @@
 import type {
   ComponentRecordType,
   GenerateMenuAndRoutesOptions,
-} from '@vben/types';
+} from '@shennong/types';
 
-import { generateAccessible } from '@vben/access';
-import { preferences } from '@vben/preferences';
+import { generateAccessible } from '@shennong/access';
+import { preferences } from '@shennong/preferences';
 
 import { message } from '#/adapter/tdesign';
 import { getAllMenusApi } from '#/api';

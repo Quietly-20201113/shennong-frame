@@ -1,19 +1,19 @@
-import type { VxeTableGridOptions } from '@vben/plugins/vxe-table';
+import type { VxeTableGridOptions } from '@shennong/plugins/vxe-table';
 
 import type { ComponentPropsMap, ComponentType } from './component';
 
 import { h } from 'vue';
 
 import {
-  setupVbenVxeTable,
-  useVbenVxeGrid as useGrid,
-} from '@vben/plugins/vxe-table';
+  setupShennongVxeTable,
+  useShennongVxeGrid as useGrid,
+} from '@shennong/plugins/vxe-table';
 
 import { Button, Image } from 'ant-design-vue';
 
-import { useVbenForm } from './form';
+import { useShennongForm } from './form';
 
-setupVbenVxeTable({
+setupShennongVxeTable({
   configVxeTable: (vxeUI) => {
     vxeUI.setConfig({
       grid: {
@@ -67,11 +67,11 @@ setupVbenVxeTable({
     // 这里可以自行扩展 vxe-table 的全局配置，比如自定义格式化
     // vxeUI.formats.add
   },
-  useVbenForm,
+  useShennongForm,
 });
 
-export const useVbenVxeGrid = <T extends Record<string, any>>(
+export const useShennongVxeGrid = <T extends Record<string, any>>(
   ...rest: Parameters<typeof useGrid<T, ComponentType, ComponentPropsMap>>
 ) => useGrid<T, ComponentType, ComponentPropsMap>(...rest);
 
-export type * from '@vben/plugins/vxe-table';
+export type * from '@shennong/plugins/vxe-table';

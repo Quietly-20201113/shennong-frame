@@ -10,10 +10,10 @@ import {
   ref,
 } from 'vue';
 
-import { useStore } from '@vben-core/shared/store';
+import { useStore } from '@shennong-core/shared/store';
 
 import { ModalApi } from './modal-api';
-import VbenModal from './modal.vue';
+import ShennongModal from './modal.vue';
 
 const USER_MODAL_INJECT_KEY = Symbol('VBEN_MODAL_INJECT');
 
@@ -23,7 +23,7 @@ export function setDefaultModalProps(props: Partial<ModalProps>) {
   Object.assign(DEFAULT_MODAL_PROPS, props);
 }
 
-export function useVbenModal<TParentModalProps extends ModalProps = ModalProps>(
+export function useShennongModal<TParentModalProps extends ModalProps = ModalProps>(
   options: ModalApiOptions = {},
 ) {
   // Modal一般会抽离出来，所以如果有传入 connectedComponent，则表示为外部调用，与内部组件进行连接
@@ -66,7 +66,7 @@ export function useVbenModal<TParentModalProps extends ModalProps = ModalProps>(
       },
       // eslint-disable-next-line vue/one-component-per-file
       {
-        name: 'VbenParentModal',
+        name: 'ShennongParentModal',
         inheritAttrs: false,
       },
     );
@@ -114,7 +114,7 @@ export function useVbenModal<TParentModalProps extends ModalProps = ModalProps>(
     (props: ModalProps, { attrs, slots }) => {
       return () =>
         h(
-          VbenModal,
+          ShennongModal,
           {
             ...props,
             ...attrs,
@@ -125,7 +125,7 @@ export function useVbenModal<TParentModalProps extends ModalProps = ModalProps>(
     },
     // eslint-disable-next-line vue/one-component-per-file
     {
-      name: 'VbenModal',
+      name: 'ShennongModal',
       inheritAttrs: false,
     },
   );
@@ -152,7 +152,7 @@ async function checkProps(api: ExtendedModalApi, attrs: Record<string, any>) {
     if (stateKeys.has(attr) && !['class'].includes(attr)) {
       // connectedComponent存在时，不要传入Modal的props，会造成复杂度提升，如果你需要修改Modal的props，请使用 useModal 或者api
       console.warn(
-        `[Vben Modal]: When 'connectedComponent' exists, do not set props or slots '${attr}', which will increase complexity. If you need to modify the props of Modal, please use useVbenModal or api.`,
+        `[Shennong Modal]: When 'connectedComponent' exists, do not set props or slots '${attr}', which will increase complexity. If you need to modify the props of Modal, please use useShennongModal or api.`,
       );
     }
   }

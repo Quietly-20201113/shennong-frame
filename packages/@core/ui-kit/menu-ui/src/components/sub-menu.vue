@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import type { HoverCardContentProps } from '@vben-core/shadcn-ui';
+import type { HoverCardContentProps } from '@shennong-core/shadcn-ui';
 
 import type { MenuItemRegistered, MenuProvider, SubMenuProps } from '../types';
 
 import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue';
 
-import { useNamespace } from '@vben-core/composables';
-import { VbenHoverCard } from '@vben-core/shadcn-ui';
+import { useNamespace } from '@shennong-core/composables';
+import { ShennongHoverCard } from '@shennong-core/shadcn-ui';
 
 import {
   createSubMenuContext,
@@ -202,7 +202,7 @@ onBeforeUnmount(() => {
     @mouseleave="() => handleMouseleave()"
   >
     <template v-if="rootMenu.isMenuPopup">
-      <VbenHoverCard
+      <ShennongHoverCard
         :content-class="[
           rootMenu.theme,
           nsMenu.e('popup-container'),
@@ -244,7 +244,7 @@ onBeforeUnmount(() => {
             <slot></slot>
           </ul>
         </div>
-      </VbenHoverCard>
+      </ShennongHoverCard>
     </template>
 
     <template v-else>

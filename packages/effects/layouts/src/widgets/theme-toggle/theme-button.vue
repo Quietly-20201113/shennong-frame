@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, nextTick } from 'vue';
 
-import { VbenButton } from '@vben-core/shadcn-ui';
+import { ShennongButton } from '@shennong-core/shadcn-ui';
 
 interface Props {
   /**
@@ -83,7 +83,7 @@ function toggleTheme(event: MouseEvent) {
 </script>
 
 <template>
-  <VbenButton
+  <ShennongButton
     :aria-label="theme"
     :class="[`is-${theme}`]"
     aria-live="polite"
@@ -115,11 +115,11 @@ function toggleTheme(event: MouseEvent) {
         <line x1="18.36" x2="19.78" y1="5.64" y2="4.22" />
       </g>
     </svg>
-  </VbenButton>
+  </ShennongButton>
 </template>
 
 <style scoped>
-@reference "@vben/tailwind-config/theme";
+@reference "@shennong/tailwind-config/theme";
 
 .theme-toggle__moon > circle {
   transition: transform 0.5s cubic-bezier(0, 0, 0.3, 1);

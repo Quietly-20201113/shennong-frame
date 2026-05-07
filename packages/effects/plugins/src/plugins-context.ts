@@ -1,8 +1,8 @@
-import type { VbenPluginsOptions } from './types';
+import type { ShennongPluginsOptions } from './types';
 
-let globalPluginsOptions: null | VbenPluginsOptions = null;
+let globalPluginsOptions: null | ShennongPluginsOptions = null;
 
-export function providePluginsOptions(options: VbenPluginsOptions) {
+export function providePluginsOptions(options: ShennongPluginsOptions) {
   if (!globalPluginsOptions) {
     globalPluginsOptions = options;
     return;

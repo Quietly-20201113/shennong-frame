@@ -10,7 +10,7 @@ const loadingAssets = ['default-loading-antd.html', 'default-loading.html'];
 export default defineConfig({
   clean: true,
   deps: {
-    neverBundle: ['@vben/node-utils'],
+    neverBundle: ['@shennong/node-utils'],
     skipNodeModulesBundle: true,
   },
   dts: {

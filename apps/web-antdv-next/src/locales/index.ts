@@ -2,7 +2,7 @@ import type { Locale } from 'antdv-next/dist/locale/index';
 
 import type { App } from 'vue';
 
-import type { LocaleSetupOptions, SupportedLanguagesType } from '@vben/locales';
+import type { LocaleSetupOptions, SupportedLanguagesType } from '@shennong/locales';
 
 import { ref } from 'vue';
 
@@ -10,8 +10,8 @@ import {
   $t,
   setupI18n as coreSetup,
   loadLocalesMapFromDir,
-} from '@vben/locales';
-import { preferences } from '@vben/preferences';
+} from '@shennong/locales';
+import { preferences } from '@shennong/preferences';
 
 import antdEnLocale from 'antdv-next/dist/locale/en_US';
 import antdDefaultLocale from 'antdv-next/dist/locale/zh_CN';

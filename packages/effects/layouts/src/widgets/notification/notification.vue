@@ -1,15 +1,15 @@
 <script lang="ts" setup>
 import type { NotificationItem } from './types';
 
-import { Bell, CircleCheckBig, CircleX, MailCheck } from '@vben/icons';
-import { $t } from '@vben/locales';
+import { Bell, CircleCheckBig, CircleX, MailCheck } from '@shennong/icons';
+import { $t } from '@shennong/locales';
 
 import {
-  VbenButton,
-  VbenIconButton,
-  VbenPopover,
-  VbenScrollbar,
-} from '@vben-core/shadcn-ui';
+  ShennongButton,
+  ShennongIconButton,
+  ShennongPopover,
+  ShennongScrollbar,
+} from '@shennong-core/shadcn-ui';
 
 import { useToggle } from '@vueuse/core';
 
@@ -57,31 +57,31 @@ const handleClear = () => {
 };
 </script>
 <template>
-  <VbenPopover v-model:open="open" content-class="relative right-2 w-90 p-0">
+  <ShennongPopover v-model:open="open" content-class="relative right-2 w-90 p-0">
     <template #trigger>
       <div class="mr-2 flex-center h-full" @click.stop="toggle()">
-        <VbenIconButton class="bell-button relative text-foreground">
+        <ShennongIconButton class="bell-button relative text-foreground">
           <span
             v-if="dot"
             class="absolute top-0.5 right-0.5 size-2 rounded-sm bg-primary"
           ></span>
           <Bell class="size-4" />
-        </VbenIconButton>
+        </ShennongIconButton>
       </div>
     </template>
 
     <div class="relative">
       <div class="flex items-center justify-between p-4 py-3">
         <div class="text-foreground">{{ $t('ui.widgets.notifications') }}</div>
-        <VbenIconButton
+        <ShennongIconButton
           :disabled="notifications.length <= 0"
           :tooltip="$t('ui.widgets.markAllAsRead')"
           @click="handleMakeAll"
         >
           <MailCheck class="size-4" />
-        </VbenIconButton>
+        </ShennongIconButton>
       </div>
-      <VbenScrollbar v-if="notifications.length > 0">
+      <ShennongScrollbar v-if="notifications.length > 0">
         <ul class="flex! max-h-90 w-full flex-col">
           <template v-for="item in notifications" :key="item.id ?? item.title">
             <li
@@ -116,7 +116,7 @@ const handleClear = () => {
                 >
                   <slot name="action" :item="item">
                     <slot name="action-prepend" :item="item"></slot>
-                    <VbenIconButton
+                    <ShennongIconButton
                       v-if="!item.isRead"
                       size="xs"
                       variant="ghost"
@@ -125,8 +125,8 @@ const handleClear = () => {
                       @click.stop="emit('read', item)"
                     >
                       <CircleCheckBig class="size-4" />
-                    </VbenIconButton>
-                    <VbenIconButton
+                    </ShennongIconButton>
+                    <ShennongIconButton
                       v-if="item.isRead"
                       size="xs"
                       variant="ghost"
@@ -135,7 +135,7 @@ const handleClear = () => {
                       @click.stop="emit('remove', item)"
                     >
                       <CircleX class="size-4" />
-                    </VbenIconButton>
+                    </ShennongIconButton>
                     <slot name="action-append" :item="item"></slot>
                   </slot>
                 </div>
@@ -143,7 +143,7 @@ const handleClear = () => {
             </li>
           </template>
         </ul>
-      </VbenScrollbar>
+      </ShennongScrollbar>
 
       <template v-else>
         <div class="flex-center min-h-37.5 w-full text-muted-foreground">
@@ -154,20 +154,20 @@ const handleClear = () => {
       <div
         class="flex items-center justify-between border-t border-border px-4 py-3"
       >
-        <VbenButton
+        <ShennongButton
           :disabled="notifications.length <= 0"
           size="sm"
           variant="ghost"
           @click="handleClear"
         >
           {{ $t('ui.widgets.clearNotifications') }}
-        </VbenButton>
-        <VbenButton size="sm" @click="handleViewAll">
+        </ShennongButton>
+        <ShennongButton size="sm" @click="handleViewAll">
           {{ $t('ui.widgets.viewAll') }}
-        </VbenButton>
+        </ShennongButton>
       </div>
     </div>
-  </VbenPopover>
+  </ShennongPopover>
 </template>
 
 <style scoped>

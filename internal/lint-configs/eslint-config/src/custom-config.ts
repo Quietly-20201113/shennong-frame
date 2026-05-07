@@ -58,7 +58,7 @@ const customConfig: Linter.Config[] = [
     },
   },
   {
-    // @core内部组件，不能引入@vben/* 里面的包
+    // @core内部组件，不能引入@shennong/* 里面的包
     files: ['packages/@core/**/**'],
     ignores: restrictedImportIgnores,
     rules: {
@@ -67,7 +67,7 @@ const customConfig: Linter.Config[] = [
         {
           patterns: [
             {
-              group: ['@vben/*'],
+              group: ['@shennong/*'],
               message:
                 'The @core package cannot import the @vben package, please use the @core package itself',
             },
@@ -77,7 +77,7 @@ const customConfig: Linter.Config[] = [
     },
   },
   {
-    // @core/shared内部组件，不能引入@vben/* 或者 @vben-core/* 里面的包
+    // @core/shared内部组件，不能引入@shennong/* 或者 @shennong-core/* 里面的包
     files: ['packages/@core/base/**/**'],
     ignores: restrictedImportIgnores,
     rules: {
@@ -86,9 +86,9 @@ const customConfig: Linter.Config[] = [
         {
           patterns: [
             {
-              group: ['@vben/*', '@vben-core/*'],
+              group: ['@shennong/*', '@shennong-core/*'],
               message:
-                'The @vben-core/shared package cannot import the @vben package, please use the @core/shared package itself',
+                'The @shennong-core/shared package cannot import the @vben package, please use the @core/shared package itself',
             },
           ],
         },
@@ -97,7 +97,7 @@ const customConfig: Linter.Config[] = [
   },
 
   {
-    // 不能引入@vben/*里面的包
+    // 不能引入@shennong/*里面的包
     files: [
       'packages/types/**/**',
       'packages/utils/**/**',
@@ -115,7 +115,7 @@ const customConfig: Linter.Config[] = [
         {
           patterns: [
             {
-              group: ['@vben/*'],
+              group: ['@shennong/*'],
               message:
                 'The @vben package cannot be imported, please use the @core package itself',
             },

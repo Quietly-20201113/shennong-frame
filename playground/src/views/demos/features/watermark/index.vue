@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { Page } from '@vben/common-ui';
-import { useWatermark } from '@vben/hooks';
+import { Page } from '@shennong/common-ui';
+import { useWatermark } from '@shennong/hooks';
 
 import { Button, Card } from 'ant-design-vue';
 

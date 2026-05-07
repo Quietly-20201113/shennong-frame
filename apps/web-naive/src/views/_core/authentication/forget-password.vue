@@ -1,20 +1,20 @@
 <script lang="ts" setup>
-import type { VbenFormSchema } from '@vben/common-ui';
-import type { Recordable } from '@vben/types';
+import type { ShennongFormSchema } from '@shennong/common-ui';
+import type { Recordable } from '@shennong/types';
 
 import { computed, ref } from 'vue';
 
-import { AuthenticationForgetPassword, z } from '@vben/common-ui';
-import { $t } from '@vben/locales';
+import { AuthenticationForgetPassword, z } from '@shennong/common-ui';
+import { $t } from '@shennong/locales';
 
 defineOptions({ name: 'ForgetPassword' });
 
 const loading = ref(false);
 
-const formSchema = computed((): VbenFormSchema[] => {
+const formSchema = computed((): ShennongFormSchema[] => {
   return [
     {
-      component: 'VbenInput',
+      component: 'ShennongInput',
       componentProps: {
         placeholder: 'example@example.com',
       },

@@ -53,19 +53,19 @@ npm 脚本是项目常见的配置，用于执行一些常见的任务，比如�
     // 构建本地 docker 镜像
     "build:docker": "./scripts/deploy/build-local-docker-image.sh",
     // 单独构建 web-antd 应用
-    "build:antd": "pnpm run build --filter=@vben/web-antd",
+    "build:antd": "pnpm run build --filter=@shennong/web-antd",
     // 单独构建 web-antdv-next 应用
-    "build:antdv-next": "pnpm run build --filter=@vben/web-antdv-next",
+    "build:antdv-next": "pnpm run build --filter=@shennong/web-antdv-next",
     // 单独构建文档
-    "build:docs": "pnpm run build --filter=@vben/docs",
+    "build:docs": "pnpm run build --filter=@shennong/docs",
     // 单独构建 web-ele 应用
-    "build:ele": "pnpm run build --filter=@vben/web-ele",
+    "build:ele": "pnpm run build --filter=@shennong/web-ele",
     // 单独构建 web-naive 应用
-    "build:naive": "pnpm run build --filter=@vben/web-naive",
+    "build:naive": "pnpm run build --filter=@shennong/web-naive",
     // 单独构建 web-tdesign 应用
-    "build:tdesign": "pnpm run build --filter=@vben/web-tdesign",
+    "build:tdesign": "pnpm run build --filter=@shennong/web-tdesign",
     // 单独构建 playground 应用
-    "build:play": "pnpm run build --filter=@vben/playground",
+    "build:play": "pnpm run build --filter=@shennong/playground",
     // changeset 版本管理
     "changeset": "pnpm exec changeset",
     // 检查项目各种问题
@@ -85,19 +85,19 @@ npm 脚本是项目常见的配置，用于执行一些常见的任务，比如�
     // 启动项目（默认会运行整个仓库所有包的 dev 脚本）
     "dev": "turbo-run dev",
     // 启动 web-antd 应用
-    "dev:antd": "pnpm -F @vben/web-antd run dev",
+    "dev:antd": "pnpm -F @shennong/web-antd run dev",
     // 启动 web-antdv-next 应用
-    "dev:antdv-next": "pnpm -F @vben/web-antdv-next run dev",
+    "dev:antdv-next": "pnpm -F @shennong/web-antdv-next run dev",
     // 启动文档
-    "dev:docs": "pnpm -F @vben/docs run dev",
+    "dev:docs": "pnpm -F @shennong/docs run dev",
     // 启动 web-ele 应用
-    "dev:ele": "pnpm -F @vben/web-ele run dev",
+    "dev:ele": "pnpm -F @shennong/web-ele run dev",
     // 启动 web-naive 应用
-    "dev:naive": "pnpm -F @vben/web-naive run dev",
+    "dev:naive": "pnpm -F @shennong/web-naive run dev",
     // 启动 web-tdesign 应用
-    "dev:tdesign": "pnpm -F @vben/web-tdesign run dev",
+    "dev:tdesign": "pnpm -F @shennong/web-tdesign run dev",
     // 启动演示应用
-    "dev:play": "pnpm -F @vben/playground run dev",
+    "dev:play": "pnpm -F @shennong/playground run dev",
     // 格式化代码
     "format": "vsh lint --format",
     // lint 代码
@@ -178,7 +178,7 @@ pnpm dev:docs
 
 此时可以修改三个文件，在其中增加对应的脚本配置来达到区分生产环境的效果。
 
-以 `@vben/web-antd` 添加测试环境 `test` 为例：
+以 `@shennong/web-antd` 添加测试环境 `test` 为例：
 
 - `apps\web-antd\package.json`
 
@@ -201,8 +201,8 @@ pnpm dev:docs
 "scripts": {
     "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 turbo build",
     "build:analyze": "turbo build:analyze",
-    "build:antd": "pnpm run build --filter=@vben/web-antd",
-    "build-test:antd": "pnpm run build --filter=@vben/web-antd build:test",
+    "build:antd": "pnpm run build --filter=@shennong/web-antd",
+    "build-test:antd": "pnpm run build --filter=@shennong/web-antd build:test",
 
     ······
 }
@@ -225,11 +225,11 @@ pnpm dev:docs
     },
 
     "build-test:antd": {
-      "dependsOn": ["@vben/web-antd#build:test"],
+      "dependsOn": ["@shennong/web-antd#build:test"],
       "outputs": ["dist/**"]
     },
 
-    "@vben/web-antd#build:test": {
+    "@shennong/web-antd#build:test": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },

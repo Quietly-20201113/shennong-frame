@@ -1,12 +1,12 @@
 {
-  "name": "@vben-core/tabs-ui",
+  "name": "@shennong-core/tabs-ui",
   "version": "5.7.0",
-  "homepage": "https://github.com/vbenjs/vue-vben-admin",
-  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
+  "homepage": "",
+  "bugs": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
-    "directory": "packages/@vben-core/uikit/tabs-ui"
+    "url": "",
+    "directory": "packages/@shennong-core/uikit/tabs-ui"
   },
   "license": "MIT",
   "type": "module",
@@ -40,11 +40,11 @@
     }
   },
   "dependencies": {
-    "@vben-core/composables": "workspace:*",
-    "@vben-core/design": "workspace:*",
-    "@vben-core/icons": "workspace:*",
-    "@vben-core/shadcn-ui": "workspace:*",
-    "@vben-core/typings": "workspace:*",
+    "@shennong-core/composables": "workspace:*",
+    "@shennong-core/design": "workspace:*",
+    "@shennong-core/icons": "workspace:*",
+    "@shennong-core/shadcn-ui": "workspace:*",
+    "@shennong-core/typings": "workspace:*",
     "@vueuse/core": "catalog:",
     "vue": "catalog:"
   },

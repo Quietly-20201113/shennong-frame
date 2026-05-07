@@ -60,7 +60,7 @@ const externalRoutes: RouteRecordRaw[] = mergeRouteModules(externalRouteFiles); 
 ```ts
 import type { RouteRecordRaw } from 'vue-router';
 
-import { VBEN_LOGO_URL } from '@vben/constants';
+import { SHENNONG_LOGO_URL } from '@shennong/constants';
 
 import { $t } from '#/locales';
 
@@ -69,16 +69,16 @@ const routes: RouteRecordRaw[] = [
     meta: {
       badgeType: 'dot',
       badgeVariants: 'destructive',
-      icon: VBEN_LOGO_URL,
+      icon: SHENNONG_LOGO_URL,
       order: 9999,
       title: $t('page.vben.title'),
     },
-    name: 'VbenProject',
+    name: 'ShennongProject',
     path: '/vben-admin',
     redirect: '/vben-admin/about',
     children: [
       {
-        name: 'VbenAbout',
+        name: 'ShennongAbout',
         path: '/vben-admin/about',
         component: () => import('#/views/_core/about/index.vue'),
         meta: {
@@ -231,7 +231,7 @@ export default routes;
 ```ts
 import type { RouteRecordRaw } from 'vue-router';
 
-import { VBEN_LOGO_URL } from '@vben/constants';
+import { SHENNONG_LOGO_URL } from '@shennong/constants';
 
 import { $t } from '#/locales';
 
@@ -612,7 +612,7 @@ _注意:_ 排序仅针对一级菜单有效，二级菜单的排序需要在对�
 
 ```vue
 <script setup lang="ts">
-import { useRefresh } from '@vben/hooks';
+import { useRefresh } from '@shennong/hooks';
 
 const { refresh } = useRefresh();
 

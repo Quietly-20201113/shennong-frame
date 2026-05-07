@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Vben Drawer 抽屉
+# Shennong Drawer 抽屉
 
 框架提供的抽屉组件，支持`自动高度`、`loading`等功能。
 
@@ -22,7 +22,7 @@ outline: deep
 
 ## 基础用法
 
-使用 `useVbenDrawer` 创建最基础的抽屉。
+使用 `useShennongDrawer` 创建最基础的抽屉。
 
 <DemoPreview dir="demos/vben-drawer/basic" />
 
@@ -52,8 +52,8 @@ Drawer 内的内容一般业务中，会比较复杂，所以我们可以将 dra
 
 ::: info 注意
 
-- `VbenDrawer` 组件对于参数的处理优先级是 `slot` > `props` > `state`(通过api更新的状态以及useVbenDrawer参数)。如果你已经传入了 `slot` 或者 `props`，那么 `setState` 将不会生效，这种情况下你可以通过 `slot` 或者 `props` 来更新状态。
-- 如果你使用到了 `connectedComponent` 参数，那么会存在 2 个`useVbenDrawer`, 此时，如果同时设置了相同的参数，那么以内部为准（也就是没有设置 connectedComponent 的代码）。比如 同时设置了 `onConfirm`，那么以内部的 `onConfirm` 为准。`onOpenChange`事件除外，内外都会触发。
+- `ShennongDrawer` 组件对于参数的处理优先级是 `slot` > `props` > `state`(通过api更新的状态以及useShennongDrawer参数)。如果你已经传入了 `slot` 或者 `props`，那么 `setState` 将不会生效，这种情况下你可以通过 `slot` 或者 `props` 来更新状态。
+- 如果你使用到了 `connectedComponent` 参数，那么会存在 2 个`useShennongDrawer`, 此时，如果同时设置了相同的参数，那么以内部为准（也就是没有设置 connectedComponent 的代码）。比如 同时设置了 `onConfirm`，那么以内部的 `onConfirm` 为准。`onOpenChange`事件除外，内外都会触发。
 - 使用了`connectedComponent`参数时，可以配置`destroyOnClose`属性来决定当关闭弹窗时，是否要销毁`connectedComponent`组件（重新创建`connectedComponent`组件，这将会把其内部所有的变量、状态、数据等恢复到初始状态。）。
 - 如果抽屉的默认行为不符合你的预期，可以在对应应用的 `apps/<app>/src/bootstrap.ts` 中修改 `setDefaultDrawerProps` 的参数来设置默认属性，例如修改默认 `zIndex` 等。
 
@@ -64,7 +64,7 @@ Drawer 内的内容一般业务中，会比较复杂，所以我们可以将 dra
 ```ts
 // Drawer 为弹窗组件
 // drawerApi 为弹窗的方法
-const [Drawer, drawerApi] = useVbenDrawer({
+const [Drawer, drawerApi] = useShennongDrawer({
   // 属性
   // 事件
 });
@@ -72,7 +72,7 @@ const [Drawer, drawerApi] = useVbenDrawer({
 
 ### Props
 
-所有属性都可以传入 `useVbenDrawer` 的第一个参数中。
+所有属性都可以传入 `useShennongDrawer` 的第一个参数中。
 
 | 属性名 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -112,7 +112,7 @@ const [Drawer, drawerApi] = useVbenDrawer({
 
 ### Event
 
-以下事件，只有在 `useVbenDrawer({onCancel:()=>{}})` 中传入才会生效。
+以下事件，只有在 `useShennongDrawer({onCancel:()=>{}})` 中传入才会生效。
 
 | 事件名 | 描述 | 类型 | 版本限制 |
 | --- | --- | --- | --- |

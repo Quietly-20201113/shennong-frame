@@ -2,13 +2,13 @@ import type { VxeGridSlots, VxeGridSlotTypes } from 'vxe-table';
 
 import type { SlotsType } from 'vue';
 
-import type { BaseFormComponentType } from '@vben-core/form-ui';
+import type { BaseFormComponentType } from '@shennong-core/form-ui';
 
 import type { ExtendedVxeGridApi, VxeGridProps } from './types';
 
 import { defineComponent, h, onBeforeUnmount } from 'vue';
 
-import { useStore } from '@vben-core/shared/store';
+import { useStore } from '@shennong-core/shared/store';
 
 import { VxeGridApi } from './api';
 import VxeGrid from './use-vxe-grid.vue';
@@ -19,7 +19,7 @@ type FilteredSlots<T> = {
     : K]: VxeGridSlots<T>[K];
 };
 
-export function useVbenVxeGrid<
+export function useShennongVxeGrid<
   T extends Record<string, any> = any,
   D extends BaseFormComponentType = BaseFormComponentType,
   P extends Record<string, any> = Record<never, never>,
@@ -53,7 +53,7 @@ export function useVbenVxeGrid<
         );
     },
     {
-      name: 'VbenVxeGrid',
+      name: 'ShennongVxeGrid',
       inheritAttrs: false,
       slots: Object as SlotsType<
         {
@@ -81,4 +81,4 @@ export function useVbenVxeGrid<
   return [Grid, extendedApi] as const;
 }
 
-export type UseVbenVxeGrid = typeof useVbenVxeGrid;
+export type UseShennongVxeGrid = typeof useShennongVxeGrid;

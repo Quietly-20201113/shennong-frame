@@ -16,7 +16,7 @@ import {
   watch,
 } from 'vue';
 
-import { ChevronsDown, CircleAlert } from '@vben-core/icons';
+import { ChevronsDown, CircleAlert } from '@shennong-core/icons';
 import {
   Button,
   FormControl,
@@ -24,11 +24,11 @@ import {
   FormField,
   FormItem,
   FormMessage,
-  VbenCollapsible,
-  VbenRenderContent,
-  VbenTooltip,
-} from '@vben-core/shadcn-ui';
-import { cn, isFunction, isObject, isString } from '@vben-core/shared/utils';
+  ShennongCollapsible,
+  ShennongRenderContent,
+  ShennongTooltip,
+} from '@shennong-core/shadcn-ui';
+import { cn, isFunction, isObject, isString } from '@shennong-core/shared/utils';
 
 import { toTypedSchema } from '@vee-validate/zod';
 import { useFieldError, useFormValues } from 'vee-validate';
@@ -368,7 +368,7 @@ onUnmounted(() => {
         :style="labelStyle"
       >
         <template v-if="label">
-          <VbenRenderContent :content="label" />
+          <ShennongRenderContent :content="label" />
         </template>
         <template #extra>
           <Button
@@ -389,7 +389,7 @@ onUnmounted(() => {
         </template>
       </FormLabel>
       <div class="flex-auto overflow-hidden p-px">
-        <VbenCollapsible :show-trigger="false" v-model:open="collapseOpen">
+        <ShennongCollapsible :show-trigger="false" v-model:open="collapseOpen">
           <template #collapsibleContent>
             <div :class="cn('relative flex w-full items-center', wrapperClass)">
               <FormControl :class="cn(controlClass)">
@@ -416,14 +416,14 @@ onUnmounted(() => {
                       :key="name"
                       #[name]="renderSlotProps"
                     >
-                      <VbenRenderContent
+                      <ShennongRenderContent
                         :content="customContentRender[name]"
                         v-bind="{ ...renderSlotProps, formContext: slotProps }"
                       />
                     </template>
                     <!-- <slot></slot> -->
                   </component>
-                  <VbenTooltip
+                  <ShennongTooltip
                     v-if="compact && isInValid"
                     :delay-duration="300"
                     side="left"
@@ -440,19 +440,19 @@ onUnmounted(() => {
                       </slot>
                     </template>
                     <FormMessage />
-                  </VbenTooltip>
+                  </ShennongTooltip>
                 </slot>
               </FormControl>
               <!-- 自定义后缀 -->
               <div v-if="suffix" class="ml-1">
-                <VbenRenderContent :content="suffix" />
+                <ShennongRenderContent :content="suffix" />
               </div>
             </div>
           </template>
-        </VbenCollapsible>
+        </ShennongCollapsible>
 
         <FormDescription v-if="description" class="text-xs">
-          <VbenRenderContent :content="description" />
+          <ShennongRenderContent :content="description" />
         </FormDescription>
 
         <Transition name="slide-up" v-if="!compact">

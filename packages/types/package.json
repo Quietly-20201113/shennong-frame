@@ -1,11 +1,11 @@
 {
-  "name": "@vben/types",
+  "name": "@shennong/types",
   "version": "5.7.0",
-  "homepage": "https://github.com/vbenjs/vue-vben-admin",
-  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
+  "homepage": "",
+  "bugs": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
+    "url": "",
     "directory": "packages/types"
   },
   "license": "MIT",
@@ -20,7 +20,7 @@
     }
   },
   "dependencies": {
-    "@vben-core/typings": "workspace:*",
+    "@shennong-core/typings": "workspace:*",
     "vue": "catalog:",
     "vue-router": "catalog:"
   }

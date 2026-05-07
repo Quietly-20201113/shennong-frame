@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useVbenDrawer, VbenButton } from '@vben/common-ui';
+import { useShennongDrawer, ShennongButton } from '@shennong/common-ui';
 
-const [Drawer, drawerApi] = useVbenDrawer({
+const [Drawer, drawerApi] = useShennongDrawer({
   onCancel() {
     drawerApi.close();
   },
@@ -18,9 +18,9 @@ function handleUpdateTitle() {
 <template>
   <Drawer>
     <div class="flex-col-center">
-      <VbenButton class="mb-3" type="primary" @click="handleUpdateTitle()">
+      <ShennongButton class="mb-3" type="primary" @click="handleUpdateTitle()">
         内部动态修改标题
-      </VbenButton>
+      </ShennongButton>
     </div>
   </Drawer>
 </template>

@@ -1,5 +1,5 @@
 name: 🐞 Bug Report
-description: Report an issue with Vben Admin to help us make it better.
+description: Report an issue with Shennong Admin to help us make it better.
 title: 'Bug: '
 labels: ['bug: pending triage']
 
@@ -14,8 +14,8 @@ body:
       label: Version
       description: What version of our software are you running?
       options:
-        - Vben Admin V5
-        - Vben Admin V2
+        - Shennong Admin V5
+        - Shennong Admin V2
       default: 0
     validations:
       required: true

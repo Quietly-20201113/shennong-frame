@@ -1,8 +1,8 @@
 import type { Component, VNode, VNodeArrayChildren } from 'vue';
 
-import type { Recordable } from '@vben-core/typings';
+import type { Recordable } from '@shennong-core/typings';
 
-import { createContext } from '@vben-core/shadcn-ui';
+import { createContext } from '@shennong-core/shadcn-ui';
 
 export type IconType = 'error' | 'info' | 'question' | 'success' | 'warning';
 
@@ -84,7 +84,7 @@ export type AlertContext = {
 };
 
 export const [injectAlertContext, provideAlertContext] =
-  createContext<AlertContext>('VbenAlertContext');
+  createContext<AlertContext>('ShennongAlertContext');
 
 /**
  * 获取Alert上下文

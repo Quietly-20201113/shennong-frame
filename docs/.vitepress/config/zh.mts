@@ -5,7 +5,7 @@ import { defineConfig } from 'vitepress';
 import { version } from '../../../package.json';
 
 export const zh = defineConfig({
-  description: 'Vben Admin & 企业级管理系统框架',
+  description: 'Shennong Admin & 企业级管理系统框架',
   lang: 'zh-Hans',
   themeConfig: {
     darkModeSwitchLabel: '主题',
@@ -20,7 +20,7 @@ export const zh = defineConfig({
       text: '在 GitHub 上编辑此页面',
     },
     footer: {
-      copyright: `Copyright © 2020-${new Date().getFullYear()} Vben`,
+      copyright: `Copyright © 2020-${new Date().getFullYear()} Shennong`,
       message: '基于 MIT 许可发布.',
     },
     langMenuLabel: '多语言',
@@ -56,7 +56,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       items: [
         {
           link: 'introduction/vben',
-          text: '关于 Vben Admin',
+          text: '关于 Shennong Admin',
         },
         {
           link: 'introduction/why',
@@ -232,7 +232,7 @@ function nav(): DefaultTheme.NavItem[] {
       text: '演示',
       items: [
         {
-          text: 'Vben Admin',
+          text: 'Shennong Admin',
           items: [
             {
               link: 'https://www.vben.pro',
@@ -257,7 +257,7 @@ function nav(): DefaultTheme.NavItem[] {
           items: [
             {
               link: 'https://vben.vvbin.cn',
-              text: 'Vben Admin 2.x',
+              text: 'Shennong Admin 2.x',
             },
           ],
         },

@@ -1,4 +1,4 @@
-import type { Recordable } from '@vben/types';
+import type { Recordable } from '@shennong/types';
 
 /**
  * 一个缓存对象，在不刷新页面时，无需重复请求远程接口

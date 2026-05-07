@@ -3,7 +3,7 @@ import type { VxeGridListeners, VxeGridProps } from '#/adapter/vxe-table';
 
 import { Button, message } from 'ant-design-vue';
 
-import { useVbenVxeGrid } from '#/adapter/vxe-table';
+import { useShennongVxeGrid } from '#/adapter/vxe-table';
 
 import { MOCK_TABLE_DATA } from '../table-data';
 
@@ -40,7 +40,7 @@ const gridEvents: VxeGridListeners<RowType> = {
   },
 };
 
-const [Grid, gridApi] = useVbenVxeGrid({ gridEvents, gridOptions });
+const [Grid, gridApi] = useShennongVxeGrid({ gridEvents, gridOptions });
 
 const showBorder = gridApi.useStore((state) => state.gridOptions?.border);
 const showStripe = gridApi.useStore((state) => state.gridOptions?.stripe);

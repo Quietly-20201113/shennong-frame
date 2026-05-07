@@ -3,7 +3,7 @@ import type { VxeGridProps } from '#/adapter/vxe-table';
 
 import { onMounted } from 'vue';
 
-import { useVbenVxeGrid } from '#/adapter/vxe-table';
+import { useShennongVxeGrid } from '#/adapter/vxe-table';
 
 interface RowType {
   id: number;
@@ -31,7 +31,7 @@ const gridOptions: VxeGridProps<RowType> = {
   showOverflow: true,
 };
 
-const [Grid, gridApi] = useVbenVxeGrid({ gridOptions });
+const [Grid, gridApi] = useShennongVxeGrid({ gridOptions });
 
 // 模拟行数据
 const loadList = (size = 200) => {

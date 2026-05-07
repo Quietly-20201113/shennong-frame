@@ -52,17 +52,17 @@ After slimming down, you may need to adjust commands according to your project. 
 ```json
 {
   "scripts": {
-    "build:antd": "pnpm run build --filter=@vben/web-antd",
-    "build:docs": "pnpm run build --filter=@vben/docs",
-    "build:ele": "pnpm run build --filter=@vben/web-ele",
-    "build:naive": "pnpm run build --filter=@vben/web-naive",
-    "build:tdesign": "pnpm run build --filter=@vben/web-tdesign",
-    "build:play": "pnpm run build --filter=@vben/playground",
-    "dev:antd": "pnpm -F @vben/web-antd run dev",
-    "dev:docs": "pnpm -F @vben/docs run dev",
-    "dev:ele": "pnpm -F @vben/web-ele run dev",
-    "dev:play": "pnpm -F @vben/playground run dev",
-    "dev:naive": "pnpm -F @vben/web-naive run dev"
+    "build:antd": "pnpm run build --filter=@shennong/web-antd",
+    "build:docs": "pnpm run build --filter=@shennong/docs",
+    "build:ele": "pnpm run build --filter=@shennong/web-ele",
+    "build:naive": "pnpm run build --filter=@shennong/web-naive",
+    "build:tdesign": "pnpm run build --filter=@shennong/web-tdesign",
+    "build:play": "pnpm run build --filter=@shennong/playground",
+    "dev:antd": "pnpm -F @shennong/web-antd run dev",
+    "dev:docs": "pnpm -F @shennong/docs run dev",
+    "dev:ele": "pnpm -F @shennong/web-ele run dev",
+    "dev:play": "pnpm -F @shennong/playground run dev",
+    "dev:naive": "pnpm -F @shennong/web-naive run dev"
   }
 }
 ```

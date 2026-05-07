@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-import { useVbenDrawer } from '@vben/common-ui';
+import { useShennongDrawer } from '@shennong/common-ui';
 
 const data = ref();
 
-const [Drawer, drawerApi] = useVbenDrawer({
+const [Drawer, drawerApi] = useShennongDrawer({
   onCancel() {
     drawerApi.close();
   },

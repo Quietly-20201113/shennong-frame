@@ -3,7 +3,7 @@ import type { ScrollAreaScrollbarProps } from 'reka-ui';
 
 import { computed } from 'vue';
 
-import { cn } from '@vben-core/shared/utils';
+import { cn } from '@shennong-core/shared/utils';
 
 import { ScrollAreaScrollbar, ScrollAreaThumb } from 'reka-ui';
 

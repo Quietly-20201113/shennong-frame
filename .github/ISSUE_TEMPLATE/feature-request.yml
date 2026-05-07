@@ -1,5 +1,5 @@
 name: ✨ New Feature Proposal
-description: Propose a new feature to be added to Vben Admin
+description: Propose a new feature to be added to Shennong Admin
 title: 'FEATURE: '
 labels: ['enhancement: pending triage']
 body:
@@ -13,8 +13,8 @@ body:
       label: Version
       description: What version of our software are you running?
       options:
-        - Vben Admin V5
-        - Vben Admin V2
+        - Shennong Admin V5
+        - Shennong Admin V2
       default: 0
     validations:
       required: true

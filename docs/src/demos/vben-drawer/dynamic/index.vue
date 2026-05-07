@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { useVbenDrawer, VbenButton } from '@vben/common-ui';
+import { useShennongDrawer, ShennongButton } from '@shennong/common-ui';
 
 import ExtraDrawer from './drawer.vue';
 
-const [Drawer, drawerApi] = useVbenDrawer({
+const [Drawer, drawerApi] = useShennongDrawer({
   // 连接抽离的组件
   connectedComponent: ExtraDrawer,
 });
@@ -21,9 +21,9 @@ function handleUpdateTitle() {
   <div>
     <Drawer />
 
-    <VbenButton @click="open">Open</VbenButton>
-    <VbenButton class="ml-2" type="primary" @click="handleUpdateTitle">
+    <ShennongButton @click="open">Open</ShennongButton>
+    <ShennongButton class="ml-2" type="primary" @click="handleUpdateTitle">
       从外部修改标题并打开
-    </VbenButton>
+    </ShennongButton>
   </div>
 </template>

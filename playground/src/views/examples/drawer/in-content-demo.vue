@@ -1,15 +1,15 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-import { useVbenDrawer } from '@vben/common-ui';
+import { useShennongDrawer } from '@shennong/common-ui';
 
 import { Input, message } from 'ant-design-vue';
 
-import { useVbenForm } from '#/adapter/form';
+import { useShennongForm } from '#/adapter/form';
 
 const value = ref('');
 
-const [Form] = useVbenForm({
+const [Form] = useShennongForm({
   schema: [
     {
       component: 'Input',
@@ -24,7 +24,7 @@ const [Form] = useVbenForm({
   showDefaultActions: false,
 });
 
-const [Drawer, drawerApi] = useVbenDrawer({
+const [Drawer, drawerApi] = useShennongDrawer({
   destroyOnClose: false,
   onCancel() {
     drawerApi.close();

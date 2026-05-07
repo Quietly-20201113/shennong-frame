@@ -6,8 +6,8 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-  VbenCheckbox,
-} from '@vben-core/shadcn-ui';
+  ShennongCheckbox,
+} from '@shennong-core/shadcn-ui';
 
 interface Props {
   items?: WorkbenchTodoItem[];
@@ -39,7 +39,7 @@ withDefaults(defineProps<Props>(), {
           class="flex cursor-pointer justify-between gap-x-6 py-5"
         >
           <div class="flex min-w-0 items-center gap-x-4">
-            <VbenCheckbox v-model="item.completed" name="completed" />
+            <ShennongCheckbox v-model="item.completed" name="completed" />
             <div class="min-w-0 flex-auto">
               <p class="text-sm/6 font-semibold text-foreground">
                 {{ item.title }}

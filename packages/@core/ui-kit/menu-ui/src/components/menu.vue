@@ -21,8 +21,8 @@ import {
   watchEffect,
 } from 'vue';
 
-import { useNamespace } from '@vben-core/composables';
-import { Ellipsis } from '@vben-core/icons';
+import { useNamespace } from '@shennong-core/composables';
+import { Ellipsis } from '@shennong-core/icons';
 
 import { useResizeObserver } from '@vueuse/core';
 

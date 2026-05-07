@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 
-import { SvgDingDingIcon } from '@vben/icons';
-import { $t } from '@vben/locales';
+import { SvgDingDingIcon } from '@shennong/icons';
+import { $t } from '@shennong/locales';
 
-import { alert, useVbenModal } from '@vben-core/popup-ui';
-import { VbenIconButton } from '@vben-core/shadcn-ui';
-import { loadScript } from '@vben-core/shared/utils';
+import { alert, useShennongModal } from '@shennong-core/popup-ui';
+import { ShennongIconButton } from '@shennong-core/shadcn-ui';
+import { loadScript } from '@shennong-core/shared/utils';
 
 interface Props {
   clientId: string;
@@ -21,7 +21,7 @@ const props = defineProps<Props>();
 
 const route = useRoute();
 
-const [Modal, modalApi] = useVbenModal({
+const [Modal, modalApi] = useShennongModal({
   header: false,
   footer: false,
   fullscreenButton: false,
@@ -91,13 +91,13 @@ const handleLogin = () => {
 
 <template>
   <div>
-    <VbenIconButton
+    <ShennongIconButton
       @click="handleLogin"
       :tooltip="$t('authentication.dingdingLogin')"
       tooltip-side="top"
     >
       <SvgDingDingIcon />
-    </VbenIconButton>
+    </ShennongIconButton>
     <Modal>
       <div id="dingding_qrcode_login_element"></div>
     </Modal>

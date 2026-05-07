@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { message } from 'ant-design-vue';
 
-import { useVbenForm } from '#/adapter/form';
+import { useShennongForm } from '#/adapter/form';
 
-const [BaseForm] = useVbenForm({
+const [BaseForm] = useShennongForm({
   // 所有表单项共用，可单独在表单内覆盖
   commonConfig: {
     // 所有表单项

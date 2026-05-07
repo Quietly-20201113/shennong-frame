@@ -21,7 +21,7 @@
 
 当前项目不会根据某个包下是否存在 `tailwind.config.mjs` 来决定是否启用 Tailwind CSS。
 
-应用和包统一复用 `@vben/vite-config`，并由该配置接入 `@tailwindcss/vite`。Tailwind 的扫描范围则统一在 `@vben/tailwind-config` 对应的 `internal/tailwind-config/src/theme.css` 中维护。
+应用和包统一复用 `@shennong/vite-config`，并由该配置接入 `@tailwindcss/vite`。Tailwind 的扫描范围则统一在 `@shennong/tailwind-config` 对应的 `internal/tailwind-config/src/theme.css` 中维护。
 
 ::: tip 包使用 Tailwind CSS 的说明
 
@@ -35,4 +35,4 @@
 
 - `internal/vite-config/src/plugins/tailwind-reference.ts`
 
-当组件样式中使用 `@apply` 时，会自动注入 `@reference "@vben/tailwind-config/theme"`，一般不需要手动补充。
+当组件样式中使用 `@apply` 时，会自动注入 `@reference "@shennong/tailwind-config/theme"`，一般不需要手动补充。

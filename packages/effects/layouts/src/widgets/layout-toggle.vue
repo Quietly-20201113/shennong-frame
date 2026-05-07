@@ -1,25 +1,25 @@
 <script setup lang="ts">
-import type { AuthPageLayoutType } from '@vben/types';
+import type { AuthPageLayoutType } from '@shennong/types';
 
-import type { VbenDropdownMenuItem } from '@vben-core/shadcn-ui';
+import type { ShennongDropdownMenuItem } from '@shennong-core/shadcn-ui';
 
 import { computed } from 'vue';
 
-import { InspectionPanel, PanelLeft, PanelRight } from '@vben/icons';
-import { $t } from '@vben/locales';
+import { InspectionPanel, PanelLeft, PanelRight } from '@shennong/icons';
+import { $t } from '@shennong/locales';
 import {
   preferences,
   updatePreferences,
   usePreferences,
-} from '@vben/preferences';
+} from '@shennong/preferences';
 
-import { VbenDropdownRadioMenu, VbenIconButton } from '@vben-core/shadcn-ui';
+import { ShennongDropdownRadioMenu, ShennongIconButton } from '@shennong-core/shadcn-ui';
 
 defineOptions({
   name: 'AuthenticationLayoutToggle',
 });
 
-const menus = computed((): VbenDropdownMenuItem[] => [
+const menus = computed((): ShennongDropdownMenuItem[] => [
   {
     icon: PanelLeft,
     label: $t('authentication.layout.alignLeft'),
@@ -50,15 +50,15 @@ function handleUpdate(value: string | undefined) {
 </script>
 
 <template>
-  <VbenDropdownRadioMenu
+  <ShennongDropdownRadioMenu
     :menus="menus"
     :model-value="preferences.app.authPageLayout"
     @update:model-value="handleUpdate"
   >
-    <VbenIconButton>
+    <ShennongIconButton>
       <PanelRight v-if="authPanelRight" class="size-4" />
       <PanelLeft v-if="authPanelLeft" class="size-4" />
       <InspectionPanel v-if="authPanelCenter" class="size-4" />
-    </VbenIconButton>
-  </VbenDropdownRadioMenu>
+    </ShennongIconButton>
+  </ShennongDropdownRadioMenu>
 </template>

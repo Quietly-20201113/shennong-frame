@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { Page } from '@vben/common-ui';
+import { Page } from '@shennong/common-ui';
 
 import { Card, message } from 'ant-design-vue';
 
-import { useVbenForm } from '#/adapter/form';
+import { useShennongForm } from '#/adapter/form';
 
-const [QueryForm] = useVbenForm({
+const [QueryForm] = useShennongForm({
   // 默认展开
   collapsed: false,
   // 所有表单项共用，可单独在表单内覆盖
@@ -86,7 +86,7 @@ const [QueryForm] = useVbenForm({
   wrapperClass: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
 });
 
-const [InlineForm] = useVbenForm({
+const [InlineForm] = useShennongForm({
   layout: 'inline',
   schema: [
     {
@@ -142,7 +142,7 @@ const [InlineForm] = useVbenForm({
   ],
 });
 
-const [QueryForm1] = useVbenForm({
+const [QueryForm1] = useShennongForm({
   // 默认展开
   collapsed: true,
   collapsedRows: 2,
@@ -181,7 +181,7 @@ const [QueryForm1] = useVbenForm({
   wrapperClass: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
 });
 
-const [QueryForm2] = useVbenForm({
+const [QueryForm2] = useShennongForm({
   // 操作按钮组 newLine: 在新行显示。rowEnd: 在行内显示，靠右对齐（默认）。inline: 使用grid默认样式
   actionLayout: 'newLine',
   actionPosition: 'left', // 操作按钮组在左侧显示

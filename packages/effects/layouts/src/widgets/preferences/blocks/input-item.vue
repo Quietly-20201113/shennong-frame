@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { SelectOption } from '@vben/types';
+import type { SelectOption } from '@shennong/types';
 
 import { useSlots } from 'vue';
 
-import { CircleHelp, CircleX } from '@vben/icons';
+import { CircleHelp, CircleX } from '@shennong/icons';
 
-import { Input, VbenTooltip } from '@vben-core/shadcn-ui';
+import { Input, ShennongTooltip } from '@shennong-core/shadcn-ui';
 
 defineOptions({
   name: 'PreferenceSelectItem',
@@ -42,7 +42,7 @@ const slots = useSlots();
     <span class="flex items-center text-sm">
       <slot></slot>
 
-      <VbenTooltip v-if="slots.tip || tip" side="bottom">
+      <ShennongTooltip v-if="slots.tip || tip" side="bottom">
         <template #trigger>
           <CircleHelp class="ml-1 size-3 cursor-help" />
         </template>
@@ -53,7 +53,7 @@ const slots = useSlots();
             </p>
           </template>
         </slot>
-      </VbenTooltip>
+      </ShennongTooltip>
     </span>
     <div class="relative">
       <Input

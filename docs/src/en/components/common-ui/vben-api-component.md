@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Vben ApiComponent
+# Shennong ApiComponent
 
 `ApiComponent` is a wrapper used to attach remote-option loading behavior to an existing component while preserving the original component usage pattern.
 
@@ -18,7 +18,7 @@ The current wrapper flow is:
 
 ```vue
 <script lang="ts" setup>
-import { ApiComponent } from '@vben/common-ui';
+import { ApiComponent } from '@shennong/common-ui';
 
 import { Cascader } from 'ant-design-vue';
 

@@ -1,6 +1,6 @@
 import type { CAC } from 'cac';
 
-import { getPackages } from '@vben/node-utils';
+import { getPackages } from '@shennong/node-utils';
 
 import depcheck from 'depcheck';
 
@@ -11,24 +11,24 @@ const DEFAULT_CONFIG = {
     'vite',
     'vitest',
     'tsdown',
-    '@vben/tailwind-config',
-    '@vben/tsconfig',
-    '@vben/vite-config',
+    '@shennong/tailwind-config',
+    '@shennong/tsconfig',
+    '@shennong/vite-config',
     '@types/*',
-    '@vben-core/design',
+    '@shennong-core/design',
   ],
   // 需要忽略的包
   ignorePackages: [
-    '@vben/backend-mock',
-    '@vben/commitlint-config',
-    '@vben/eslint-config',
-    '@vben/node-utils',
-    '@vben/oxfmt-config',
-    '@vben/oxlint-config',
-    '@vben/stylelint-config',
-    '@vben/tsconfig',
-    '@vben/vite-config',
-    '@vben/vsh',
+    '@shennong/backend-mock',
+    '@shennong/commitlint-config',
+    '@shennong/eslint-config',
+    '@shennong/node-utils',
+    '@shennong/oxfmt-config',
+    '@shennong/oxlint-config',
+    '@shennong/stylelint-config',
+    '@shennong/tsconfig',
+    '@shennong/vite-config',
+    '@shennong/vsh',
   ],
   // 需要忽略的文件模式
   ignorePatterns: ['dist', 'node_modules', 'public'],

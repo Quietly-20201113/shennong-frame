@@ -6,9 +6,9 @@ import type {
 
 import { computed, nextTick, ref, unref, useAttrs, watch } from 'vue';
 
-import { LoaderCircle } from '@vben/icons';
+import { LoaderCircle } from '@shennong/icons';
 
-import { cloneDeep, get, isEqual, isFunction } from '@vben-core/shared/utils';
+import { cloneDeep, get, isEqual, isFunction } from '@shennong-core/shared/utils';
 
 import { objectOmit } from '@vueuse/core';
 

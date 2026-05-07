@@ -1,13 +1,13 @@
-export { setupVbenForm } from './config';
+export { setupShennongForm } from './config';
 
 export type {
   BaseFormComponentType,
   ExtendedFormApi,
   FormLayout,
-  VbenFormProps,
-  FormSchema as VbenFormSchema,
+  ShennongFormProps,
+  FormSchema as ShennongFormSchema,
 } from './types';
 
-export * from './use-vben-form';
-// export { default as VbenForm } from './vben-form.vue';
+export * from './use-shennong-form';
+// export { default as ShennongForm } from './shennong-form.vue';
 export * as z from 'zod';

@@ -1,10 +1,10 @@
-import type { VbenFormSchema } from '#/adapter/form';
+import type { ShennongFormSchema } from '#/adapter/form';
 import type { OnActionClickFn, VxeTableGridColumns } from '#/adapter/vxe-table';
 import type { SystemRoleApi } from '#/api';
 
 import { $t } from '#/locales';
 
-export function useFormSchema(): VbenFormSchema[] {
+export function useFormSchema(): ShennongFormSchema[] {
   return [
     {
       component: 'Input',
@@ -41,7 +41,7 @@ export function useFormSchema(): VbenFormSchema[] {
   ];
 }
 
-export function useGridFormSchema(): VbenFormSchema[] {
+export function useGridFormSchema(): ShennongFormSchema[] {
   return [
     {
       component: 'Input',

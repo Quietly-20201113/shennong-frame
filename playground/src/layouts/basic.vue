@@ -1,22 +1,22 @@
 <script lang="ts" setup>
-import type { NotificationItem } from '@vben/layouts';
+import type { NotificationItem } from '@shennong/layouts';
 
 import { computed, onBeforeMount, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { AuthenticationLoginExpiredModal } from '@vben/common-ui';
-import { VBEN_DOC_URL, VBEN_GITHUB_URL } from '@vben/constants';
-import { useWatermark } from '@vben/hooks';
-import { BookOpenText, CircleHelp, SvgGithubIcon } from '@vben/icons';
+import { AuthenticationLoginExpiredModal } from '@shennong/common-ui';
+import { SHENNONG_DOC_URL, SHENNONG_GITHUB_URL } from '@shennong/constants';
+import { useWatermark } from '@shennong/hooks';
+import { BookOpenText, CircleHelp, SvgGithubIcon } from '@shennong/icons';
 import {
   BasicLayout,
   LockScreen,
   Notification,
   UserDropdown,
-} from '@vben/layouts';
-import { preferences, usePreferences } from '@vben/preferences';
-import { useAccessStore, useTabbarStore, useUserStore } from '@vben/stores';
-import { openWindow } from '@vben/utils';
+} from '@shennong/layouts';
+import { preferences, usePreferences } from '@shennong/preferences';
+import { useAccessStore, useTabbarStore, useUserStore } from '@shennong/stores';
+import { openWindow } from '@shennong/utils';
 
 import { $t } from '#/locales';
 import { useAuthStore } from '#/store';
@@ -108,7 +108,7 @@ const menus = computed(() => [
   },
   {
     handler: () => {
-      openWindow(VBEN_DOC_URL, {
+      openWindow(SHENNONG_DOC_URL, {
         target: '_blank',
       });
     },
@@ -117,7 +117,7 @@ const menus = computed(() => [
   },
   {
     handler: () => {
-      openWindow(VBEN_GITHUB_URL, {
+      openWindow(SHENNONG_GITHUB_URL, {
         target: '_blank',
       });
     },
@@ -126,7 +126,7 @@ const menus = computed(() => [
   },
   {
     handler: () => {
-      openWindow(`${VBEN_GITHUB_URL}/issues`, {
+      openWindow(`${SHENNONG_GITHUB_URL}/issues`, {
         target: '_blank',
       });
     },
@@ -247,7 +247,7 @@ onBeforeMount(() => {
         :avatar
         :menus
         :text="userStore.userInfo?.realName"
-        description="ann.vben@gmail.com"
+        description=""
         tag-text="Pro"
         trigger="both"
         @logout="handleLogout"

@@ -8,8 +8,8 @@ import {
   watch,
 } from 'vue';
 
-// import { useAntdDesignTokens } from '@vben/hooks';
-// import { initPreferences } from '@vben/preferences';
+// import { useAntdDesignTokens } from '@shennong/hooks';
+// import { initPreferences } from '@shennong/preferences';
 import { ConfigProvider, theme } from 'ant-design-vue';
 import mediumZoom from 'medium-zoom';
 import { useRoute } from 'vitepress';

@@ -1,2 +1,2 @@
-export type * from './vben-layout';
-export { default as VbenAdminLayout } from './vben-layout.vue';
+export type * from './shennong-layout';
+export { default as ShennongAdminLayout } from './shennong-layout.vue';

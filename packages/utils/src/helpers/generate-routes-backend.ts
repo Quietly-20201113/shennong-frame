@@ -4,9 +4,9 @@ import type {
   ComponentRecordType,
   GenerateMenuAndRoutesOptions,
   RouteRecordStringComponent,
-} from '@vben-core/typings';
+} from '@shennong-core/typings';
 
-import { mapTree } from '@vben-core/shared/utils';
+import { mapTree } from '@shennong-core/shared/utils';
 
 /**
  * 判断路由是否在菜单中显示但访问时展示 403（让用户知悉功能并申请权限）

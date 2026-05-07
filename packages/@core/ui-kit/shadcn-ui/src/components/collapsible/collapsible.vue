@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { CollapsibleRootEmits, CollapsibleRootProps } from 'reka-ui';
 
-import type { ClassType } from '@vben-core/typings';
+import type { ClassType } from '@shennong-core/typings';
 
 import { computed } from 'vue';
 

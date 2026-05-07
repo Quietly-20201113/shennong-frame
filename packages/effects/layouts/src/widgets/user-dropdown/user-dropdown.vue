@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import type { Component } from 'vue';
 
-import type { AnyFunction } from '@vben/types';
+import type { AnyFunction } from '@shennong/types';
 
 import { computed, useTemplateRef, watch } from 'vue';
 
-import { useHoverToggle } from '@vben/hooks';
-import { LockKeyhole, LogOut } from '@vben/icons';
-import { $t } from '@vben/locales';
-import { preferences, usePreferences } from '@vben/preferences';
-import { useAccessStore } from '@vben/stores';
-import { isWindowsOs } from '@vben/utils';
+import { useHoverToggle } from '@shennong/hooks';
+import { LockKeyhole, LogOut } from '@shennong/icons';
+import { $t } from '@shennong/locales';
+import { preferences, usePreferences } from '@shennong/preferences';
+import { useAccessStore } from '@shennong/stores';
+import { isWindowsOs } from '@shennong/utils';
 
-import { useVbenModal } from '@vben-core/popup-ui';
+import { useShennongModal } from '@shennong-core/popup-ui';
 import {
   Badge,
   DropdownMenu,
@@ -22,9 +22,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-  VbenAvatar,
-  VbenIcon,
-} from '@vben-core/shadcn-ui';
+  ShennongAvatar,
+  ShennongIcon,
+} from '@shennong-core/shadcn-ui';
 
 import { useMagicKeys, whenever } from '@vueuse/core';
 
@@ -87,10 +87,10 @@ const emit = defineEmits<{ logout: [] }>();
 const { globalLockScreenShortcutKey, globalLogoutShortcutKey } =
   usePreferences();
 const accessStore = useAccessStore();
-const [LockModal, lockModalApi] = useVbenModal({
+const [LockModal, lockModalApi] = useShennongModal({
   connectedComponent: LockScreenModal,
 });
-const [LogoutModal, logoutModalApi] = useVbenModal({
+const [LogoutModal, logoutModalApi] = useShennongModal({
   onConfirm() {
     handleSubmitLogout();
   },
@@ -199,14 +199,14 @@ if (enableShortcutKey.value) {
     <DropdownMenuTrigger ref="refTrigger" :disabled="props.trigger === 'hover'">
       <div class="mr-2 ml-1 cursor-pointer rounded-full p-1.5 hover:bg-accent">
         <div class="flex-center hover:text-accent-foreground">
-          <VbenAvatar :alt="text" :src="avatar" class="size-8" dot />
+          <ShennongAvatar :alt="text" :src="avatar" class="size-8" dot />
         </div>
       </div>
     </DropdownMenuTrigger>
     <DropdownMenuContent class="mr-2 min-w-60 p-0 pb-1">
       <div ref="refContent">
         <DropdownMenuLabel class="flex items-center p-3">
-          <VbenAvatar
+          <ShennongAvatar
             :alt="text"
             :src="avatar"
             class="size-12"
@@ -237,7 +237,7 @@ if (enableShortcutKey.value) {
           class="mx-1 flex cursor-pointer items-center rounded-sm py-1 leading-8"
           @click="menu.handler"
         >
-          <VbenIcon :icon="menu.icon" class="mr-2 size-4" />
+          <ShennongIcon :icon="menu.icon" class="mr-2 size-4" />
           {{ menu.text }}
         </DropdownMenuItem>
         <DropdownMenuSeparator />

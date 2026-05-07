@@ -6,7 +6,7 @@ import { resolve } from 'node:path';
 import {
   viteArchiverPlugin,
   viteVxeTableImportsPlugin,
-} from '@vben/vite-config';
+} from '@shennong/vite-config';
 
 import {
   GitChangelog,
@@ -44,12 +44,12 @@ export const shared = defineConfig({
       },
       provider: 'local',
     },
-    siteTitle: 'Vben Admin',
+    siteTitle: 'Shennong Admin',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vbenjs/vue-vben-admin' },
     ],
   },
-  title: 'Vben Admin',
+  title: 'Shennong Admin',
   vite: {
     build: {
       chunkSizeWarningLimit: Infinity,
@@ -73,7 +73,7 @@ export const shared = defineConfig({
       GitChangelog({
         mapAuthors: [
           {
-            mapByNameAliases: ['Vben'],
+            mapByNameAliases: ['Shennong'],
             name: 'vben',
             username: 'anncwb',
           },
@@ -109,7 +109,7 @@ export const shared = defineConfig({
 
 function head(): HeadConfig[] {
   return [
-    ['meta', { content: 'Vbenjs Team', name: 'author' }],
+    ['meta', { content: 'Shennongjs Team', name: 'author' }],
     [
       'meta',
       {
@@ -142,7 +142,7 @@ function pwa(): PwaOptions {
     includeManifestIcons: false,
     manifest: {
       description:
-        'Vben Admin is a modern admin dashboard template based on Vue 3. ',
+        'Shennong Admin is a modern admin dashboard template based on Vue 3. ',
       icons: [
         {
           sizes: '192x192',
@@ -156,7 +156,7 @@ function pwa(): PwaOptions {
         },
       ],
       id: '/',
-      name: 'Vben Admin Doc',
+      name: 'Shennong Admin Doc',
       short_name: 'vben_admin_doc',
       theme_color: '#ffffff',
     },

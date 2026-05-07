@@ -4,7 +4,7 @@
   "configurations": [
     {
       "type": "chrome",
-      "name": "vben admin playground dev",
+      "name": "shennong admin playground dev",
       "request": "launch",
       "url": "http://localhost:5555",
       "env": { "NODE_ENV": "development" },
@@ -13,7 +13,7 @@
     },
     {
       "type": "chrome",
-      "name": "vben admin antd dev",
+      "name": "shennong admin antd dev",
       "request": "launch",
       "url": "http://localhost:5666",
       "env": { "NODE_ENV": "development" },
@@ -22,7 +22,7 @@
     },
     {
       "type": "chrome",
-      "name": "vben admin ele dev",
+      "name": "shennong admin ele dev",
       "request": "launch",
       "url": "http://localhost:5777",
       "env": { "NODE_ENV": "development" },
@@ -31,7 +31,7 @@
     },
     {
       "type": "chrome",
-      "name": "vben admin naive dev",
+      "name": "shennong admin naive dev",
       "request": "launch",
       "url": "http://localhost:5888",
       "env": { "NODE_ENV": "development" },

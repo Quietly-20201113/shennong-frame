@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { computed, watch } from 'vue';
 
-import { useAntdDesignTokens } from '@vben/hooks';
-import { preferences, usePreferences } from '@vben/preferences';
+import { useAntdDesignTokens } from '@shennong/hooks';
+import { preferences, usePreferences } from '@shennong/preferences';
 
 import { App, ConfigProvider, theme } from 'antdv-next';
 

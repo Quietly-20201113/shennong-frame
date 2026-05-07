@@ -1,9 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@vben/tsconfig/web.json",
+  "extends": "@shennong/tsconfig/web.json",
   "compilerOptions": {
     "paths": {
-      "@vben-core/shadcn-ui/*": ["./src/*"]
+      "@shennong-core/shadcn-ui/*": ["./src/*"]
     }
   },
   "include": ["src"],

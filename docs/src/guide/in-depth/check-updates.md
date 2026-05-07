@@ -5,7 +5,7 @@
 当网站有更新时，您可能需要检查更新。框架提供了这一功能，通过定时检查更新，您可以在应用的 preferences.ts 文件中配置 `checkUpdatesInterval`和 `enableCheckUpdates` 字段，以开启和设置检查更新的时间间隔（单位：分钟）。
 
 ```ts
-import { defineOverridesPreferences } from '@vben/preferences';
+import { defineOverridesPreferences } from '@shennong/preferences';
 
 export const overridesPreferences = defineOverridesPreferences({
   // overrides
@@ -26,7 +26,7 @@ export const overridesPreferences = defineOverridesPreferences({
 
 ## 替换为其他检查更新方式
 
-如果需要通过其他方式检查更新，例如通过接口来更灵活地控制更新逻辑（如强制刷新、显示更新内容等），你可以通过修改 `@vben/layouts` 下面的 `src/widgets/check-updates/check-updates.vue`文件来实现。
+如果需要通过其他方式检查更新，例如通过接口来更灵活地控制更新逻辑（如强制刷新、显示更新内容等），你可以通过修改 `@shennong/layouts` 下面的 `src/widgets/check-updates/check-updates.vue`文件来实现。
 
 ```ts
 // 这里可以替换为你的检查更新逻辑

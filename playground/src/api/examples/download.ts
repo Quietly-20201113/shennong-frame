@@ -1,4 +1,4 @@
-import type { RequestResponse } from '@vben/request';
+import type { RequestResponse } from '@shennong/request';
 
 import { requestClient } from '../request';
 

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-import { Page, VResize } from '@vben/common-ui';
+import { Page, VResize } from '@shennong/common-ui';
 
 const colorMap = ['red', 'green', 'yellow', 'gray'];
 

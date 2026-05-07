@@ -1,13 +1,13 @@
 import type { App } from 'vue';
 
-import type { LocaleSetupOptions, SupportedLanguagesType } from '@vben/locales';
+import type { LocaleSetupOptions, SupportedLanguagesType } from '@shennong/locales';
 
 import {
   $t,
   setupI18n as coreSetup,
   loadLocalesMapFromDir,
-} from '@vben/locales';
-import { preferences } from '@vben/preferences';
+} from '@shennong/locales';
+import { preferences } from '@shennong/preferences';
 
 const modules = import.meta.glob('./langs/**/*.json');
 

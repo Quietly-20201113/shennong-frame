@@ -6,7 +6,7 @@ import type {
 
 import { computed } from 'vue';
 
-import { preferences, usePreferences } from '@vben/preferences';
+import { preferences, usePreferences } from '@shennong/preferences';
 
 /**
  * 转换组件，自动添加 name

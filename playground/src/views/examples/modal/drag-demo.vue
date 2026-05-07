@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { useVbenModal } from '@vben/common-ui';
+import { useShennongModal } from '@shennong/common-ui';
 
 import { message } from 'ant-design-vue';
 
-const [Modal, modalApi] = useVbenModal({
+const [Modal, modalApi] = useShennongModal({
   draggable: true,
   onCancel() {
     modalApi.close();

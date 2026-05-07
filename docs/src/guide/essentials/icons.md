@@ -2,7 +2,7 @@
 
 ::: tip 关于图标的管理
 
-- 项目的图标主要由`@vben/icons`包提供，建议统一在该包内部管理，以便于统一管理和维护。
+- 项目的图标主要由`@shennong/icons`包提供，建议统一在该包内部管理，以便于统一管理和维护。
 - 如果你使用的是 `Vscode`，推荐安装 [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify) 插件，可以方便的查找和使用图标。
 
 :::
@@ -19,7 +19,7 @@
 
 ```ts
 // packages/icons/src/iconify/index.ts
-import { createIconifyIcon } from '@vben-core/icons';
+import { createIconifyIcon } from '@shennong-core/icons';
 
 export const MdiKeyboardEsc = createIconifyIcon('mdi:keyboard-esc');
 ```
@@ -28,7 +28,7 @@ export const MdiKeyboardEsc = createIconifyIcon('mdi:keyboard-esc');
 
 ```vue
 <script setup lang="ts">
-import { MdiKeyboardEsc } from '@vben/icons';
+import { MdiKeyboardEsc } from '@shennong/icons';
 </script>
 
 <template>
@@ -47,7 +47,7 @@ import { MdiKeyboardEsc } from '@vben/icons';
 
 ```ts
 // packages/icons/src/svg/index.ts
-import { createIconifyIcon } from '@vben-core/icons';
+import { createIconifyIcon } from '@shennong-core/icons';
 
 const SvgTestIcon = createIconifyIcon('svg:test');
 
@@ -58,7 +58,7 @@ export { SvgTestIcon };
 
 ```vue
 <script setup lang="ts">
-import { SvgTestIcon } from '@vben/icons';
+import { SvgTestIcon } from '@shennong/icons';
 </script>
 
 <template>

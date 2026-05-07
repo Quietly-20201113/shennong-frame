@@ -8,7 +8,7 @@ For Vue projects, the [official documentation](https://vuejs.org/api/sfc-css-fea
 
 ## Project Structure
 
-The style files in the project are stored in `@vben/styles`, which includes some global styles, such as reset styles, global variables, etc. It inherits the styles and capabilities of `@vben-core/design` and can be overridden according to project needs.
+The style files in the project are stored in `@shennong/styles`, which includes some global styles, such as reset styles, global variables, etc. It inherits the styles and capabilities of `@shennong-core/design` and can be overridden according to project needs.
 
 ## Scss
 
@@ -61,7 +61,7 @@ Another option to avoid style conflicts is to use the `BEM` standard. If you cho
 
 ```vue
 <script lang="ts" setup>
-import { useNamespace } from '@vben/hooks';
+import { useNamespace } from '@shennong/hooks';
 
 const { b, e, is } = useNamespace('menu');
 </script>
@@ -72,7 +72,7 @@ const { b, e, is } = useNamespace('menu');
 </template>
 <style lang="scss" scoped>
 // If you use it within the application, this line of code can be omitted as it has already been globally introduced in all applications
-@use '@vben/styles/global' as *;
+@use '@shennong/styles/global' as *;
 @include b('menu') {
   color: black;
 

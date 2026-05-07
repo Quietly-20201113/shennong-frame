@@ -7,9 +7,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-  VbenCountToAnimator,
-  VbenIcon,
-} from '@vben-core/shadcn-ui';
+  ShennongCountToAnimator,
+  ShennongIcon,
+} from '@shennong-core/shadcn-ui';
 
 interface Props {
   items?: AnalysisOverviewItem[];
@@ -33,17 +33,17 @@ withDefaults(defineProps<Props>(), {
         </CardHeader>
 
         <CardContent class="flex items-center justify-between">
-          <VbenCountToAnimator
+          <ShennongCountToAnimator
             :end-val="item.value"
             :start-val="1"
             class="text-xl"
             prefix=""
           />
-          <VbenIcon :icon="item.icon" class="size-8 shrink-0" />
+          <ShennongIcon :icon="item.icon" class="size-8 shrink-0" />
         </CardContent>
         <CardFooter class="justify-between">
           <span>{{ item.totalTitle }}</span>
-          <VbenCountToAnimator
+          <ShennongCountToAnimator
             :end-val="item.totalValue"
             :start-val="1"
             prefix=""

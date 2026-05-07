@@ -1,12 +1,12 @@
 {
-  "name": "@vben/commitlint-config",
+  "name": "@shennong/commitlint-config",
   "version": "5.7.0",
   "private": true,
-  "homepage": "https://github.com/vbenjs/vue-vben-admin",
-  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
+  "homepage": "",
+  "bugs": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
+    "url": "",
     "directory": "internal/lint-configs/commitlint-config"
   },
   "license": "MIT",
@@ -25,7 +25,7 @@
   "dependencies": {
     "@commitlint/cli": "catalog:",
     "@commitlint/config-conventional": "catalog:",
-    "@vben/node-utils": "workspace:*",
+    "@shennong/node-utils": "workspace:*",
     "commitlint-plugin-function-rules": "catalog:",
     "cz-git": "catalog:",
     "czg": "catalog:"

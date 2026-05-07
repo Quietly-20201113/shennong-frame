@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Vben CountToAnimator
+# Shennong CountToAnimator
 
 `CountToAnimator` renders animated number transitions.
 

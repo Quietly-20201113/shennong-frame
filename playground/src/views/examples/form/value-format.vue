@@ -1,19 +1,19 @@
 <script lang="ts" setup>
 import { computed, nextTick, onMounted, ref, watch } from 'vue';
 
-import { Page } from '@vben/common-ui';
+import { Page } from '@shennong/common-ui';
 
 import { Button, Card, message, Space, Tag } from 'ant-design-vue';
 import dayjs from 'dayjs';
 
-import { useVbenForm } from '#/adapter/form';
+import { useShennongForm } from '#/adapter/form';
 
 import DocButton from '../doc-button.vue';
 
 const transformedValues = ref<Record<string, any>>({});
 const liveValues = ref<Record<string, any>>({});
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useShennongForm({
   commonConfig: {
     componentProps: {
       class: 'w-full',

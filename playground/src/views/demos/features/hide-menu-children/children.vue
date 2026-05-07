@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { Fallback, VbenButton } from '@vben/common-ui';
-import { useTabs } from '@vben/hooks';
-import { X } from '@vben/icons';
+import { Fallback, ShennongButton } from '@shennong/common-ui';
+import { useTabs } from '@shennong/hooks';
+import { X } from '@shennong/icons';
 
 const { closeCurrentTab } = useTabs();
 </script>
@@ -14,10 +14,10 @@ const { closeCurrentTab } = useTabs();
     show-back
   >
     <template #action>
-      <VbenButton size="lg" @click="closeCurrentTab()">
+      <ShennongButton size="lg" @click="closeCurrentTab()">
         <X class="mr-2 size-4" />
         关闭当前标签页
-      </VbenButton>
+      </ShennongButton>
     </template>
   </Fallback>
 </template>

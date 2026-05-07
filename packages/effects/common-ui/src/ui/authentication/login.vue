@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import type { Recordable } from '@vben/types';
+import type { Recordable } from '@shennong/types';
 
-import type { VbenFormSchema } from '@vben-core/form-ui';
+import type { ShennongFormSchema } from '@shennong-core/form-ui';
 
 import type { AuthenticationProps } from './types';
 
 import { computed, onMounted, reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { $t } from '@vben/locales';
+import { $t } from '@shennong/locales';
 
-import { useVbenForm } from '@vben-core/form-ui';
-import { VbenButton, VbenCheckbox } from '@vben-core/shadcn-ui';
+import { useShennongForm } from '@shennong-core/form-ui';
+import { ShennongButton, ShennongCheckbox } from '@shennong-core/shadcn-ui';
 
 import Title from './auth-title.vue';
 import ThirdPartyLogin from './third-party-login.vue';
 
 interface Props extends AuthenticationProps {
-  formSchema?: VbenFormSchema[];
+  formSchema?: ShennongFormSchema[];
 }
 
 defineOptions({
@@ -46,7 +46,7 @@ const emit = defineEmits<{
   submit: [Recordable<any>];
 }>();
 
-const [Form, formApi] = useVbenForm(
+const [Form, formApi] = useShennongForm(
   reactive({
     commonConfig: {
       hideLabel: true,
@@ -115,13 +115,13 @@ defineExpose({
       class="mb-6 flex justify-between"
     >
       <div class="flex-center">
-        <VbenCheckbox
+        <ShennongCheckbox
           v-if="showRememberMe"
           v-model="rememberMe"
           name="rememberMe"
         >
           {{ $t('authentication.rememberMe') }}
-        </VbenCheckbox>
+        </ShennongCheckbox>
       </div>
 
       <span
@@ -132,7 +132,7 @@ defineExpose({
         {{ $t('authentication.forgetPassword') }}
       </span>
     </div>
-    <VbenButton
+    <ShennongButton
       :class="{
         'cursor-wait': loading,
       }"
@@ -142,28 +142,28 @@ defineExpose({
       @click="handleSubmit"
     >
       {{ submitButtonText || $t('common.login') }}
-    </VbenButton>
+    </ShennongButton>
 
     <div
       v-if="showCodeLogin || showQrcodeLogin"
       class="mt-4 mb-2 flex items-center justify-between"
     >
-      <VbenButton
+      <ShennongButton
         v-if="showCodeLogin"
         class="w-1/2"
         variant="outline"
         @click="handleGo(codeLoginPath)"
       >
         {{ $t('authentication.mobileLogin') }}
-      </VbenButton>
-      <VbenButton
+      </ShennongButton>
+      <ShennongButton
         v-if="showQrcodeLogin"
         class="ml-4 w-1/2"
         variant="outline"
         @click="handleGo(qrCodeLoginPath)"
       >
         {{ $t('authentication.qrcodeLogin') }}
-      </VbenButton>
+      </ShennongButton>
     </div>
 
     <!-- 第三方登录 -->

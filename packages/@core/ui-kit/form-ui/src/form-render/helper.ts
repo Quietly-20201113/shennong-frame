@@ -7,7 +7,7 @@ import type {
   ZodTypeAny,
 } from 'zod';
 
-import { isObject, isString } from '@vben-core/shared/utils';
+import { isObject, isString } from '@shennong-core/shared/utils';
 
 /**
  * Get the lowest level Zod type.

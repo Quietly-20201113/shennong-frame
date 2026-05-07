@@ -6,8 +6,8 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-  VbenIcon,
-} from '@vben-core/shadcn-ui';
+  ShennongIcon,
+} from '@shennong-core/shadcn-ui';
 
 interface Props {
   items?: WorkbenchProjectItem[];
@@ -43,7 +43,7 @@ defineEmits(['click']);
           class="group w-full cursor-pointer border-t border-r border-border p-4 transition-all hover:shadow-xl md:w-1/2 lg:w-1/3"
         >
           <div class="flex items-center">
-            <VbenIcon
+            <ShennongIcon
               :color="item.color"
               :icon="item.icon"
               class="size-8 transition-all duration-300 group-hover:scale-110"

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { VbenCountToAnimator } from '@vben/common-ui';
+import { ShennongCountToAnimator } from '@shennong/common-ui';
 </script>
 <template>
-  <VbenCountToAnimator
+  <ShennongCountToAnimator
     :duration="3000"
     :end-val="2000000"
     :start-val="1"

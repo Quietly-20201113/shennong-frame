@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import type { VxeGridListeners, VxeGridProps } from '#/adapter/vxe-table';
 
-import { Page } from '@vben/common-ui';
+import { Page } from '@shennong/common-ui';
 
 import { Button, message } from 'ant-design-vue';
 
-import { useVbenVxeGrid } from '#/adapter/vxe-table';
+import { useShennongVxeGrid } from '#/adapter/vxe-table';
 
 import DocButton from '../doc-button.vue';
 import { MOCK_TABLE_DATA } from './table-data';
@@ -43,7 +43,7 @@ const gridEvents: VxeGridListeners<RowType> = {
   },
 };
 
-const [Grid, gridApi] = useVbenVxeGrid<RowType>({
+const [Grid, gridApi] = useShennongVxeGrid<RowType>({
   // 放开注释查看表单组件的类型
   // formOptions: {
   //   schema: [

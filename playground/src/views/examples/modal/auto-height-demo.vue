@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-import { useVbenModal } from '@vben/common-ui';
+import { useShennongModal } from '@shennong/common-ui';
 
 import { Button, message } from 'ant-design-vue';
 
 const list = ref<number[]>([]);
 
-const [Modal, modalApi] = useVbenModal({
+const [Modal, modalApi] = useShennongModal({
   onCancel() {
     modalApi.close();
   },

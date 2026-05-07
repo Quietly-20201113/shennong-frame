@@ -3,7 +3,7 @@ import type { GlobalConfigProvider } from 'tdesign-vue-next';
 
 import { watch } from 'vue';
 
-import { usePreferences } from '@vben/preferences';
+import { usePreferences } from '@shennong/preferences';
 
 import { merge } from 'es-toolkit/compat';
 import { ConfigProvider } from 'tdesign-vue-next';

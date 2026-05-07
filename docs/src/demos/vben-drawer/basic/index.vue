@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { useVbenDrawer, VbenButton } from '@vben/common-ui';
+import { useShennongDrawer, ShennongButton } from '@shennong/common-ui';
 
-const [Drawer, drawerApi] = useVbenDrawer();
+const [Drawer, drawerApi] = useShennongDrawer();
 </script>
 <template>
   <div>
-    <VbenButton @click="() => drawerApi.open()">Open</VbenButton>
+    <ShennongButton @click="() => drawerApi.open()">Open</ShennongButton>
     <Drawer class="w-150" title="基础示例"> drawer content </Drawer>
   </div>
 </template>

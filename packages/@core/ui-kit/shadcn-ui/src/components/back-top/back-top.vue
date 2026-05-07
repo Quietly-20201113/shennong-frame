@@ -3,9 +3,9 @@ import type { BacktopProps } from './backtop';
 
 import { computed } from 'vue';
 
-import { ArrowUpToLine } from '@vben-core/icons';
+import { ArrowUpToLine } from '@shennong-core/icons';
 
-import { VbenButton } from '../button';
+import { ShennongButton } from '../button';
 import { useBackTop } from './use-backtop';
 
 interface Props extends BacktopProps {}
@@ -29,7 +29,7 @@ const { handleClick, visible } = useBackTop(props);
 </script>
 <template>
   <transition name="fade-down">
-    <VbenButton
+    <ShennongButton
       v-if="visible"
       :style="backTopStyle"
       class="data z-popup bg-background shadow-float hover:bg-heavy dark:bg-accent dark:hover:bg-heavy fixed bottom-10 size-10 rounded-full duration-500"
@@ -38,6 +38,6 @@ const { handleClick, visible } = useBackTop(props);
       @click="handleClick"
     >
       <ArrowUpToLine class="size-4" />
-    </VbenButton>
+    </ShennongButton>
   </transition>
 </template>

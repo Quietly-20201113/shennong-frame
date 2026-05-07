@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { SupportedLanguagesType } from '@vben/locales';
-import type { CustomPreferencesRecord } from '@vben/preferences';
+import type { SupportedLanguagesType } from '@shennong/locales';
+import type { CustomPreferencesRecord } from '@shennong/preferences';
 import type {
   BreadcrumbStyleType,
   BuiltinThemeType,
@@ -11,29 +11,29 @@ import type {
   NavigationStyleType,
   PreferencesButtonPositionType,
   ThemeModeType,
-} from '@vben/types';
+} from '@shennong/types';
 
-import type { SegmentedItem } from '@vben-core/shadcn-ui';
+import type { SegmentedItem } from '@shennong-core/shadcn-ui';
 
 import { computed, ref } from 'vue';
 
-import { Copy, Pin, PinOff, RotateCw } from '@vben/icons';
-import { $t, loadLocaleMessages } from '@vben/locales';
+import { Copy, Pin, PinOff, RotateCw } from '@shennong/icons';
+import { $t, loadLocaleMessages } from '@shennong/locales';
 import {
   clearCache,
   preferences,
   resetPreferences,
   updateCustomPreferences,
   usePreferences,
-} from '@vben/preferences';
+} from '@shennong/preferences';
 
-import { useVbenDrawer } from '@vben-core/popup-ui';
+import { useShennongDrawer } from '@shennong-core/popup-ui';
 import {
-  VbenButton,
-  VbenIconButton,
-  VbenSegmented,
-} from '@vben-core/shadcn-ui';
-import { globalShareState } from '@vben-core/shared/global-state';
+  ShennongButton,
+  ShennongIconButton,
+  ShennongSegmented,
+} from '@shennong-core/shadcn-ui';
+import { globalShareState } from '@shennong-core/shared/global-state';
 
 import { useClipboard } from '@vueuse/core';
 
@@ -196,7 +196,7 @@ const {
 } = usePreferences();
 const { copy } = useClipboard({ legacy: true });
 
-const [Drawer] = useVbenDrawer();
+const [Drawer] = useShennongDrawer();
 
 const activeTab = ref('appearance');
 
@@ -310,7 +310,7 @@ function handleCustomPreferencesUpdate(updates: CustomPreferencesRecord) {
     >
       <template #extra>
         <div class="flex items-center">
-          <VbenIconButton
+          <ShennongIconButton
             :disabled="!mergedDiffPreference"
             :tooltip="$t('preferences.resetTip')"
             class="relative"
@@ -321,8 +321,8 @@ function handleCustomPreferencesUpdate(updates: CustomPreferencesRecord) {
               class="absolute top-0.5 right-0.5 size-2 rounded-sm bg-primary"
             ></span>
             <RotateCw class="size-4" />
-          </VbenIconButton>
-          <VbenIconButton
+          </ShennongIconButton>
+          <ShennongIconButton
             :tooltip="
               appEnableStickyPreferencesNavigationBar
                 ? $t('preferences.disableStickyPreferencesNavigationBar')
@@ -340,12 +340,12 @@ function handleCustomPreferencesUpdate(updates: CustomPreferencesRecord) {
               class="size-4"
             />
             <Pin v-else class="size-4" />
-          </VbenIconButton>
+          </ShennongIconButton>
         </div>
       </template>
 
       <div>
-        <VbenSegmented
+        <ShennongSegmented
           v-model="activeTab"
           :tabs="tabs"
           :class="{
@@ -530,11 +530,11 @@ function handleCustomPreferencesUpdate(updates: CustomPreferencesRecord) {
               />
             </Block>
           </template>
-        </VbenSegmented>
+        </ShennongSegmented>
       </div>
 
       <template #footer>
-        <VbenButton
+        <ShennongButton
           v-if="appEnableCopyPreferences"
           :disabled="!mergedDiffPreference"
           class="mx-4 w-full"
@@ -544,8 +544,8 @@ function handleCustomPreferencesUpdate(updates: CustomPreferencesRecord) {
         >
           <Copy class="mr-2 size-3" />
           {{ $t('preferences.copyPreferences') }}
-        </VbenButton>
-        <VbenButton
+        </ShennongButton>
+        <ShennongButton
           :disabled="!mergedDiffPreference"
           class="mr-4 w-full"
           size="sm"
@@ -553,7 +553,7 @@ function handleCustomPreferencesUpdate(updates: CustomPreferencesRecord) {
           @click="handleClearCache"
         >
           {{ $t('preferences.clearAndLogout') }}
-        </VbenButton>
+        </ShennongButton>
       </template>
     </Drawer>
   </div>

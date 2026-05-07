@@ -5,12 +5,12 @@
 
 import type { Component, SetupContext } from 'vue';
 
-import type { BaseFormComponentType } from '@vben/common-ui';
+import type { BaseFormComponentType } from '@shennong/common-ui';
 
 import { h } from 'vue';
 
-import { globalShareState } from '@vben/common-ui';
-import { $t } from '@vben/locales';
+import { globalShareState } from '@shennong/common-ui';
+import { $t } from '@shennong/locales';
 
 import {
   AutoComplete,

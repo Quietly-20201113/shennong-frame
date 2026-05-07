@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-import { Page } from '@vben/common-ui';
+import { Page } from '@shennong/common-ui';
 
 import { useFullscreen } from '@vueuse/core';
 import { Button, Card } from 'ant-design-vue';

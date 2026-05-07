@@ -66,7 +66,7 @@ The configuration method of static routes and dynamic routes is the same. Below 
 ```ts
 import type { RouteRecordRaw } from 'vue-router';
 
-import { VBEN_LOGO_URL } from '@vben/constants';
+import { SHENNONG_LOGO_URL } from '@shennong/constants';
 
 import { BasicLayout } from '#/layouts';
 import { $t } from '#/locales';
@@ -76,16 +76,16 @@ const routes: RouteRecordRaw[] = [
     meta: {
       badgeType: 'dot',
       badgeVariants: 'destructive',
-      icon: VBEN_LOGO_URL,
+      icon: SHENNONG_LOGO_URL,
       order: 9999,
       title: $t('page.vben.title'),
     },
-    name: 'VbenProject',
+    name: 'ShennongProject',
     path: '/vben-admin',
     redirect: '/vben-admin/about',
     children: [
       {
-        name: 'VbenAbout',
+        name: 'ShennongAbout',
         path: '/vben-admin/about',
         component: () => import('#/views/_core/about/index.vue'),
         meta: {
@@ -240,7 +240,7 @@ Add a route object in the corresponding route file, as follows:
 ```ts
 import type { RouteRecordRaw } from 'vue-router';
 
-import { VBEN_LOGO_URL } from '@vben/constants';
+import { SHENNONG_LOGO_URL } from '@shennong/constants';
 
 import { BasicLayout } from '#/layouts';
 import { $t } from '#/locales';
@@ -593,7 +593,7 @@ The route refresh method is as follows:
 
 ```vue
 <script setup lang="ts">
-import { useRefresh } from '@vben/hooks';
+import { useRefresh } from '@shennong/hooks';
 
 const { refresh } = useRefresh();
 

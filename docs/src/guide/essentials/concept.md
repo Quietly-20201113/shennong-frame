@@ -29,7 +29,7 @@
 ```json {3}
 {
   "dependencies": {
-    "@vben/utils": "workspace:*"
+    "@shennong/utils": "workspace:*"
   }
 }
 ```
@@ -39,7 +39,7 @@
 在代码中引入包：
 
 ```ts
-import { isString } from '@vben/utils';
+import { isString } from '@shennong/utils';
 ```
 
 ## 别名

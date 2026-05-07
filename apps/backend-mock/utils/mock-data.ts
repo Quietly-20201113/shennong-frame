@@ -16,7 +16,7 @@ export const MOCK_USERS: UserInfo[] = [
   {
     id: 0,
     password: '123456',
-    realName: 'Vben',
+    realName: 'Shennong',
     roles: ['super'],
     username: 'vben',
   },
@@ -326,7 +326,7 @@ export const MOCK_MENU_LIST = [
       {
         id: 901,
         pid: 9,
-        name: 'VbenDocument',
+        name: 'ShennongDocument',
         path: '/vben-admin/document',
         component: 'IFrameView',
         type: 'embedded',
@@ -340,7 +340,7 @@ export const MOCK_MENU_LIST = [
       {
         id: 902,
         pid: 9,
-        name: 'VbenGithub',
+        name: 'ShennongGithub',
         path: '/vben-admin/github',
         component: 'IFrameView',
         type: 'link',
@@ -354,7 +354,7 @@ export const MOCK_MENU_LIST = [
       {
         id: 903,
         pid: 9,
-        name: 'VbenAntdv',
+        name: 'ShennongAntdv',
         path: '/vben-admin/antdv',
         component: 'IFrameView',
         type: 'link',

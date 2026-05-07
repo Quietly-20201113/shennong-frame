@@ -11,7 +11,7 @@
 登录超时会跳转到登录页
 
 ```ts
-import { defineOverridesPreferences } from '@vben/preferences';
+import { defineOverridesPreferences } from '@shennong/preferences';
 
 export const overridesPreferences = defineOverridesPreferences({
   // overrides
@@ -30,7 +30,7 @@ export const overridesPreferences = defineOverridesPreferences({
 配置：
 
 ```ts
-import { defineOverridesPreferences } from '@vben/preferences';
+import { defineOverridesPreferences } from '@shennong/preferences';
 
 export const overridesPreferences = defineOverridesPreferences({
   // overrides
@@ -73,7 +73,7 @@ export const overridesPreferences = defineOverridesPreferences({
 如果你想更新水印的内容，可以这么做，参数可以参考 [watermark-js-plus](https://zhensherlock.github.io/watermark-js-plus/)：
 
 ```ts
-import { useWatermark } from '@vben/hooks';
+import { useWatermark } from '@shennong/hooks';
 
 const { destroyWatermark, updateWatermark } = useWatermark();
 

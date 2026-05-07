@@ -2,14 +2,14 @@
 import { reactive } from 'vue';
 import { useRoute } from 'vue-router';
 
-import { Page } from '@vben/common-ui';
-import { useAccessStore } from '@vben/stores';
+import { Page } from '@shennong/common-ui';
+import { useAccessStore } from '@shennong/stores';
 
-import { MenuBadge } from '@vben-core/menu-ui';
+import { MenuBadge } from '@shennong-core/menu-ui';
 
 import { Button, Card, Radio, RadioGroup } from 'ant-design-vue';
 
-import { useVbenForm } from '#/adapter/form';
+import { useShennongForm } from '#/adapter/form';
 
 const colors = [
   { label: '预设：默认', value: 'default' },
@@ -28,7 +28,7 @@ const badgeProps = reactive({
   badgeVariants: menu?.badgeVariants as string,
 });
 
-const [Form] = useVbenForm({
+const [Form] = useShennongForm({
   handleValuesChange(values) {
     badgeProps.badge = values.badge;
     badgeProps.badgeType = values.badgeType;

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ApiComponent } from '@vben/common-ui';
+import { ApiComponent } from '@shennong/common-ui';
 
 import { Cascader } from 'ant-design-vue';
 

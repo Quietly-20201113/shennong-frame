@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { SetupContext } from 'vue';
 
-import type { Recordable } from '@vben/types';
+import type { Recordable } from '@shennong/types';
 
 import type {
   JsonViewerAction,
@@ -14,9 +14,9 @@ import { computed, useAttrs } from 'vue';
 // @ts-expect-error - vue-json-viewer does not expose compatible typings for this import path
 import VueJsonViewerImport from 'vue-json-viewer';
 
-import { $t } from '@vben/locales';
+import { $t } from '@shennong/locales';
 
-import { isBoolean } from '@vben-core/shared/utils';
+import { isBoolean } from '@shennong-core/shared/utils';
 
 import JsonBigint from 'json-bigint';
 

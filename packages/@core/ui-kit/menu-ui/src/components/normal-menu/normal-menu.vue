@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { MenuRecordRaw } from '@vben-core/typings';
+import type { MenuRecordRaw } from '@shennong-core/typings';
 
 import type { NormalMenuProps } from './normal-menu';
 
-import { useNamespace } from '@vben-core/composables';
-import { VbenIcon } from '@vben-core/shadcn-ui';
+import { useNamespace } from '@shennong-core/composables';
+import { ShennongIcon } from '@shennong-core/shadcn-ui';
 
 interface Props extends NormalMenuProps {}
 
@@ -50,7 +50,7 @@ function menuIcon(menu: MenuRecordRaw) {
         @click="() => emit('select', menu)"
         @mouseenter="() => emit('enter', menu)"
       >
-        <VbenIcon :class="e('icon')" :icon="menuIcon(menu)" fallback />
+        <ShennongIcon :class="e('icon')" :icon="menuIcon(menu)" fallback />
 
         <span :class="e('name')" class="truncate"> {{ menu.name }}</span>
       </li>
@@ -58,7 +58,7 @@ function menuIcon(menu: MenuRecordRaw) {
   </ul>
 </template>
 <style scoped>
-@reference "@vben/tailwind-config/theme";
+@reference "@shennong/tailwind-config/theme";
 
 .vben-normal-menu {
   --menu-item-margin-y: 4px;

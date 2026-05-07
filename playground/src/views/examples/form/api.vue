@@ -3,15 +3,15 @@ import type { RefSelectProps } from 'ant-design-vue/es/select';
 
 import { ref } from 'vue';
 
-import { Page } from '@vben/common-ui';
+import { Page } from '@shennong/common-ui';
 
 import { Button, Card, message, Space } from 'ant-design-vue';
 
-import { useVbenForm } from '#/adapter/form';
+import { useShennongForm } from '#/adapter/form';
 
 const isReverseActionButtons = ref(false);
 
-const [BaseForm, formApi] = useVbenForm({
+const [BaseForm, formApi] = useShennongForm({
   // 翻转操作按钮的位置
   actionButtonsReverse: isReverseActionButtons.value,
   // 所有表单项共用，可单独在表单内覆盖
