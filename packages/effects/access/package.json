@@ -25,5 +25,8 @@
     "@shennong/types": "workspace:*",
     "@shennong/utils": "workspace:*",
     "vue": "catalog:"
+  },
+  "devDependencies": {
+    "pinia": "catalog:"
   }
 }

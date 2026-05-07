@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type {
+  ShennongTiptapChangeEvent,
   TipTapProps,
   ToolbarAction,
   ToolbarMenuItem,
-  ShennongTiptapChangeEvent,
 } from './types';
 
 import { computed, onBeforeUnmount, reactive, watch } from 'vue';

@@ -284,11 +284,28 @@ CI 触发（推荐 main 分支 merge 后自动）：
 - 修改：`.npmrc` 增加 @shennong scope 路由
 - 验证：`@shennong/publish-demo@0.1.0` 已发布到私服，消费方装包后无任何 .ts 源文件（核心隔离生效）
 
+### 2026-05-07：P0-3 access 权限模型增强
+
+- 新增：`@shennong/access` 复合权限 AND/OR 三层 API
+  - Hook：`hasAccessByCodes(codes, mode?)`、`hasAccessByRoles(roles, mode?)`，默认 `'any'`（OR）兼容旧调用
+  - 指令：`v-access:code.all="['a','b']"`（AND）/ `v-access:code.any` 或缺省（OR）
+  - 组件：`<AccessControl :codes mode="all|any">`
+- 新增：`DataScope` 五档数据权限模型（与后端 enum 一致全大写）
+  - 类型：`SELF / OWN_DEPT / OWN_DEPT_AND_CHILDREN / ALL / CUSTOM`（`@shennong-core/typings`）
+  - Store：`useAccessStore` 增加 `dataScope` + `customDeptIds` 字段（持久化）
+  - Hook：`useDataScope()` 提供 `dataScope` / `hasDataAccess(ctx)`
+- 单元测试：13/13 通过（`use-access.test.ts` + `use-data-scope.test.ts`）
+- 调研：基于 AI 聊天系统设计文档 16 文件 / 152 条 R-* 规则识别出 12 个业务漏洞
+  反馈给业务方，详见独立 review 报告（不入库）
+
 ---
 
-## 九、待办（P0-3 起）
+## 九、待办（P0-3.5 起）
 
-- [ ] `@effects/access` 补 AND/OR 复合权限 + DataScope（继承自 shennong-turbo 的 TODO）
+- [ ] **P0-3.5 拦截器层** `@shennong/business-interceptor`（鉴权 / 权限 / scope 注入 / 限流 / trace_id / 计费）—— Agent 调研报告认定为"地基的地基"
+- [ ] **P0-3.5 字典中心** `@shennong/business-dict`（KV 表 + Redis + 启动同步）
+- [ ] **P0-4 精简版** `@shennong/business-rbac`（动态角色 + 权限扫码同步）
+- [ ] AI 聊天业务相关包（chat / quota / provider / audit / file）—— 真做 AI 项目时再启动
 - [ ] 业务包 `packages/utils`、`packages/effects/*`、`packages/@core/*` 改造为 hybrid 发布模式
 - [ ] 配置 changesets CI 自动发版
 - [ ] 写 `apps/erp-admin/` 应用骨架（独立仓库给乙方用）

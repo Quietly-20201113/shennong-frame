@@ -1635,6 +1635,10 @@ importers:
       vue:
         specifier: ^3.5.32
         version: 3.5.34(typescript@6.0.3)
+    devDependencies:
+      pinia:
+        specifier: ^3.0.4
+        version: 3.0.4(typescript@6.0.3)(vue@3.5.34(typescript@6.0.3))
 
   packages/effects/common-ui:
     dependencies:

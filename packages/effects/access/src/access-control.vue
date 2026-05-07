@@ -1,24 +1,34 @@
 <!--
- Access control component for fine-grained access control.
- TODO: 可以扩展更完善的功能：
- 1. 支持多个权限码，只要有一个权限码满足即可 或者 多个权限码全部满足
- 2. 支持多个角色，只要有一个角色满足即可 或者 多个角色全部满足
- 3. 支持自定义权限码和角色的判断逻辑
+ 神农信息系统 · 细粒度权限控制组件
+ 支持 AND/OR 复合权限：mode='any'（默认，OR）/ mode='all'（AND）
+ 支持 role 与 code 两种判断维度：type='role' / type='code'
 -->
 <script lang="ts" setup>
+import type { AccessMode } from './use-access';
+
 import { computed } from 'vue';
 
 import { useAccess } from './use-access';
 
 interface Props {
   /**
-   * Specified codes is visible
+   * 权限码列表（type='code'）或角色列表（type='role'）
    * @default []
    */
   codes?: string[];
 
   /**
-   * 通过什么方式来控制组件，如果是 role，则传入角色，如果是 code，则传入权限码
+   * 复合权限判断模式
+   * - any: 任一匹配即可（OR 语义，默认）
+   * - all: 必须全部匹配（AND 语义）
+   * @default 'any'
+   */
+  mode?: AccessMode;
+
+  /**
+   * 判断维度
+   * - role: 按用户角色判断
+   * - code: 按权限码判断
    * @default 'role'
    */
   type?: 'code' | 'role';
@@ -30,18 +40,21 @@ defineOptions({
 
 const props = withDefaults(defineProps<Props>(), {
   codes: () => [],
+  mode: 'any',
   type: 'role',
 });
 
 const { hasAccessByCodes, hasAccessByRoles } = useAccess();
 
 const hasAuth = computed(() => {
-  const { codes, type } = props;
-  return type === 'role' ? hasAccessByRoles(codes) : hasAccessByCodes(codes);
+  const { codes, mode, type } = props;
+  return type === 'role'
+    ? hasAccessByRoles(codes, mode)
+    : hasAccessByCodes(codes, mode);
 });
 </script>
 
 <template>
-  <slot v-if="!codes"></slot>
+  <slot v-if="!codes || codes.length === 0"></slot>
   <slot v-else-if="hasAuth"></slot>
 </template>

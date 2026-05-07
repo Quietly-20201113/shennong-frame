@@ -79,7 +79,8 @@ function menuIcon(menu: MenuRecordRaw) {
   @apply text-foreground/80;
 }
 
-.shennong-normal-menu.is-dark .shennong-normal-menu__item:not(.is-active):hover {
+.shennong-normal-menu.is-dark
+  .shennong-normal-menu__item:not(.is-active):hover {
   @apply text-foreground;
 }
 

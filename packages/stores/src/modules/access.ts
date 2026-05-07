@@ -1,6 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router';
 
-import type { MenuRecordRaw } from '@shennong-core/typings';
+import type { DataScope, MenuRecordRaw } from '@shennong-core/typings';
 
 import { acceptHMRUpdate, defineStore } from 'pinia';
 
@@ -23,6 +23,15 @@ interface AccessState {
    * 登录 accessToken
    */
   accessToken: AccessToken;
+  /**
+   * 自定义部门 ID 列表（dataScope === 'CUSTOM' 时生效）
+   */
+  customDeptIds: Array<number | string>;
+  /**
+   * 数据权限范围
+   * @default 'SELF'
+   */
+  dataScope: DataScope;
   /**
    * 是否已经检查过权限
    */
@@ -85,6 +94,18 @@ export const useAccessStore = defineStore('core-access', {
     setAccessToken(token: AccessToken) {
       this.accessToken = token;
     },
+    /**
+     * 设置自定义部门 ID 列表（dataScope='CUSTOM' 时生效）
+     */
+    setCustomDeptIds(ids: Array<number | string>) {
+      this.customDeptIds = ids;
+    },
+    /**
+     * 设置数据权限范围
+     */
+    setDataScope(scope: DataScope) {
+      this.dataScope = scope;
+    },
     setIsAccessChecked(isAccessChecked: boolean) {
       this.isAccessChecked = isAccessChecked;
     },
@@ -105,6 +126,8 @@ export const useAccessStore = defineStore('core-access', {
       'accessToken',
       'refreshToken',
       'accessCodes',
+      'dataScope',
+      'customDeptIds',
       'isLockScreen',
       'lockScreenPassword',
     ],
@@ -114,6 +137,8 @@ export const useAccessStore = defineStore('core-access', {
     accessMenus: [],
     accessRoutes: [],
     accessToken: null,
+    customDeptIds: [],
+    dataScope: 'SELF',
     isAccessChecked: false,
     isLockScreen: false,
     lockScreenPassword: undefined,

@@ -16,7 +16,10 @@ const style = computed(() => {
 });
 </script>
 <template>
-  <div :style="style" class="shennong-spine-text bg-clip-text! text-transparent">
+  <div
+    :style="style"
+    class="shennong-spine-text bg-clip-text! text-transparent"
+  >
     <slot></slot>
   </div>
 </template>
