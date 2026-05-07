@@ -69,9 +69,9 @@ function showAsyncConfirm() {
   <div class="flex gap-4">
     <ShennongButton @click="showConfirm">Confirm</ShennongButton>
     <ShennongButton @click="showIconConfirm">Confirm With Icon</ShennongButton>
-    <ShennongButton @click="showfooterConfirm"
-      >Confirm With Footer</ShennongButton
-    >
+    <ShennongButton @click="showfooterConfirm">
+      Confirm With Footer
+    </ShennongButton>
     <ShennongButton @click="showAsyncConfirm">Async Confirm</ShennongButton>
   </div>
 </template>

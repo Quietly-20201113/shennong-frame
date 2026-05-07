@@ -50,7 +50,9 @@ pre-commit:
       run: pnpm oxfmt {staged_files}
       glob: '*.md'
     lint-vue:
-      run: pnpm oxfmt {staged_files} && pnpm oxlint --fix {staged_files} && pnpm eslint --cache --fix {staged_files} && pnpm stylelint --fix --allow-empty-input {staged_files}
+      # 注意：从链中移除 oxlint —— oxlint 对 .vue 输出 "No files found" 但 exit 1，破坏整条链
+      # .vue 中 <script> 部分由 eslint(vue plugin) 处理；纯 TS/JS 由 lint-js 任务覆盖
+      run: pnpm oxfmt {staged_files} && pnpm eslint --cache --fix {staged_files} && pnpm stylelint --fix --allow-empty-input {staged_files}
       glob: '*.vue'
     lint-js:
       run: pnpm oxfmt {staged_files} && pnpm oxlint --fix {staged_files} && pnpm eslint --cache --fix {staged_files}

@@ -4,8 +4,8 @@ import { h } from 'vue';
 import {
   alert,
   prompt,
-  useAlertContext,
   ShennongButton,
+  useAlertContext,
 } from '@shennong/common-ui';
 
 import { Input, RadioGroup, Select } from 'ant-design-vue';
@@ -119,9 +119,9 @@ function showAsyncPrompt() {
     <ShennongButton @click="showSlotsPrompt">
       Prompt With slots
     </ShennongButton>
-    <ShennongButton @click="showSelectPrompt"
-      >Prompt With Select</ShennongButton
-    >
+    <ShennongButton @click="showSelectPrompt">
+      Prompt With Select
+    </ShennongButton>
     <ShennongButton @click="showAsyncPrompt">Prompt With Async</ShennongButton>
   </div>
 </template>
