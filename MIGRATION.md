@@ -295,8 +295,7 @@ CI 触发（推荐 main 分支 merge 后自动）：
 - 配置：preferences.ts override `defaultHomePath: '/welcome'`
 - 验证：`pnpm -r --filter @shennong/erp-admin build` 全绿，dist 919 kB
 - 待办：
-  - mock 后端菜单数据（apps/backend-mock）含 /analytics 等已删路由——目前
-    erp-admin 用 frontend access mode 不依赖它，但若切 backend mode 需同步改 mock
+  - mock 后端菜单数据（apps/backend-mock）含 /analytics 等已删路由——目前 erp-admin 用 frontend access mode 不依赖它，但若切 backend mode 需同步改 mock
   - 拆分独立仓库（给乙方）—— 等真有第三方接入需求时做
 
 ### 2026-05-07：P0-4 业务包发布矩阵（hybrid 化）
