@@ -1,0 +1,70 @@
+# Verdaccio 配置 · 神农信息系统私服（开发期本地版）
+# 文档：https://verdaccio.org/docs/configuration
+
+# 包数据持久化目录（容器内路径，对应 ../storage）
+storage: /verdaccio/storage
+
+# 上游源（拉取三方依赖时走这里）
+uplinks:
+  npmmirror:
+    url: https://registry.npmmirror.com/
+    timeout: 60s
+    maxage: 2m
+    cache: true
+
+# 包访问策略
+packages:
+  # 自家包：必须登录，不代理上游
+  '@shennong/*':
+    access: $authenticated
+    publish: $authenticated
+    unpublish: $authenticated
+
+  '@shennong-core/*':
+    access: $authenticated
+    publish: $authenticated
+    unpublish: $authenticated
+
+  # 兜底：所有 scoped 三方包，从 npmmirror 代理
+  '@*/*':
+    access: $all
+    publish: $authenticated
+    proxy: npmmirror
+
+  # 兜底：所有非 scoped 三方包
+  '**':
+    access: $all
+    publish: $authenticated
+    proxy: npmmirror
+
+# 鉴权（htpasswd 本地文件）
+auth:
+  htpasswd:
+    file: /verdaccio/storage/htpasswd
+    max_users: 100
+
+# Web UI
+web:
+  title: 神农信息系统私服
+  primary_color: '#4f46e5'
+  gravatar: false
+
+# 日志
+log:
+  - { type: stdout, format: pretty, level: info }
+
+# 监听所有网卡（容器内）
+listen:
+  - 0.0.0.0:4873
+
+# 安全策略：禁止公网未授权 publish（即使 packages 配置失误也兜底）
+security:
+  api:
+    legacy: true
+    jwt:
+      sign:
+        expiresIn: 60d
+        notBefore: 0
+  web:
+    sign:
+      expiresIn: 7d

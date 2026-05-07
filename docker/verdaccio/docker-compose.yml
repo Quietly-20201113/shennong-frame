@@ -1,0 +1,22 @@
+# 神农信息系统 · 本地私服 npm（Verdaccio）
+#
+# 用途：开发期本地起一个 npm 私服，供 @shennong/* 包发布与消费。
+# 甲方部署：参考本目录 README.md。
+#
+# 启动：docker compose up -d
+# 停止：docker compose down
+# 查看日志：docker compose logs -f
+# Web UI：http://localhost:4873
+
+services:
+  verdaccio:
+    image: verdaccio/verdaccio:6
+    container_name: shennong-verdaccio
+    restart: unless-stopped
+    ports:
+      - '4873:4873'
+    volumes:
+      - ./storage:/verdaccio/storage
+      - ./conf:/verdaccio/conf
+    environment:
+      - VERDACCIO_PORT=4873

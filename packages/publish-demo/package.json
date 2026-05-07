@@ -1,0 +1,34 @@
+{
+  "name": "@shennong/publish-demo",
+  "version": "0.1.0",
+  "description": "神农信息系统 · 发布链路验证示例（不参与业务）",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "tsdown",
+    "stub": "tsdown"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
+  "devDependencies": {
+    "tsdown": "catalog:"
+  }
+}

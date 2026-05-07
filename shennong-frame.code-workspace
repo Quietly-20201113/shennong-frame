@@ -153,6 +153,10 @@
       "path": "packages/preferences"
     },
     {
+      "name": "@shennong/publish-demo",
+      "path": "packages/publish-demo"
+    },
+    {
       "name": "@shennong/stores",
       "path": "packages/stores"
     },

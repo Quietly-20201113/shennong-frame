@@ -1,0 +1,293 @@
+# 神农信息系统 · 迁移与运维手册
+
+> 本文档面向**框架维护者**和**甲方运维**。给业务开发者（含乙方）的文档另见 `apps/erp-admin/README.md`（P0-5 阶段产出）。
+
+---
+
+## 一、项目血统
+
+```
+upstream: vbenjs/vue-vben-admin    (https://github.com/vbenjs/vue-vben-admin.git)
+fork base: b5dacd992               (feat: add time zone option to preference settings #7871)
+brand:     vue-vben-admin → 神农信息系统（shennong）
+```
+
+---
+
+## 二、目录速览
+
+```
+shennong-frame/
+├── apps/                       # 业务应用
+├── packages/                   # 框架公共包（@shennong/*、@shennong-core/*）
+│   └── publish-demo/           # ★ 发布链路验证示例（不参与业务）
+├── internal/                   # 工程配置（非发布物）
+├── docs/                       # 项目文档（vitepress）
+├── docker/
+│   └── verdaccio/              # ★ 私服 npm 编排（Docker）
+├── scripts/
+│   └── rebrand.mjs             # ★ vben → shennong 重命名脚本
+├── .changeset/                 # 多包版本管理
+├── .npmrc                      # 项目级 npm 配置（scope 路由）
+└── MIGRATION.md                # 本文档
+```
+
+---
+
+## 三、与上游同步流程
+
+vbenjs/vue-vben-admin 持续在演进。同步上游修复/特性的步骤：
+
+```bash
+# 1. 拉取上游最新
+git fetch upstream
+
+# 2. 创建同步分支（不直接上 main，避免冲突）
+git checkout -b sync/upstream-$(date +%Y%m%d)
+
+# 3. 合并上游（会有冲突，主要是 vben/shennong 字符串差异）
+git merge upstream/main
+
+# 4. 解决冲突后跑 rebrand 脚本，把上游新增的 vben 字样统一改名
+node scripts/rebrand.mjs
+
+# 5. 验证 build
+pnpm install && pnpm build:antd
+
+# 6. 提交合并 commit，PR 到 main
+git add -A
+git commit -m "chore(project): [变更][项目] 同步上游 $(git rev-parse --short upstream/main) 并 rebrand"
+```
+
+**关键约束**：
+- `scripts/rebrand.mjs` 是**幂等的**——上游改了什么、新增了什么 vben 字样，跑一次脚本就统一改完。
+- 改 rebrand 脚本本身（增删替换规则）必须当作工程变更对待，单独 commit、走 review。
+
+---
+
+## 四、本地私服（Verdaccio）
+
+### 起服
+
+```bash
+cd docker/verdaccio
+docker compose up -d
+```
+
+- Web UI：<http://localhost:4873>
+- registry：`http://localhost:4873`
+
+详细见 `docker/verdaccio/README.md`。
+
+### 创建账号
+
+首次起服后必须创建账号。两种方式：
+
+**方式 A：交互式（推荐）**
+
+```bash
+npm adduser --registry http://localhost:4873
+```
+
+按提示输入用户名/密码/邮箱。
+
+**方式 B：API 直创（脚本用）**
+
+```bash
+curl -X PUT "http://localhost:4873/-/user/org.couchdb.user:<username>" \
+  -H "Content-Type: application/json" \
+  -d '{"name":"<username>","password":"<password>","email":"<email>"}'
+```
+
+返回 `token` 字段写入用户级 `~/.npmrc`：
+
+```bash
+npm config set //localhost:4873/:_authToken "<token>" --location=user
+```
+
+验证：
+
+```bash
+npm whoami --registry http://localhost:4873
+# 输出 <username> 即 OK
+```
+
+### 发布
+
+任意 `@shennong/*` 或 `@shennong-core/*` 包：
+
+```bash
+cd packages/<some-pkg>
+pnpm publish --registry http://localhost:4873 --no-git-checks
+```
+
+**前提**：包 `package.json` 必须配好 hybrid 发布模式（见下一节）。
+
+---
+
+## 五、包发布模式（hybrid）
+
+为满足"乙方装包只能拿到 dist，看不到核心源码"的硬约束，所有要发布的包都用以下模式：
+
+### 5.1 package.json 模板
+
+```json
+{
+  "name": "@shennong/some-pkg",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsdown",
+    "stub": "tsdown"
+  },
+  "files": ["dist"],
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
+  "devDependencies": {
+    "tsdown": "catalog:"
+  }
+}
+```
+
+**关键字段**：
+
+| 字段 | 作用 |
+|---|---|
+| `exports`（顶层） | dev 期 monorepo 内部消费，走 src 源码（无需 build） |
+| `publishConfig.exports` | publish 时**自动覆盖** exports，让消费方走 dist |
+| `files: ["dist"]` | publish 包内只有 dist，src 不会被打包 |
+| `main`/`types` | 给老 bundler 兜底（指向 dist） |
+
+### 5.2 tsdown.config.ts 模板
+
+```ts
+import { defineConfig } from 'tsdown';
+
+export default defineConfig({
+  clean: true,
+  entry: ['src/index.ts'],
+  format: ['esm'],
+  dts: { resolver: 'tsc' },
+  outExtensions: () => ({ js: '.mjs', dts: '.d.ts' }),
+});
+```
+
+### 5.3 验证发布物隔离
+
+```bash
+# 在临时目录
+mkdir /tmp/check && cd /tmp/check
+echo '{"name":"check","dependencies":{"@shennong/some-pkg":"0.1.0"}}' > package.json
+echo '@shennong:registry=http://localhost:4873/' > .npmrc
+pnpm install
+
+# 应该只看到 dist + package.json + LICENSE
+ls node_modules/@shennong/some-pkg/
+
+# 应该返回空（无 .ts 源文件）
+find node_modules/@shennong/some-pkg -name "*.ts" -not -name "*.d.ts"
+```
+
+### 5.4 已知边界
+
+- **首发示例 `@shennong/publish-demo`**（`packages/publish-demo/`）已跑通完整链路，作为后续业务包的参考。
+- **业务包还没改造**：当前 `packages/utils`、`packages/effects/*`、`packages/@core/*` 仍是源码直引模式，**不能发布**。改造留给 P0-3 阶段（涉及连锁发布工程）。
+
+---
+
+## 六、版本管理（changesets）
+
+每次改动后写 changeset：
+
+```bash
+pnpm changeset
+# 交互选择：哪些包变更、版本类型（patch/minor/major）、说明文字
+```
+
+发布前 bump 版本号：
+
+```bash
+pnpm changeset version
+# 自动 bump 各包 version + 生成 CHANGELOG
+```
+
+发布到私服：
+
+```bash
+pnpm publish -r --filter "@shennong/*" --registry http://localhost:4873 --no-git-checks
+```
+
+---
+
+## 七、甲方生产部署清单
+
+### 7.1 私服 Verdaccio
+
+参照 `docker/verdaccio/README.md`，重点：
+1. 域名 + HTTPS（Nginx 反代）
+2. `storage/` 挂独立卷 + 每日备份
+3. 关闭 `auth.htpasswd.max_users`（禁止开放注册）
+4. `security.api.jwt.expiresIn` 收紧到 7d
+5. 给乙方发只读 token
+
+### 7.2 框架包发布流程
+
+CI 触发（推荐 main 分支 merge 后自动）：
+1. 跑 `pnpm install`
+2. 跑 `pnpm build`（全 monorepo）
+3. 跑 `pnpm changeset version`（如有 pending changeset）
+4. 跑 `pnpm publish -r --filter "@shennong/*" --registry <私服>`
+
+### 7.3 乙方接入流程
+
+详见 `apps/erp-admin/README.md`（P0-5 阶段产出）。简要：
+1. 乙方拿到独立的 `shennong-erp-admin` 仓库（不含核心源码）
+2. 配置 `.npmrc` 指向甲方私服 + 只读 token
+3. `pnpm install` 自动从私服拉编译产物
+4. 业务开发只在 `src/views/`、`src/api/` 等业务目录
+
+---
+
+## 八、本次重大变更日志
+
+### 2026-05-07：P0-1 神农化
+
+- fork 自 vue-vben-admin@b5dacd992
+- 全量 rebrand：`@vben/*` → `@shennong/*`
+- 文件改名：6 个核心源文件 + code-workspace
+- 新增：`scripts/rebrand.mjs`（幂等重命名工具）
+- 验证：`pnpm build:antd` 11/11 task 全绿
+
+### 2026-05-07：P0-2 私服与发布链路
+
+- 新增：`docker/verdaccio/`（本地私服 Docker 编排）
+- 新增：`packages/publish-demo`（hybrid 发布模式参考）
+- 修改：`.npmrc` 增加 @shennong scope 路由
+- 验证：`@shennong/publish-demo@0.1.0` 已发布到私服，消费方装包后无任何 .ts 源文件（核心隔离生效）
+
+---
+
+## 九、待办（P0-3 起）
+
+- [ ] `@effects/access` 补 AND/OR 复合权限 + DataScope（继承自 shennong-turbo 的 TODO）
+- [ ] 业务包 `packages/utils`、`packages/effects/*`、`packages/@core/*` 改造为 hybrid 发布模式
+- [ ] 配置 changesets CI 自动发版
+- [ ] 写 `apps/erp-admin/` 应用骨架（独立仓库给乙方用）
+- [ ] 落地 AI 聊天系统后台 9 个菜单
+- [ ] README.md / LICENSE / .github 元数据人工撰写中文版
+- [ ] 修复 docs demo `.vue` 文件 oxfmt vs stylelint 冲突
