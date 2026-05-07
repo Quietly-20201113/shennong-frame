@@ -1,11 +1,11 @@
+import { useAccessStore, useUserStore } from '@shennong/stores';
+
 /**
  * @shennong/access · useDataScope Hook 单元测试
  * 覆盖五档 DataScope：SELF / OWN_DEPT / OWN_DEPT_AND_CHILDREN / ALL / CUSTOM
  */
 import { createPinia, setActivePinia } from 'pinia';
 import { beforeEach, describe, expect, it } from 'vitest';
-
-import { useAccessStore, useUserStore } from '@shennong/stores';
 
 import { useDataScope } from './use-data-scope';
 
@@ -22,7 +22,7 @@ describe('useDataScope', () => {
     } as any);
   });
 
-  it('ALL：放行所有数据', () => {
+  it('全部（ALL）：放行所有数据', () => {
     const accessStore = useAccessStore();
     accessStore.setDataScope('ALL');
     const { hasDataAccess } = useDataScope();
@@ -30,7 +30,7 @@ describe('useDataScope', () => {
     expect(hasDataAccess({})).toBe(true);
   });
 
-  it('SELF：仅放行 ownerId 等于当前用户', () => {
+  it('仅自己（SELF）：放行 ownerId 等于当前用户', () => {
     const accessStore = useAccessStore();
     accessStore.setDataScope('SELF');
     const { hasDataAccess } = useDataScope();
@@ -40,7 +40,7 @@ describe('useDataScope', () => {
     expect(hasDataAccess({ deptId: 'dept-A' })).toBe(false);
   });
 
-  it('OWN_DEPT：仅放行 deptId 等于当前用户部门', () => {
+  it('本部门（OWN_DEPT）：放行 deptId 等于当前用户部门', () => {
     const accessStore = useAccessStore();
     accessStore.setDataScope('OWN_DEPT');
     const { hasDataAccess } = useDataScope();
@@ -48,7 +48,7 @@ describe('useDataScope', () => {
     expect(hasDataAccess({ deptId: 'dept-B' })).toBe(false);
   });
 
-  it('OWN_DEPT_AND_CHILDREN：当前用户部门在数据祖先链中即放行', () => {
+  it('本部门含子（OWN_DEPT_AND_CHILDREN）：当前用户部门在祖先链中即放行', () => {
     const accessStore = useAccessStore();
     accessStore.setDataScope('OWN_DEPT_AND_CHILDREN');
     const { hasDataAccess } = useDataScope();
@@ -70,7 +70,7 @@ describe('useDataScope', () => {
     expect(hasDataAccess({ deptId: 'dept-X' })).toBe(false);
   });
 
-  it('CUSTOM：deptId 在自定义列表中才放行', () => {
+  it('自定义部门（CUSTOM）：deptId 在自定义列表中才放行', () => {
     const accessStore = useAccessStore();
     accessStore.setDataScope('CUSTOM');
     accessStore.setCustomDeptIds(['dept-X', 'dept-Y']);
@@ -79,7 +79,7 @@ describe('useDataScope', () => {
     expect(hasDataAccess({ deptId: 'dept-Z' })).toBe(false);
   });
 
-  it('dataScope 默认值为 SELF', () => {
+  it('默认值：dataScope 初始为 SELF', () => {
     const { dataScope } = useDataScope();
     expect(dataScope.value).toBe('SELF');
   });

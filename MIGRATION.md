@@ -295,8 +295,7 @@ CI 触发（推荐 main 分支 merge 后自动）：
   - Store：`useAccessStore` 增加 `dataScope` + `customDeptIds` 字段（持久化）
   - Hook：`useDataScope()` 提供 `dataScope` / `hasDataAccess(ctx)`
 - 单元测试：13/13 通过（`use-access.test.ts` + `use-data-scope.test.ts`）
-- 调研：基于 AI 聊天系统设计文档 16 文件 / 152 条 R-* 规则识别出 12 个业务漏洞
-  反馈给业务方，详见独立 review 报告（不入库）
+- 调研：基于 AI 聊天系统设计文档 16 文件 / 152 条 R-\* 规则识别出 12 个业务漏洞反馈给业务方，详见独立 review 报告（不入库）
 
 ---
 
