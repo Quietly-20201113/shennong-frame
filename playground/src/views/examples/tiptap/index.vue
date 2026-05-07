@@ -4,7 +4,10 @@ import type { ImageUploadOptions } from '@shennong/plugins/tiptap';
 import { computed, ref } from 'vue';
 
 import { Page } from '@shennong/common-ui';
-import { ShennongTiptap, ShennongTiptapPreview } from '@shennong/plugins/tiptap';
+import {
+  ShennongTiptap,
+  ShennongTiptapPreview,
+} from '@shennong/plugins/tiptap';
 
 import { Card, Switch } from 'ant-design-vue';
 const content = ref(`

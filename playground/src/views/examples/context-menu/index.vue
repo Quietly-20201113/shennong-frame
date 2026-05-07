@@ -51,7 +51,11 @@ const contextMenus = () => {
       <div>一共四个菜单（刷新、关闭当前、关闭其他、关闭所有）</div>
       <br />
       <br />
-      <ShennongContextMenu :menus="contextMenus" :modal="true" item-class="pr-6">
+      <ShennongContextMenu
+        :menus="contextMenus"
+        :modal="true"
+        item-class="pr-6"
+      >
         <Button> 右键点击我打开上下文菜单(有隐藏项) </Button>
       </ShennongContextMenu>
     </Card>

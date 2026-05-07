@@ -1,7 +1,10 @@
 /**
  * 该文件可自行根据业务逻辑进行调整
  */
-import type { AxiosResponseHeaders, RequestClientOptions } from '@shennong/request';
+import type {
+  AxiosResponseHeaders,
+  RequestClientOptions,
+} from '@shennong/request';
 
 import { useAppConfig } from '@shennong/hooks';
 import { preferences } from '@shennong/preferences';

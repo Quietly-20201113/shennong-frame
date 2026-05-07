@@ -31,7 +31,11 @@ import type { Recordable } from '@shennong/types';
 
 import { defineAsyncComponent, defineComponent, h, ref } from 'vue';
 
-import { ApiComponent, globalShareState, IconPicker } from '@shennong/common-ui';
+import {
+  ApiComponent,
+  globalShareState,
+  IconPicker,
+} from '@shennong/common-ui';
 import { $t } from '@shennong/locales';
 
 import { notification } from '#/adapter/tdesign';

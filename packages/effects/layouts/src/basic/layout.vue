@@ -14,7 +14,11 @@ import {
   updatePreferences,
   usePreferences,
 } from '@shennong/preferences';
-import { useAccessStore, useTabbarStore, useTimezoneStore } from '@shennong/stores';
+import {
+  useAccessStore,
+  useTabbarStore,
+  useTimezoneStore,
+} from '@shennong/stores';
 import { cloneDeep, mapTree } from '@shennong/utils';
 
 import { ShennongAdminLayout } from '@shennong-core/layout-ui';

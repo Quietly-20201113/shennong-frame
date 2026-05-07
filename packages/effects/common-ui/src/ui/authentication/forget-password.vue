@@ -108,7 +108,11 @@ defineExpose({
           {{ submitButtonText || $t('authentication.sendResetLink') }}
         </slot>
       </ShennongButton>
-      <ShennongButton class="mt-4 w-full" variant="outline" @click="goToLogin()">
+      <ShennongButton
+        class="mt-4 w-full"
+        variant="outline"
+        @click="goToLogin()"
+      >
         {{ $t('common.back') }}
       </ShennongButton>
     </div>

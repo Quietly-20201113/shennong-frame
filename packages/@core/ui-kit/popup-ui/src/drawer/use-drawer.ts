@@ -105,7 +105,11 @@ export function useShennongDrawer<
   const Drawer = defineComponent(
     (props: DrawerProps, { attrs, slots }) => {
       return () =>
-        h(ShennongDrawer, { ...props, ...attrs, drawerApi: extendedApi }, slots);
+        h(
+          ShennongDrawer,
+          { ...props, ...attrs, drawerApi: extendedApi },
+          slots,
+        );
     },
     // eslint-disable-next-line vue/one-component-per-file
     {

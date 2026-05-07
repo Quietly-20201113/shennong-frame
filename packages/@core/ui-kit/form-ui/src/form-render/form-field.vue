@@ -28,7 +28,12 @@ import {
   ShennongRenderContent,
   ShennongTooltip,
 } from '@shennong-core/shadcn-ui';
-import { cn, isFunction, isObject, isString } from '@shennong-core/shared/utils';
+import {
+  cn,
+  isFunction,
+  isObject,
+  isString,
+} from '@shennong-core/shared/utils';
 
 import { toTypedSchema } from '@vee-validate/zod';
 import { useFieldError, useFormValues } from 'vee-validate';

@@ -3,7 +3,12 @@ import type { TabOption } from '@shennong/types';
 
 import { computed } from 'vue';
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shennong-core/shadcn-ui';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@shennong-core/shadcn-ui';
 
 interface Props {
   tabs?: TabOption[];

@@ -6,7 +6,10 @@ import { RotateCw } from '@shennong/icons';
 import { preferences, usePreferences } from '@shennong/preferences';
 import { useAccessStore } from '@shennong/stores';
 
-import { ShennongFullScreen, ShennongIconButton } from '@shennong-core/shadcn-ui';
+import {
+  ShennongFullScreen,
+  ShennongIconButton,
+} from '@shennong-core/shadcn-ui';
 
 import {
   GlobalSearch,

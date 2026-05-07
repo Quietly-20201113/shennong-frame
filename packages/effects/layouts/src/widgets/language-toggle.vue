@@ -6,7 +6,10 @@ import { Languages } from '@shennong/icons';
 import { loadLocaleMessages } from '@shennong/locales';
 import { preferences, updatePreferences } from '@shennong/preferences';
 
-import { ShennongDropdownRadioMenu, ShennongIconButton } from '@shennong-core/shadcn-ui';
+import {
+  ShennongDropdownRadioMenu,
+  ShennongIconButton,
+} from '@shennong-core/shadcn-ui';
 
 defineOptions({
   name: 'LanguageToggle',

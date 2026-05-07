@@ -5,7 +5,11 @@ import type {
 
 import type { ComponentPropsMap, ComponentType } from './component';
 
-import { setupShennongForm, useShennongForm as useForm, z } from '@shennong/common-ui';
+import {
+  setupShennongForm,
+  useShennongForm as useForm,
+  z,
+} from '@shennong/common-ui';
 import { $t } from '@shennong/locales';
 
 async function initSetupShennongForm() {

@@ -29,7 +29,11 @@ import type {
 
 import type { ComponentType } from './component';
 
-import { setupShennongForm, useShennongForm as useForm, z } from '@shennong/common-ui';
+import {
+  setupShennongForm,
+  useShennongForm as useForm,
+  z,
+} from '@shennong/common-ui';
 import { $t } from '@shennong/locales';
 
 import { initComponentAdapter } from './component';

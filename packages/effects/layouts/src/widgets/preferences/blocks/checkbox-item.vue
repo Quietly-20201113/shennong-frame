@@ -5,7 +5,10 @@ import { useSlots } from 'vue';
 
 import { CircleHelp } from '@shennong/icons';
 
-import { ShennongCheckButtonGroup, ShennongTooltip } from '@shennong-core/shadcn-ui';
+import {
+  ShennongCheckButtonGroup,
+  ShennongTooltip,
+} from '@shennong-core/shadcn-ui';
 
 defineOptions({
   name: 'PreferenceCheckboxItem',

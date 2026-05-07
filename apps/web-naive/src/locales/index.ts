@@ -1,6 +1,9 @@
 import type { App } from 'vue';
 
-import type { LocaleSetupOptions, SupportedLanguagesType } from '@shennong/locales';
+import type {
+  LocaleSetupOptions,
+  SupportedLanguagesType,
+} from '@shennong/locales';
 
 import {
   $t,

@@ -57,7 +57,10 @@ const handleClear = () => {
 };
 </script>
 <template>
-  <ShennongPopover v-model:open="open" content-class="relative right-2 w-90 p-0">
+  <ShennongPopover
+    v-model:open="open"
+    content-class="relative right-2 w-90 p-0"
+  >
     <template #trigger>
       <div class="mr-2 flex-center h-full" @click.stop="toggle()">
         <ShennongIconButton class="bell-button relative text-foreground">

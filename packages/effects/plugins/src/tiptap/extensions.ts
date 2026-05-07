@@ -3,7 +3,10 @@ import type { Node as ProseMirrorNode } from '@tiptap/pm/model';
 import type { EditorView } from '@tiptap/pm/view';
 import type { Extensions } from '@tiptap/vue-3';
 
-import type { ImageUploadOptions, ShennongTiptapExtensionOptions } from './types';
+import type {
+  ImageUploadOptions,
+  ShennongTiptapExtensionOptions,
+} from './types';
 
 import { $t } from '@shennong/locales';
 

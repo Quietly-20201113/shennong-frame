@@ -31,6 +31,8 @@ function showCustomAlert() {
   <div class="flex gap-4">
     <ShennongButton @click="showAlert">Alert</ShennongButton>
     <ShennongButton @click="showIconAlert">Alert With Icon</ShennongButton>
-    <ShennongButton @click="showCustomAlert">Alert With Custom Content</ShennongButton>
+    <ShennongButton @click="showCustomAlert"
+      >Alert With Custom Content</ShennongButton
+    >
   </div>
 </template>

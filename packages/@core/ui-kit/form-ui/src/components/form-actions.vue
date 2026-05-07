@@ -3,7 +3,11 @@ import { computed, toRaw, unref, watch } from 'vue';
 
 import { useSimpleLocale } from '@shennong-core/composables';
 import { ShennongExpandableArrow } from '@shennong-core/shadcn-ui';
-import { cn, isFunction, triggerWindowResize } from '@shennong-core/shared/utils';
+import {
+  cn,
+  isFunction,
+  triggerWindowResize,
+} from '@shennong-core/shared/utils';
 
 import { COMPONENT_MAP } from '../config';
 import { injectFormProps } from '../use-form-context';

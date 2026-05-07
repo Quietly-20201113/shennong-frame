@@ -9,7 +9,10 @@ import type { Ref } from 'vue';
 
 import type { ClassType, DeepPartial } from '@shennong/types';
 
-import type { BaseFormComponentType, ShennongFormProps } from '@shennong-core/form-ui';
+import type {
+  BaseFormComponentType,
+  ShennongFormProps,
+} from '@shennong-core/form-ui';
 
 import type { VxeGridApi } from './api';
 

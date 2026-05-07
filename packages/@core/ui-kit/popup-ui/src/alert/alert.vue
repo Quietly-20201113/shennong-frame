@@ -177,7 +177,10 @@ async function handleOpenChange(val: boolean) {
           <div class="m-4 min-h-7.5">
             <ShennongRenderContent :content="content" render-br />
           </div>
-          <ShennongLoading v-if="loading && contentMasking" :spinning="loading" />
+          <ShennongLoading
+            v-if="loading && contentMasking"
+            :spinning="loading"
+          />
         </AlertDialogDescription>
         <div
           class="flex items-center justify-end gap-x-2"

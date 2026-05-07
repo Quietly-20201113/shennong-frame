@@ -270,7 +270,11 @@ onMounted(() => {
           @click="handleEnter"
           @mouseenter="handleMouseenter"
         >
-          <ShennongIcon :icon="item.icon" class="mr-2 size-5 shrink-0" fallback />
+          <ShennongIcon
+            :icon="item.icon"
+            class="mr-2 size-5 shrink-0"
+            fallback
+          />
 
           <span class="flex-1">{{ item.name }}</span>
           <div

@@ -1,6 +1,9 @@
 import { h } from 'vue';
 
-import { setupShennongVxeTable, useShennongVxeGrid } from '@shennong/plugins/vxe-table';
+import {
+  setupShennongVxeTable,
+  useShennongVxeGrid,
+} from '@shennong/plugins/vxe-table';
 
 import { Button, Image } from 'ant-design-vue';
 

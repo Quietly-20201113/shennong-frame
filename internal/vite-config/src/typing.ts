@@ -339,7 +339,10 @@ type DefineLibraryOptions = (config?: ConfigEnv) => Promise<{
  */
 type DefineConfig = DefineApplicationOptions | DefineLibraryOptions;
 
-type ShennongViteConfig = Promise<UserConfig> | UserConfig | UserConfigFnPromise;
+type ShennongViteConfig =
+  | Promise<UserConfig>
+  | UserConfig
+  | UserConfigFnPromise;
 
 export type {
   ApplicationPluginOptions,

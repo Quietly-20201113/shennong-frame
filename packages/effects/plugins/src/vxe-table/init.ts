@@ -109,7 +109,8 @@ export function initVxeTable() {
 }
 
 export function setupShennongVxeTable(setupOptions: SetupVxeTable) {
-  const { configVxeTable, useShennongForm: useShennongFormFromParam } = setupOptions;
+  const { configVxeTable, useShennongForm: useShennongFormFromParam } =
+    setupOptions;
 
   initVxeTable();
 

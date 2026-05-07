@@ -45,7 +45,11 @@ function handleClick(path?: string) {
             <div v-if="item.items?.length ?? 0 > 0">
               <DropdownMenu>
                 <DropdownMenuTrigger class="flex items-center gap-1">
-                  <ShennongIcon v-if="showIcon" :icon="item.icon" class="size-5" />
+                  <ShennongIcon
+                    v-if="showIcon"
+                    :icon="item.icon"
+                    class="size-5"
+                  />
                   {{ item.title }}
                   <ChevronDown class="size-4" />
                 </DropdownMenuTrigger>

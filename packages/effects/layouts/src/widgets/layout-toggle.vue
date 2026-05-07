@@ -13,7 +13,10 @@ import {
   usePreferences,
 } from '@shennong/preferences';
 
-import { ShennongDropdownRadioMenu, ShennongIconButton } from '@shennong-core/shadcn-ui';
+import {
+  ShennongDropdownRadioMenu,
+  ShennongIconButton,
+} from '@shennong-core/shadcn-ui';
 
 defineOptions({
   name: 'AuthenticationLayoutToggle',

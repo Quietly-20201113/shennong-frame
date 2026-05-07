@@ -2,7 +2,10 @@ import type { Locale } from 'antdv-next/dist/locale/index';
 
 import type { App } from 'vue';
 
-import type { LocaleSetupOptions, SupportedLanguagesType } from '@shennong/locales';
+import type {
+  LocaleSetupOptions,
+  SupportedLanguagesType,
+} from '@shennong/locales';
 
 import { ref } from 'vue';
 
