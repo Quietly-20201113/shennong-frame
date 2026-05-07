@@ -1,0 +1,52 @@
+{
+  "name": "@shennong/erp-admin",
+  "version": "0.1.0",
+  "private": true,
+  "description": "神农信息系统 · ERP 后台应用骨架",
+  "homepage": "",
+  "bugs": "",
+  "repository": {
+    "type": "git",
+    "url": "",
+    "directory": "apps/erp-admin"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "shennong",
+    "email": "",
+    "url": ""
+  },
+  "type": "module",
+  "scripts": {
+    "build": "pnpm vite build --mode production",
+    "build:analyze": "pnpm vite build --mode analyze",
+    "dev": "pnpm vite --mode development",
+    "preview": "vite preview",
+    "typecheck": "vue-tsc --noEmit --skipLibCheck"
+  },
+  "imports": {
+    "#/*": "./src/*"
+  },
+  "dependencies": {
+    "@shennong/access": "workspace:*",
+    "@shennong/common-ui": "workspace:*",
+    "@shennong/constants": "workspace:*",
+    "@shennong/hooks": "workspace:*",
+    "@shennong/icons": "workspace:*",
+    "@shennong/layouts": "workspace:*",
+    "@shennong/locales": "workspace:*",
+    "@shennong/plugins": "workspace:*",
+    "@shennong/preferences": "workspace:*",
+    "@shennong/request": "workspace:*",
+    "@shennong/stores": "workspace:*",
+    "@shennong/styles": "workspace:*",
+    "@shennong/types": "workspace:*",
+    "@shennong/utils": "workspace:*",
+    "@vueuse/core": "catalog:",
+    "ant-design-vue": "catalog:",
+    "dayjs": "catalog:",
+    "pinia": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:"
+  }
+}

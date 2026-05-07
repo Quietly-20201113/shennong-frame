@@ -284,6 +284,21 @@ CI 触发（推荐 main 分支 merge 后自动）：
 - 修改：`.npmrc` 增加 @shennong scope 路由
 - 验证：`@shennong/publish-demo@0.1.0` 已发布到私服，消费方装包后无任何 .ts 源文件（核心隔离生效）
 
+### 2026-05-07：P0-5 erp-admin 应用骨架
+
+- 新增：`apps/erp-admin/` —— 神农信息系统 ERP 应用骨架
+  - 基于 web-antd 复制 + 改造为最小可用 ERP 壳子
+  - 包名 `@shennong/erp-admin`，version `0.1.0`，private:true
+  - VITE_APP_TITLE = `神农信息系统`，namespace = `shennong-erp-admin`
+- 删除：vben 上游 demos / vben 演示路由 + analytics / workspace 复杂 dashboard
+- 替换：单一空白欢迎页 `views/dashboard/welcome/index.vue`
+- 配置：preferences.ts override `defaultHomePath: '/welcome'`
+- 验证：`pnpm -r --filter @shennong/erp-admin build` 全绿，dist 919 kB
+- 待办：
+  - mock 后端菜单数据（apps/backend-mock）含 /analytics 等已删路由——目前
+    erp-admin 用 frontend access mode 不依赖它，但若切 backend mode 需同步改 mock
+  - 拆分独立仓库（给乙方）—— 等真有第三方接入需求时做
+
 ### 2026-05-07：P0-4 业务包发布矩阵（hybrid 化）
 
 - 修复：`@shennong-core/preferences` 上游 `#build` 拼写 + `files: [dist, src]` 源码泄漏 bug
@@ -321,7 +336,7 @@ CI 触发（推荐 main 分支 merge 后自动）：
 - [ ] icons 包 svg `?raw` 加载方案（待解决后再 hybrid 化）
 - [ ] common-ui / plugins / layouts 三个大包 hybrid 化（11+ workspace deps，build 配置复杂度高）
 - [ ] 配置 changesets CI 自动发版
-- [ ] 写 `apps/erp-admin/` 应用骨架（独立仓库给乙方用）
+- [ ] 拆分 `apps/erp-admin/` 为独立仓库（真有乙方接入时做）
 - [ ] 落地 AI 聊天系统后台 9 个菜单
 - [ ] README.md / LICENSE / .github 元数据人工撰写中文版
 - [ ] 修复 docs demo `.vue` 文件 oxfmt vs stylelint 冲突

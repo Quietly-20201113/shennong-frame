@@ -5,6 +5,10 @@
       "path": "apps/backend-mock"
     },
     {
+      "name": "@shennong/erp-admin",
+      "path": "apps/erp-admin"
+    },
+    {
       "name": "@shennong/web-antd",
       "path": "apps/web-antd"
     },
