@@ -22,5 +22,25 @@
   "dependencies": {
     "@shennong-core/preferences": "workspace:*",
     "@shennong-core/typings": "workspace:*"
+  },
+  "scripts": {
+    "build": "pnpm exec tsdown"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
+  "devDependencies": {
+    "tsdown": "catalog:"
   }
 }

@@ -284,6 +284,19 @@ CI 触发（推荐 main 分支 merge 后自动）：
 - 修改：`.npmrc` 增加 @shennong scope 路由
 - 验证：`@shennong/publish-demo@0.1.0` 已发布到私服，消费方装包后无任何 .ts 源文件（核心隔离生效）
 
+### 2026-05-07：P0-4 业务包发布矩阵（hybrid 化）
+
+- 修复：`@shennong-core/preferences` 上游 `#build` 拼写 + `files: [dist, src]` 源码泄漏 bug
+- 修复：vitest `prefer-lowercase-title` 误改中英混排测试名（项目根 oxlint.config.ts override）
+- 修复：docs vue 死循环（eslint vue/multiline 规则要求改写 + lefthook lint-vue 链移除 oxlint 步）
+- 改造：10 个 @shennong/\* 业务包补完 hybrid 配置（publishConfig + tsdown.config + main/types/files）
+- 发布：12 个 @shennong-core/\* + 10 个 @shennong/\* 共 22 个包至 Verdaccio 私服
+- 验证：消费方装 @shennong/access 后 node_modules 只含 LICENSE/dist/package.json，无任何 .ts 源文件
+  - 核心隔离硬约束达成
+- 待办：
+  - icons 包暂保留源码直引（svg `?raw` 加载需 vite/特殊 plugin，留给后续）
+  - common-ui / plugins / layouts 三个大包未做（11+ workspace deps，build 复杂度高）
+
 ### 2026-05-07：P0-3 access 权限模型增强
 
 - 新增：`@shennong/access` 复合权限 AND/OR 三层 API
@@ -305,7 +318,8 @@ CI 触发（推荐 main 分支 merge 后自动）：
 - [ ] **P0-3.5 字典中心** `@shennong/business-dict`（KV 表 + Redis + 启动同步）
 - [ ] **P0-4 精简版** `@shennong/business-rbac`（动态角色 + 权限扫码同步）
 - [ ] AI 聊天业务相关包（chat / quota / provider / audit / file）—— 真做 AI 项目时再启动
-- [ ] 业务包 `packages/utils`、`packages/effects/*`、`packages/@core/*` 改造为 hybrid 发布模式
+- [ ] icons 包 svg `?raw` 加载方案（待解决后再 hybrid 化）
+- [ ] common-ui / plugins / layouts 三个大包 hybrid 化（11+ workspace deps，build 配置复杂度高）
 - [ ] 配置 changesets CI 自动发版
 - [ ] 写 `apps/erp-admin/` 应用骨架（独立仓库给乙方用）
 - [ ] 落地 AI 聊天系统后台 9 个菜单

@@ -1617,6 +1617,10 @@ importers:
       '@shennong-core/shared':
         specifier: workspace:*
         version: link:../@core/base/shared
+    devDependencies:
+      tsdown:
+        specifier: 'catalog:'
+        version: 0.21.10(@tsdown/css@0.21.10)(publint@0.3.19)(synckit@0.11.12)(typescript@6.0.3)(vue-tsc@3.2.8(typescript@6.0.3))
 
   packages/effects/access:
     dependencies:
@@ -1639,6 +1643,12 @@ importers:
       pinia:
         specifier: ^3.0.4
         version: 3.0.4(typescript@6.0.3)(vue@3.5.34(typescript@6.0.3))
+      tsdown:
+        specifier: 'catalog:'
+        version: 0.21.10(@tsdown/css@0.21.10)(publint@0.3.19)(synckit@0.11.12)(typescript@6.0.3)(vue-tsc@3.2.8(typescript@6.0.3))
+      unplugin-vue:
+        specifier: 'catalog:'
+        version: 7.2.0(@types/node@25.6.0)(esbuild@0.28.0)(jiti@2.7.0)(less@4.6.4)(sass-embedded@1.99.0)(sass@1.99.0)(terser@5.46.2)(vue@3.5.34(typescript@6.0.3))(yaml@2.8.4)
 
   packages/effects/common-ui:
     dependencies:
@@ -1742,6 +1752,10 @@ importers:
       watermark-js-plus:
         specifier: 'catalog:'
         version: 1.6.3
+    devDependencies:
+      tsdown:
+        specifier: 'catalog:'
+        version: 0.21.10(@tsdown/css@0.21.10)(publint@0.3.19)(synckit@0.11.12)(typescript@6.0.3)(vue-tsc@3.2.8(typescript@6.0.3))
 
   packages/effects/layouts:
     dependencies:
@@ -1917,6 +1931,9 @@ importers:
       axios-mock-adapter:
         specifier: 'catalog:'
         version: 2.1.0(axios@1.16.0)
+      tsdown:
+        specifier: 'catalog:'
+        version: 0.21.10(@tsdown/css@0.21.10)(publint@0.3.19)(synckit@0.11.12)(typescript@6.0.3)(vue-tsc@3.2.8(typescript@6.0.3))
 
   packages/icons:
     dependencies:
@@ -1938,6 +1955,10 @@ importers:
       vue-i18n:
         specifier: 'catalog:'
         version: 11.4.0(vue@3.5.34(typescript@6.0.3))
+    devDependencies:
+      tsdown:
+        specifier: 'catalog:'
+        version: 0.21.10(@tsdown/css@0.21.10)(publint@0.3.19)(synckit@0.11.12)(typescript@6.0.3)(vue-tsc@3.2.8(typescript@6.0.3))
 
   packages/preferences:
     dependencies:
@@ -1947,6 +1968,10 @@ importers:
       '@shennong-core/typings':
         specifier: workspace:*
         version: link:../@core/base/typings
+    devDependencies:
+      tsdown:
+        specifier: 'catalog:'
+        version: 0.21.10(@tsdown/css@0.21.10)(publint@0.3.19)(synckit@0.11.12)(typescript@6.0.3)(vue-tsc@3.2.8(typescript@6.0.3))
 
   packages/publish-demo:
     devDependencies:
@@ -1980,12 +2005,20 @@ importers:
       vue-router:
         specifier: 'catalog:'
         version: 5.0.6(@vue/compiler-sfc@3.5.34)(pinia@3.0.4(typescript@6.0.3)(vue@3.5.34(typescript@6.0.3)))(vue@3.5.34(typescript@6.0.3))
+    devDependencies:
+      tsdown:
+        specifier: 'catalog:'
+        version: 0.21.10(@tsdown/css@0.21.10)(publint@0.3.19)(synckit@0.11.12)(typescript@6.0.3)(vue-tsc@3.2.8(typescript@6.0.3))
 
   packages/styles:
     dependencies:
       '@shennong-core/design':
         specifier: workspace:*
         version: link:../@core/base/design
+    devDependencies:
+      tsdown:
+        specifier: 'catalog:'
+        version: 0.21.10(@tsdown/css@0.21.10)(publint@0.3.19)(synckit@0.11.12)(typescript@6.0.3)(vue-tsc@3.2.8(typescript@6.0.3))
 
   packages/types:
     dependencies:
@@ -1998,6 +2031,10 @@ importers:
       vue-router:
         specifier: 'catalog:'
         version: 5.0.6(@vue/compiler-sfc@3.5.34)(pinia@3.0.4(typescript@6.0.3)(vue@3.5.34(typescript@6.0.3)))(vue@3.5.34(typescript@6.0.3))
+    devDependencies:
+      tsdown:
+        specifier: 'catalog:'
+        version: 0.21.10(@tsdown/css@0.21.10)(publint@0.3.19)(synckit@0.11.12)(typescript@6.0.3)(vue-tsc@3.2.8(typescript@6.0.3))
 
   packages/utils:
     dependencies:
@@ -2010,6 +2047,10 @@ importers:
       vue-router:
         specifier: 'catalog:'
         version: 5.0.6(@vue/compiler-sfc@3.5.34)(pinia@3.0.4(typescript@6.0.3)(vue@3.5.34(typescript@6.0.3)))(vue@3.5.34(typescript@6.0.3))
+    devDependencies:
+      tsdown:
+        specifier: 'catalog:'
+        version: 0.21.10(@tsdown/css@0.21.10)(publint@0.3.19)(synckit@0.11.12)(typescript@6.0.3)(vue-tsc@3.2.8(typescript@6.0.3))
 
   playground:
     dependencies:
