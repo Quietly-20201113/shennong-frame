@@ -16,6 +16,7 @@ docker compose down
 ```
 
 启动后：
+
 - Web UI：<http://localhost:4873>
 - registry：`http://localhost:4873`
 
@@ -77,7 +78,7 @@ docker/verdaccio/conf/      # 配置文件
 ## 七、故障排查
 
 | 现象 | 排查 |
-|---|---|
+| --- | --- |
 | `pnpm publish` 报 401 | 跑 `npm whoami --registry http://localhost:4873` 确认登录有效 |
 | 装包慢 / 拉不到上游 | 看 `docker compose logs` 是否报 `ETIMEDOUT`，可能是 npmmirror 不通 |
 | Web UI 打不开 | 容器 `docker ps` 看是否 healthy，端口 4873 有无被占 |

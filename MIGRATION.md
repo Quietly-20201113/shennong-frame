@@ -60,6 +60,7 @@ git commit -m "chore(project): [变更][项目] 同步上游 $(git rev-parse --s
 ```
 
 **关键约束**：
+
 - `scripts/rebrand.mjs` 是**幂等的**——上游改了什么、新增了什么 vben 字样，跑一次脚本就统一改完。
 - 改 rebrand 脚本本身（增删替换规则）必须当作工程变更对待，单独 commit、走 review。
 
@@ -167,7 +168,7 @@ pnpm publish --registry http://localhost:4873 --no-git-checks
 **关键字段**：
 
 | 字段 | 作用 |
-|---|---|
+| --- | --- |
 | `exports`（顶层） | dev 期 monorepo 内部消费，走 src 源码（无需 build） |
 | `publishConfig.exports` | publish 时**自动覆盖** exports，让消费方走 dist |
 | `files: ["dist"]` | publish 包内只有 dist，src 不会被打包 |
@@ -239,6 +240,7 @@ pnpm publish -r --filter "@shennong/*" --registry http://localhost:4873 --no-git
 ### 7.1 私服 Verdaccio
 
 参照 `docker/verdaccio/README.md`，重点：
+
 1. 域名 + HTTPS（Nginx 反代）
 2. `storage/` 挂独立卷 + 每日备份
 3. 关闭 `auth.htpasswd.max_users`（禁止开放注册）
@@ -248,6 +250,7 @@ pnpm publish -r --filter "@shennong/*" --registry http://localhost:4873 --no-git
 ### 7.2 框架包发布流程
 
 CI 触发（推荐 main 分支 merge 后自动）：
+
 1. 跑 `pnpm install`
 2. 跑 `pnpm build`（全 monorepo）
 3. 跑 `pnpm changeset version`（如有 pending changeset）
@@ -256,6 +259,7 @@ CI 触发（推荐 main 分支 merge 后自动）：
 ### 7.3 乙方接入流程
 
 详见 `apps/erp-admin/README.md`（P0-5 阶段产出）。简要：
+
 1. 乙方拿到独立的 `shennong-erp-admin` 仓库（不含核心源码）
 2. 配置 `.npmrc` 指向甲方私服 + 只读 token
 3. `pnpm install` 自动从私服拉编译产物
