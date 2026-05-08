@@ -306,15 +306,26 @@ CI 触发（推荐 main 分支 merge 后自动）：
 
 ### 已知工程债（P0-5 留下）
 
-- form-ui / popup-ui / layout-ui 三个 ui-kit 包改 vite library 后未输出 .css 文件
-  （可能 .vue 没 scoped scss 内容，需排查）
+- form-ui / popup-ui / layout-ui 三个 ui-kit 包未输出 .css 文件 —— **非 bug**：
+  这 3 个包的 .vue 本来就没 `<style>` 块（样式靠 tailwind class）
 - @shennong/plugins 子路径（./echarts ./tiptap ./vxe-table ./motion）publishConfig
   default 都指向同一个主入口 dist/index.mjs，失去 tree-shaking——多 entry vite library 待补
 - @shennong/icons 子路径未配 publishConfig
 - vben 上游设计模式：dist 在 module 顶层调用 useAppConfig，导致消费方必须在
   入口注入 `window._SHENNONG_ADMIN_PRO_APP_CONF_`（已记录在 erp-admin/src/main.ts）
-- 上游 dist 不自动 import css，消费方必须显式 `import 'pkg/style.css'`
-  （已记录在 erp-admin/src/bootstrap.ts）
+- ~~上游 dist 不自动 import css，消费方必须显式 `import 'pkg/style.css'`~~
+  ✅ **P0-5.5 已修**：vite-config 5.7.3 lib-inject-css plugin 自动注入
+
+### 2026-05-08：P0-5.5 vite-config 自动注入 css
+
+- internal/vite-config 加内联 plugin lib-inject-css（generateBundle 阶段
+  prepend `import './<name>.css'` 到 entry chunk），消费方装包即用，
+  无需显式 import css
+- 6 个有 css 的包重 build + 重发：
+  - @shennong-core/design 5.7.4 / shadcn-ui 5.7.4 / menu-ui 5.7.3 / tabs-ui 5.7.3
+  - @shennong/common-ui 5.7.3 / layouts 5.7.3
+- @shennong/vite-config 5.7.3
+- shennong-erp-admin: src/bootstrap.ts 删除 6 行显式 css import，仍样式正常
 
 ### 2026-05-07：P0-5 erp-admin 应用骨架
 
