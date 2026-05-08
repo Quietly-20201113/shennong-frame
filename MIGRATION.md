@@ -284,6 +284,38 @@ CI 触发（推荐 main 分支 merge 后自动）：
 - 修改：`.npmrc` 增加 @shennong scope 路由
 - 验证：`@shennong/publish-demo@0.1.0` 已发布到私服，消费方装包后无任何 .ts 源文件（核心隔离生效）
 
+### 2026-05-08：P0-5 完整收尾 · 独立项目消费链路打通
+
+- 新建独立项目 `shennong-erp-admin/`（与 shennong-frame 平级，独立 git 仓库）
+  - 初次 commit: `912c3bd feat: [新增][项目] shennong-erp-admin 独立项目初始化`
+- monorepo 内 27 包全部 hybrid 化：
+  - 14 个 `@shennong/*` 业务包补 publishConfig + tsdown
+  - 6 个 `@shennong-core/*` ui-kit 从 tsdown 切到 vite library（修 css 输出 bug）
+  - 3 个业务 ui 包（common-ui / plugins / layouts）切 vite library
+  - 4 个 internal 包（tsconfig/vite-config/node-utils/tailwind-config）去 private + 加 publishConfig
+- 关键 bug 修复（这次踩坑沉淀）：
+  - `@shennong-core/shared`: lodash.clonedeep（CJS）→ lodash-es（ESM）
+  - `@shennong-core/preferences`: scripts.build "#build" + files: src 源码泄漏
+  - `@shennong-core/design`: publishConfig.exports 子路径丢失（./bem ./theme ./style.css）
+  - `@shennong-core/shadcn-ui`: 上游 main 指 src 源码暴露
+  - `@shennong/plugins`: src/index.ts 不 re-export 子模块导致 EchartsUI 等找不到
+  - `@shennong/vite-config`: runtime deps 错放 devDeps，消费方装不齐
+  - vue-router 双版本（4.x vs 5.x）冲突 → pnpm.overrides 强制 5.0.6
+- 验证：`shennong-erp-admin` 独立仓库 pnpm install + dev + 登录全链路通畅，
+  `node_modules/@shennong/*` 全部仅含 dist + d.ts，**无任何 .ts 源码**
+
+### 已知工程债（P0-5 留下）
+
+- form-ui / popup-ui / layout-ui 三个 ui-kit 包改 vite library 后未输出 .css 文件
+  （可能 .vue 没 scoped scss 内容，需排查）
+- @shennong/plugins 子路径（./echarts ./tiptap ./vxe-table ./motion）publishConfig
+  default 都指向同一个主入口 dist/index.mjs，失去 tree-shaking——多 entry vite library 待补
+- @shennong/icons 子路径未配 publishConfig
+- vben 上游设计模式：dist 在 module 顶层调用 useAppConfig，导致消费方必须在
+  入口注入 `window._SHENNONG_ADMIN_PRO_APP_CONF_`（已记录在 erp-admin/src/main.ts）
+- 上游 dist 不自动 import css，消费方必须显式 `import 'pkg/style.css'`
+  （已记录在 erp-admin/src/bootstrap.ts）
+
 ### 2026-05-07：P0-5 erp-admin 应用骨架
 
 - 新增：`apps/erp-admin/` —— 神农信息系统 ERP 应用骨架
