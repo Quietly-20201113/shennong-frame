@@ -1,6 +1,6 @@
 {
   "name": "@shennong-core/shadcn-ui",
-  "version": "5.7.0",
+  "version": "5.7.2",
   "homepage": "",
   "bugs": "",
   "repository": {
@@ -10,16 +10,19 @@
   },
   "license": "MIT",
   "type": "module",
+  "scripts": {
+    "build": "pnpm vite build"
+  },
   "files": [
     "components.json",
-    "src"
+    "dist"
   ],
   "sideEffects": [
     "**/*.css"
   ],
-  "main": "./src/index.ts",
-  "module": "./src/index.ts",
-  "types": "./src/index.ts",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/src/index.d.ts",
   "exports": {
     ".": {
       "types": "./src/index.ts",
@@ -30,10 +33,10 @@
   "publishConfig": {
     "exports": {
       ".": {
-        "types": "./src/index.ts",
-        "development": "./src/index.ts",
-        "default": "./src/index.ts"
-      }
+        "types": "./dist/src/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "./style.css": "./dist/shadcn-ui.css"
     }
   },
   "dependencies": {
@@ -48,5 +51,9 @@
     "reka-ui": "catalog:",
     "vee-validate": "catalog:",
     "vue": "catalog:"
+  },
+  "devDependencies": {
+    "@shennong/vite-config": "workspace:*",
+    "vite": "catalog:"
   }
 }

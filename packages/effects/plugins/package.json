@@ -1,6 +1,6 @@
 {
   "name": "@shennong/plugins",
-  "version": "5.7.0",
+  "version": "5.7.1",
   "homepage": "",
   "bugs": "",
   "repository": {
@@ -13,6 +13,15 @@
   "sideEffects": [
     "**/*.css"
   ],
+  "scripts": {
+    "build": "pnpm vite build"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/src/index.d.ts",
   "exports": {
     ".": {
       "types": "./src/index.ts",
@@ -34,6 +43,34 @@
       "types": "./src/motion/index.ts",
       "default": "./src/motion/index.ts"
     }
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/src/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "./echarts": {
+        "types": "./dist/src/echarts/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "./tiptap": {
+        "types": "./dist/src/tiptap/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "./vxe-table": {
+        "types": "./dist/src/vxe-table/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "./motion": {
+        "types": "./dist/src/motion/index.d.ts",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
+  "devDependencies": {
+    "@shennong/vite-config": "workspace:*",
+    "vite": "catalog:"
   },
   "dependencies": {
     "@tiptap/core": "catalog:",

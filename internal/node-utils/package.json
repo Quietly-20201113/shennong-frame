@@ -1,7 +1,6 @@
 {
   "name": "@shennong/node-utils",
   "version": "5.7.0",
-  "private": true,
   "homepage": "",
   "bugs": "",
   "repository": {

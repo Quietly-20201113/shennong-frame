@@ -1,6 +1,6 @@
 {
   "name": "@shennong-core/design",
-  "version": "5.7.0",
+  "version": "5.7.2",
   "homepage": "",
   "bugs": "",
   "repository": {
@@ -38,6 +38,13 @@
   },
   "publishConfig": {
     "exports": {
+      "./bem": {
+        "default": "./src/scss-bem/bem.scss"
+      },
+      "./theme": {
+        "default": "./src/css/global.css"
+      },
+      "./style.css": "./dist/design.css",
       ".": {
         "default": "./dist/index.mjs"
       }

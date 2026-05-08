@@ -18,4 +18,6 @@ export * from './util';
 export * from './window';
 export { get, isEqual, set } from 'es-toolkit/compat';
 // export { cloneDeep } from 'es-toolkit/object';
-export { default as cloneDeep } from 'lodash.clonedeep';
+// 用 lodash-es（ESM 原生）替代 lodash.clonedeep（CJS）
+// CJS 在私服包消费场景下会触发 vite default export interop 失败
+export { cloneDeep } from 'lodash-es';

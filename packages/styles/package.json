@@ -1,6 +1,6 @@
 {
   "name": "@shennong/styles",
-  "version": "5.7.0",
+  "version": "5.7.1",
   "homepage": "",
   "bugs": "",
   "repository": {
@@ -10,6 +10,13 @@
   },
   "license": "MIT",
   "type": "module",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./src/index.ts",
@@ -36,25 +43,39 @@
       "default": "./src/global/index.scss"
     }
   },
-  "dependencies": {
-    "@shennong-core/design": "workspace:*"
-  },
-  "scripts": {
-    "build": "pnpm exec tsdown"
-  },
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "publishConfig": {
     "exports": {
       ".": {
         "types": "./dist/index.d.ts",
         "default": "./dist/index.mjs"
+      },
+      "./antd": {
+        "types": "./src/style-exports.d.ts",
+        "default": "./src/antd/index.css"
+      },
+      "./antdv-next": {
+        "types": "./src/style-exports.d.ts",
+        "default": "./src/antdv-next/index.css"
+      },
+      "./ele": {
+        "types": "./src/style-exports.d.ts",
+        "default": "./src/ele/index.css"
+      },
+      "./naive": {
+        "types": "./src/style-exports.d.ts",
+        "default": "./src/naive/index.css"
+      },
+      "./global": {
+        "types": "./src/style-exports.d.ts",
+        "default": "./src/global/index.scss"
       }
     }
+  },
+  "scripts": {
+    "build": "pnpm exec tsdown"
+  },
+  "dependencies": {
+    "@shennong-core/design": "workspace:*"
   },
   "devDependencies": {
     "tsdown": "catalog:"

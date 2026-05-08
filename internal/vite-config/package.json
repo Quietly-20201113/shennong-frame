@@ -1,7 +1,6 @@
 {
   "name": "@shennong/vite-config",
-  "version": "5.7.0",
-  "private": true,
+  "version": "5.7.1",
   "homepage": "",
   "bugs": "",
   "repository": {
@@ -29,32 +28,32 @@
   "dependencies": {
     "@intlify/unplugin-vue-i18n": "catalog:",
     "@jspm/generator": "catalog:",
-    "@tailwindcss/vite": "catalog:",
+    "@pnpm/workspace.read-manifest": "catalog:",
     "@shennong/node-utils": "workspace:*",
+    "@tailwindcss/vite": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vitejs/plugin-vue-jsx": "catalog:",
     "archiver": "catalog:",
     "cheerio": "catalog:",
+    "dotenv": "catalog:",
     "get-port": "catalog:",
     "html-minifier-terser": "catalog:",
     "nitropack": "catalog:",
     "resolve.exports": "catalog:",
-    "vite-plugin-pwa": "catalog:",
-    "vite-plugin-vue-devtools": "catalog:"
-  },
-  "devDependencies": {
-    "@pnpm/workspace.read-manifest": "catalog:",
-    "@types/archiver": "catalog:",
-    "@types/html-minifier-terser": "catalog:",
-    "@vitejs/plugin-vue": "catalog:",
-    "@vitejs/plugin-vue-jsx": "catalog:",
-    "dayjs": "catalog:",
-    "dotenv": "catalog:",
-    "rolldown": "catalog:",
     "rollup-plugin-visualizer": "catalog:",
-    "sass": "catalog:",
     "sass-embedded": "catalog:",
     "unplugin-dts": "catalog:",
     "vite": "catalog:",
     "vite-plugin-compression": "catalog:",
-    "vite-plugin-lazy-import": "catalog:"
+    "vite-plugin-lazy-import": "catalog:",
+    "vite-plugin-pwa": "catalog:",
+    "vite-plugin-vue-devtools": "catalog:"
+  },
+  "devDependencies": {
+    "@types/archiver": "catalog:",
+    "@types/html-minifier-terser": "catalog:",
+    "dayjs": "catalog:",
+    "rolldown": "catalog:",
+    "sass": "catalog:"
   }
 }

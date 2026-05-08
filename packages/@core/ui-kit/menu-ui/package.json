@@ -1,6 +1,6 @@
 {
   "name": "@shennong-core/menu-ui",
-  "version": "5.7.0",
+  "version": "5.7.1",
   "homepage": "",
   "bugs": "",
   "repository": {
@@ -11,7 +11,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "pnpm exec tsdown",
+    "build": "pnpm vite build",
     "prepublishOnly": "npm run build"
   },
   "files": [
@@ -22,7 +22,7 @@
   ],
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/src/index.d.ts",
   "exports": {
     ".": {
       "types": "./src/index.ts",
@@ -34,9 +34,10 @@
   "publishConfig": {
     "exports": {
       ".": {
-        "types": "./dist/index.d.ts",
+        "types": "./dist/src/index.d.ts",
         "default": "./dist/index.mjs"
-      }
+      },
+      "./style.css": "./dist/menu-ui.css"
     }
   },
   "dependencies": {
@@ -52,6 +53,7 @@
   },
   "devDependencies": {
     "@types/qs": "catalog:",
-    "unplugin-vue": "catalog:"
+    "@shennong/vite-config": "workspace:*",
+    "vite": "catalog:"
   }
 }

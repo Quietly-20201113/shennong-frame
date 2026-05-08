@@ -128,6 +128,8 @@ catalog:
   jsonwebtoken: ^9.0.3
   lefthook: ^2.1.5
   lodash.clonedeep: ^4.5.0
+  lodash-es: ^4.17.21
+  '@types/lodash-es': ^4.17.12
   lucide-vue-next: ^0.577.0
   medium-zoom: ^1.1.0
   naive-ui: ^2.44.1

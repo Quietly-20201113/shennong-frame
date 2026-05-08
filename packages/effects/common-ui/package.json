@@ -1,6 +1,6 @@
 {
   "name": "@shennong/common-ui",
-  "version": "5.7.0",
+  "version": "5.7.1",
   "homepage": "",
   "bugs": "",
   "repository": {
@@ -13,6 +13,15 @@
   "sideEffects": [
     "**/*.css"
   ],
+  "scripts": {
+    "build": "pnpm vite build"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/src/index.d.ts",
   "exports": {
     ".": {
       "types": "./src/index.ts",
@@ -25,6 +34,23 @@
     "./es/loading": {
       "types": "./src/components/loading/index.ts",
       "default": "./src/components/loading/index.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/src/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "./es/tippy": {
+        "types": "./dist/src/components/tippy/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "./es/loading": {
+        "types": "./dist/src/components/loading/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "./style.css": "./dist/common-ui.css"
     }
   },
   "dependencies": {
@@ -50,8 +76,10 @@
     "vue-tippy": "catalog:"
   },
   "devDependencies": {
+    "@shennong/vite-config": "workspace:*",
     "@types/json-bigint": "catalog:",
     "@types/qrcode": "catalog:",
-    "@vue/test-utils": "catalog:"
+    "@vue/test-utils": "catalog:",
+    "vite": "catalog:"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@shennong/layouts",
-  "version": "5.7.0",
+  "version": "5.7.1",
   "homepage": "",
   "bugs": "",
   "repository": {
@@ -13,11 +13,33 @@
   "sideEffects": [
     "**/*.css"
   ],
+  "scripts": {
+    "build": "pnpm vite build"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/src/index.d.ts",
   "exports": {
     ".": {
       "types": "./src/index.ts",
       "default": "./src/index.ts"
     }
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/src/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "./style.css": "./dist/layouts.css"
+    }
+  },
+  "devDependencies": {
+    "@shennong/vite-config": "workspace:*",
+    "vite": "catalog:"
   },
   "dependencies": {
     "@shennong-core/composables": "workspace:*",
