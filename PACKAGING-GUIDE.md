@@ -20,14 +20,16 @@
 | 包类型 | 例子 | 打包工具 | 模板 |
 |---|---|---|---|
 | **A. 纯 TS** | `@shennong/types` `@shennong/utils` `@shennong/access` `@shennong/hooks` | `tsdown` | A |
-| **B. 含 Vue SFC（有 scoped css）** | `@shennong-core/menu-ui` `@shennong-core/shadcn-ui` `@shennong/common-ui` `@shennong/layouts` | `vite library` | B |
+| **B. 含 Vue SFC（有 scoped css）** | `@shennong-core/menu-ui` `@shennong/common-ui` `@shennong/layouts` | `vite library` | B |
 | **C. 含 Vue SFC（无 css）** | `@shennong-core/form-ui` `@shennong-core/popup-ui` `@shennong-core/layout-ui` | `vite library` | B（同 B） |
 | **D. 资源包（CSS / SCSS / SVG）** | `@shennong/styles` `@shennong/icons` | C / D | C / D |
 | **E. 工程配置（无 build）** | `@shennong/tsconfig` `@shennong/tailwind-config` | 直接发 src 文件 | E |
+| **F. 多组件包**（同包导出多个独立组件） | `@shennong-core/shadcn-ui`（32 子组件） | `vite library` 单入口 / 多入口 | **F**（见下） |
 
 **关键判断**：
 - 包内有 `.vue` 文件 → 必须用 **vite library**（tsdown + unplugin-vue 处理 css 有 bug）
 - 包内有 SCSS `@use` / `import.meta.glob` / `?raw` 等 vite 特性 → **vite library**
+- 包内导出 ≥ 3 个独立组件且预期组件数会增长 → 走 **模板 F**（多组件包专项约定）
 - 否则 → **tsdown**（更轻量、build 更快）
 
 ---
@@ -162,6 +164,280 @@ export default defineConfig(async () => ({
 }
 ```
 不需要 build script，发布时 npm 直接打包 files 列出的 .json。
+
+### 模板 F：多组件包（重点 — 组件会越来越多）
+
+> 适用：一个包内承载多个独立组件（≥ 3），如 `@shennong-core/shadcn-ui`、未来的 `@shennong/biz-ui`（业务组件库）、`@shennong/charts` 等。
+> 核心问题：**组件多 → 配置不能爆炸 → 必须靠目录约定 + 自动化**。
+
+#### F.1 工程目录约定（强制）
+
+```
+packages/<some-component-pkg>/
+├── src/
+│   ├── index.ts                 # 总 barrel：export * from './ui'; export * from './components';
+│   ├── ui/
+│   │   ├── index.ts             # ui barrel：export * from './button'; export * from './input'; ...
+│   │   ├── button/
+│   │   │   ├── index.ts         # 子 barrel：export * from './button'; export { default as Button } from './Button.vue'; export type * from './types';
+│   │   │   ├── Button.vue
+│   │   │   ├── button.ts        # variants / props 定义
+│   │   │   └── types.ts
+│   │   ├── input/
+│   │   │   └── ...（同 button 结构）
+│   │   └── ...
+│   └── components/              # 复合组件（基于 ui/* 组装），可选
+├── package.json
+├── vite.config.ts
+└── tsconfig.json
+```
+
+**铁律**：
+1. **每个组件一个文件夹**：文件夹名 = kebab-case（`number-field`），导出名 = PascalCase（`NumberField`）。
+2. **每层 barrel `index.ts`**：禁止跨层 `import '../../button/Button.vue'`，全部走 barrel。
+3. **types 单独成文件**：`button/types.ts`，barrel 用 `export type *` 转出。这样多入口拆 chunk 时类型不会被打进 js。
+4. **样式在 `.vue` 内 `<style>` 或同名 `.css`**：禁止在 `index.ts` 顶部 `import './style.css'`（会破坏 tree-shaking 的 sideEffects 推断）。
+
+#### F.2 模式选择：单入口 → 多入口（按需求演进，不要一步到位）
+
+| 模式 | 何时用 | 配置成本 | 体积/性能 |
+|---|---|---|---|
+| **F-① 单入口 + tree-shaking** | 组件数 ≤ 30，或 css 总量 < 100KB gzipped | ★低（与模板 B 完全一致） | js 能 tree-shake，**css 全量加载** |
+| **F-② 多入口 + 子路径 exports** | 组件数 > 30，或单组件 css 大（如富文本/图表/3D），或乙方按需加载 | ★★中（需 vite-config 扩展 + 生成 exports） | js + css 都按需 |
+
+> **2026-05 现状**：所有多组件包统一走 **F-①**。`@shennong/vite-config@5.7.3` 的 `library` 模式硬编码 `entry: 'src/index.ts'`，要走 F-② 必须先扩 vite-config（见第七节路线图）。
+
+#### F.3 模式 F-①：单入口 + tree-shaking（当前推荐）
+
+`vite.config.ts`、`package.json` 主体与**模板 B 完全相同**，关键差异在三个字段：
+
+```jsonc
+{
+  // ① 关键：sideEffects 标注，告诉打包器"只有 css 有副作用，js barrel 可放心 tree-shake"
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss"
+  ],
+
+  // ② peerDependencies：vue / ant-design-vue / 大型 runtime 全部下沉为 peer，避免重复打包
+  "peerDependencies": {
+    "vue": "^3.5.0",
+    "ant-design-vue": "^4.2.0"
+  },
+
+  // ③ publishConfig.exports：单子路径暴露 css，无需为每个组件单列入口
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/src/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "./style.css": "./dist/<package-name>.css"
+    }
+  }
+}
+```
+
+**消费方写法**：
+```ts
+// rolldown 通过 sideEffects + ESM static analysis 自动只保留 Button / Input
+import { Button, Input } from '@shennong-core/shadcn-ui';
+// css 由 lib-inject-css 自动注入到 dist/index.mjs 顶部，乙方无感
+```
+
+**新增组件清单**（F-① 模式下）：
+1. `src/ui/<new-component>/` 创建文件夹（按 F.1 结构）
+2. `src/ui/index.ts` 加一行 `export * from './<new-component>';`
+3. `pnpm build` → bump version → publish。**package.json 不动**
+
+#### F.4 模式 F-②：多入口 + 子路径 exports（未来扩展，文档先行）
+
+> **当前 `@shennong/vite-config` 不支持，先看清楚未来形态，避免现在踩死。**
+
+##### F.4.1 vite-config 需要扩展的能力
+
+```ts
+// internal/vite-config/src/typing.ts —— 未来扩展
+interface DefineLibraryConfigOptions {
+  dts?: boolean;
+  /** 多入口模式：传 glob 自动发现，或手动 entry map */
+  entries?: string | string[] | Record<string, string>;
+  /** 是否给每个 entry 独立注入对应 css */
+  cssCodeSplit?: boolean;
+}
+```
+
+`internal/vite-config/src/config/library.ts` 需要：
+- `build.lib.entry` 支持对象形式（多入口）
+- `build.cssCodeSplit: true` 让每个 entry 产独立 css
+- `libInjectCssPlugin` 改成"按 chunk 名匹配同名 css 注入"（当前是"找第一个 css 注入到所有 entry"，多入口下错误）
+
+##### F.4.2 包的 vite.config.ts（未来形态）
+
+```ts
+import { defineConfig } from '@shennong/vite-config';
+import { glob } from 'tinyglobby';
+
+export default defineConfig(async () => {
+  // 自动发现 src/ui/*/index.ts 作为入口
+  const componentEntries = await glob('src/ui/*/index.ts');
+  const entries = {
+    index: 'src/index.ts',
+    ...Object.fromEntries(
+      componentEntries.map((p) => {
+        const name = p.match(/src\/ui\/([^/]+)\/index\.ts$/)![1];
+        return [`ui/${name}/index`, p];
+      }),
+    ),
+  };
+
+  return {
+    library: {
+      dts: true,
+      entries,
+      cssCodeSplit: true,  // 每个组件独立 css 文件
+    },
+  };
+});
+```
+
+产物：
+```
+dist/
+├── index.mjs            # 总 barrel
+├── shadcn-ui.css        # 总样式（兼容老消费方）
+├── ui/
+│   ├── button/index.mjs
+│   ├── button/index.css
+│   ├── input/index.mjs
+│   ├── input/index.css
+│   └── ...
+└── chunks/              # 共享代码自动提取
+    └── shared-<hash>.mjs
+```
+
+##### F.4.3 publishConfig.exports 不可手维护，必须脚本生成
+
+**禁止**手写 32 行子路径 exports。在 monorepo 根加一个脚本：
+
+```js
+// scripts/gen-component-exports.mjs
+import { readFileSync, writeFileSync } from 'node:fs';
+import { glob } from 'tinyglobby';
+
+const pkgPath = process.argv[2];   // 用法：node scripts/gen-component-exports.mjs packages/@core/ui-kit/shadcn-ui
+const pkg = JSON.parse(readFileSync(`${pkgPath}/package.json`, 'utf8'));
+const components = (await glob('src/ui/*/index.ts', { cwd: pkgPath }))
+  .map((p) => p.match(/src\/ui\/([^/]+)\/index\.ts$/)[1]);
+
+pkg.publishConfig ??= {};
+pkg.publishConfig.exports = {
+  '.': {
+    types: './dist/src/index.d.ts',
+    default: './dist/index.mjs',
+  },
+  './style.css': `./dist/${pkg.name.split('/').pop()}.css`,
+  ...Object.fromEntries(
+    components.flatMap((c) => [
+      [`./${c}`, {
+        types: `./dist/src/ui/${c}/index.d.ts`,
+        default: `./dist/ui/${c}/index.mjs`,
+      }],
+      [`./${c}/style.css`, `./dist/ui/${c}/index.css`],
+    ]),
+  ),
+};
+
+writeFileSync(`${pkgPath}/package.json`, JSON.stringify(pkg, null, 2) + '\n');
+console.log(`✓ 生成 ${components.length} 个组件子路径 exports`);
+```
+
+**钩到 build 流程前自动跑**：
+```jsonc
+// 多组件包的 package.json
+{
+  "scripts": {
+    "build": "node ../../../scripts/gen-component-exports.mjs . && pnpm vite build"
+  }
+}
+```
+
+**消费方按需加载写法**：
+```ts
+// 只引一个组件 + 对应 css
+import { Button } from '@shennong-core/shadcn-ui/button';
+// css 由 lib-inject-css 注入到 ui/button/index.mjs 顶部
+
+// 或全量
+import { Button, Input } from '@shennong-core/shadcn-ui';
+```
+
+##### F.4.4 新增组件清单（F-② 模式下）
+
+1. `src/ui/<new-component>/` 创建文件夹
+2. `src/ui/index.ts` 加 `export *`
+3. `pnpm build`（脚本自动重生 `publishConfig.exports`）
+4. 验证：`pnpm pack --dry-run` 看 tarball 含新子路径
+5. publish
+
+**完全无需手改 package.json**。
+
+#### F.5 sideEffects 配置详解（多组件包必读）
+
+错误的 `sideEffects` 会让 tree-shaking 失效或样式丢失。规则：
+
+| 场景 | sideEffects 该写什么 | 为什么 |
+|---|---|---|
+| 全部 .vue 内联 `<style scoped>` | `["**/*.css", "**/*.scss"]` | css 文件由 vite 生成，必须保留 |
+| 组件 `index.ts` 顶部有 `import './polyfill'` | `["**/*.css", "**/*.scss", "**/polyfill.ts"]` | 显式列出有副作用的纯 ts 文件 |
+| 组件需要全局注册（`Vue.component`） | `false` 整体禁用 tree-shaking | 全局注册必然有副作用，但更推荐改成显式 `app.use(plugin)` |
+
+**反例**：
+```jsonc
+"sideEffects": false  // ❌ 多组件包千万不能这么写，css 会被 tree-shake 掉
+```
+
+#### F.6 peerDependencies vs dependencies（多组件包必读）
+
+| 类型 | 该放哪 | 例子 |
+|---|---|---|
+| 框架 runtime（消费方一定有） | `peerDependencies` | `vue`、`vue-router`、`pinia` |
+| 大型 UI 库（消费方一定有） | `peerDependencies` | `ant-design-vue`、`element-plus` |
+| 组件实现内部依赖（消费方未必有） | `dependencies` | `class-variance-authority`、`reka-ui`、`lucide-vue-next` |
+| 工程依赖 | `devDependencies` | `@shennong/vite-config`、`vite` |
+
+**为什么严守这个分类**：vite-config `library.ts` 的 external 逻辑是 `[...dependencies, ...peerDependencies]` 全部 external 化。peer 放错成 dep 会导致 vue 被打进 dist，运行时多份 vue 实例 → reactivity 全乱。
+
+#### F.7 类型声明子路径（F-② 必备）
+
+`@shennong/vite-config` 的 dts 是用 `vite-plugin-dts` 输出，多入口时会自动给每个 entry 生成对应 d.ts：
+```
+dist/src/
+├── index.d.ts
+└── ui/
+    ├── button/index.d.ts
+    ├── input/index.d.ts
+    └── ...
+```
+
+`publishConfig.exports` 里每个子路径都要写 `types` 字段（见 F.4.3 脚本），否则 IDE 跳转和类型推断会断。
+
+#### F.8 演进 checklist（什么时候从 F-① 升级到 F-②）
+
+逐项打勾，三项以上就该升：
+- [ ] 组件数 > 30
+- [ ] 总 css 体积（gzipped） > 100KB
+- [ ] 单个组件 css > 30KB（如富文本编辑器、图表）
+- [ ] 乙方反馈"只用一两个组件但样式全量加载浪费"
+- [ ] 多个乙方应用并存，希望共享 chunks 命中浏览器缓存
+- [ ] 计划用 CDN 单组件分发
+
+#### F.9 多组件包工程债清单（已知）
+
+- [ ] `@shennong-core/shadcn-ui` 32 子组件目前走 F-①，css 全量约 80KB gzipped，临界但够用
+- [ ] vite-config 扩展多入口能力（F-② 前置工作，未排期）
+- [ ] `scripts/gen-component-exports.mjs` 未实现（F-② 前置工作）
+- [ ] `lib-inject-css` plugin 多 chunk 适配未做（当前实现见 `internal/vite-config/src/config/library.ts:16-32`，只取第一个 css 文件，多入口下错）
 
 ---
 
@@ -502,6 +778,9 @@ find node_modules/@shennong -name "*.ts" -not -name "*.d.ts"
 
 | 项 | 何时做 |
 |---|---|
+| **vite-config 扩展多入口能力**（模板 F-② 前置） | 任一多组件包触发 F.8 演进 checklist |
+| **`lib-inject-css` plugin 多 chunk 适配**（同上） | 同上 |
+| **`scripts/gen-component-exports.mjs`**（多组件包 publishConfig 自动生成） | 同上 |
 | `@shennong/plugins` 多 entry vite library，恢复子路径 tree-shaking | 性能优化阶段 |
 | `@shennong/icons` 子路径 publishConfig | 真有业务需要分块加载 svg 时 |
 | 一键 `pnpm release` 脚本（changesets + 自动 bump + 批量 publish） | 团队规模 ≥ 2 人时 |
