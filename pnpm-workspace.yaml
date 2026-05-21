@@ -83,7 +83,7 @@ catalog:
   '@vueuse/motion': ^3.0.3
   ant-design-vue: ^4.2.6
   antdv-next: ^1.1.9
-  archiver: ^7.0.1
+  archiver: ^8.0.0
   axios: ^1.15.0
   axios-mock-adapter: ^2.1.0
   cac: ^7.0.0
