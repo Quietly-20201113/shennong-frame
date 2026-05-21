@@ -211,8 +211,8 @@ catalogs:
       specifier: ^0.7.1
       version: 0.7.1
     commitlint-plugin-function-rules:
-      specifier: ^4.3.2
-      version: 4.3.2
+      specifier: ^5.0.1
+      version: 5.0.1
     consola:
       specifier: ^3.4.2
       version: 3.4.2
@@ -1109,7 +1109,7 @@ importers:
         version: link:../../node-utils
       commitlint-plugin-function-rules:
         specifier: 'catalog:'
-        version: 4.3.2(@commitlint/lint@20.5.3)
+        version: 5.0.1(@commitlint/lint@20.5.3)
       cz-git:
         specifier: 'catalog:'
         version: 1.13.0
@@ -6880,11 +6880,11 @@ packages:
     resolution: {integrity: sha512-aRDkn3uyIlCFfk5NUA+VdwMmMsh8JGhc4hapfV4yxymHGQ3BVskMQfoXGpCo5IoBuQ9tS5iiVKhCpTcB4pW4qw==}
     engines: {node: '>= 12.0.0'}
 
-  commitlint-plugin-function-rules@4.3.2:
-    resolution: {integrity: sha512-UrJfHj7jRislz5qWkBj0mp2EHaFT1LwDdG8uOTofWK/jf84EmNMjmDD+9M6eyrfrgLorTAN3/veRMU0D/vb7CQ==}
-    engines: {node: '>=20'}
+  commitlint-plugin-function-rules@5.0.1:
+    resolution: {integrity: sha512-AC8fH83A+soNq9VKTlLptkbg8Zpfx88ng9hKzdiJ0N+GoYgWTWNt6yFA3zEZ0qy3ekQ4Paf1slkaH1UKWRLUvg==}
+    engines: {node: '>=22'}
     peerDependencies:
-      '@commitlint/lint': '>=19 <21'
+      '@commitlint/lint': '>=19 <22'
 
   common-tags@1.8.2:
     resolution: {integrity: sha512-gk/Z852D2Wtb//0I+kRFNKKE9dIIVirjoqPoA1wJU+XePVXZfGeBpk45+A1rKO4Q43prqWBNY/MiIeRLbPWUaA==}
@@ -16221,7 +16221,7 @@ snapshots:
 
   comment-parser@1.4.5: {}
 
-  commitlint-plugin-function-rules@4.3.2(@commitlint/lint@20.5.3):
+  commitlint-plugin-function-rules@5.0.1(@commitlint/lint@20.5.3):
     dependencies:
       '@commitlint/lint': 20.5.3
 
