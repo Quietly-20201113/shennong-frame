@@ -16,12 +16,12 @@ uplinks:
 packages:
   # 自家包：必须登录，不代理上游
   '@shennong/*':
-    access: $authenticated
+    access: $all
     publish: $authenticated
     unpublish: $authenticated
 
   '@shennong-core/*':
-    access: $authenticated
+    access: $all
     publish: $authenticated
     unpublish: $authenticated
 

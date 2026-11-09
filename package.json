@@ -63,6 +63,7 @@
     "test:e2e": "turbo run test:e2e",
     "update:deps": "npx taze -r -w",
     "version": "pnpm exec changeset version && pnpm install --no-frozen-lockfile",
+    "release:private": "pnpm run version && pnpm build && pnpm publish -r --filter \"@shennong/*\" --filter \"@shennong-core/*\" --no-git-checks --access=public",
     "catalog": "pnpx codemod pnpm/catalog"
   },
   "devDependencies": {

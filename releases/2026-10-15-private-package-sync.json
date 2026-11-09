@@ -1,0 +1,776 @@
+{
+  "createdAt": "2026-10-15T07:22:05.106Z",
+  "remote": "http://172.10.254.68:4873",
+  "roots": [
+    {
+      "name": "@shennong/common-ui",
+      "version": "5.8.6-form-container.20261011.1"
+    },
+    {
+      "name": "@shennong/hooks",
+      "version": "5.8.1-server-list.20261007.1"
+    },
+    {
+      "name": "@shennong/utils",
+      "version": "5.8.2-decimal.20261009.1"
+    },
+    {
+      "name": "@shennong/plugins",
+      "version": "5.7.4-document-preview.20261009.1"
+    },
+    {
+      "name": "@shennong/request",
+      "version": "5.7.1-error-identity.20261009.1"
+    },
+    {
+      "name": "@shennong-core/menu-ui",
+      "version": "5.7.4-menu-popup.20261009.3"
+    }
+  ],
+  "packages": [
+    {
+      "name": "@shennong-core/design",
+      "version": "5.7.4",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.4"
+      },
+      "integrity": "sha512-mOenTlcuGn1dYHDW/Tio97GpH3+/EaAfTnk/TS1xXiE5dMUUMwZgrwDE7rjfjH5j/oVOwp6r8s95HxEWu2l8Cw==",
+      "dependencies": {
+        "@iconify/json": "^2.2.460"
+      },
+      "exports": {
+        "./bem": {
+          "default": "./src/scss-bem/bem.scss"
+        },
+        "./theme": {
+          "default": "./src/css/global.css"
+        },
+        "./style.css": "./dist/design.css",
+        ".": {
+          "default": "./dist/index.mjs"
+        }
+      }
+    },
+    {
+      "name": "@shennong-core/shared",
+      "version": "5.7.0",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.1"
+      },
+      "integrity": "sha512-PwGVcYuxRsKzeB4VhnnRNR25lvl7bK7rAK8R9Ddm6JYgI72HWdxla2WjoY/ocf0dlFd4Ku99kuJkHRcnOz2HrA==",
+      "dependencies": {
+        "@ctrl/tinycolor": "^4.2.0",
+        "@tanstack/vue-store": "^0.10.0",
+        "@vue/shared": "^3.5.32",
+        "clsx": "^2.1.1",
+        "dayjs": "^1.11.20",
+        "defu": "^6.1.7",
+        "es-toolkit": "^1.45.1",
+        "lodash.clonedeep": "^4.5.0",
+        "nprogress": "^0.2.0",
+        "tailwind-merge": "^3.5.0",
+        "theme-colors": "^0.1.0"
+      },
+      "exports": {
+        "./constants": {
+          "types": "./dist/constants/index.d.ts",
+          "default": "./dist/constants/index.mjs"
+        },
+        "./utils": {
+          "types": "./dist/utils/index.d.ts",
+          "default": "./dist/utils/index.mjs"
+        },
+        "./color": {
+          "types": "./dist/color/index.d.ts",
+          "default": "./dist/color/index.mjs"
+        },
+        "./cache": {
+          "types": "./dist/cache/index.d.ts",
+          "default": "./dist/cache/index.mjs"
+        },
+        "./store": {
+          "types": "./dist/store.d.ts",
+          "default": "./dist/store.mjs"
+        },
+        "./global-state": {
+          "types": "./dist/global-state.d.ts",
+          "default": "./dist/global-state.mjs"
+        }
+      }
+    },
+    {
+      "name": "@shennong-core/composables",
+      "version": "5.7.0",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.0"
+      },
+      "integrity": "sha512-efacPdDRZoMJSTXm/8Hp+KCv3ZCD7ToXsQIdW5NI40FZZUnzAQU3gxzBQ/JLhGbfSfeHYIX1t6OyCMI5NG7YSQ==",
+      "dependencies": {
+        "@vueuse/core": "^14.2.1",
+        "reka-ui": "^2.9.5",
+        "sortablejs": "^1.15.7",
+        "vue": "^3.5.32",
+        "@shennong-core/shared": "5.7.0"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.mjs"
+        }
+      }
+    },
+    {
+      "name": "@shennong-core/icons",
+      "version": "5.7.0",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.0"
+      },
+      "integrity": "sha512-QM5NFFL6I049kh8vdlW6mFJg1S3VsBrbkTewPIjOu2spsfv97NgGzVkgp5k3ZS3uNFbHjJ//t7LIZT/FPSwrog==",
+      "dependencies": {
+        "@iconify/vue": "^5.0.0",
+        "lucide-vue-next": "^0.577.0",
+        "vue": "^3.5.32"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.mjs"
+        }
+      }
+    },
+    {
+      "name": "@shennong-core/typings",
+      "version": "5.7.0",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.0"
+      },
+      "integrity": "sha512-Je2IHI+FGzf0Fmmb9HNF6264SsQ+xUzRnBKmbH6xZMBjAXdjJcIDRElxkjH4oXjm4in9TTvx1bgXdhsfMvPOxg==",
+      "dependencies": {
+        "vue": "^3.5.32",
+        "vue-router": "^5.0.4"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.mjs"
+        }
+      }
+    },
+    {
+      "name": "@shennong-core/shared",
+      "version": "5.7.1",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.1"
+      },
+      "integrity": "sha512-9dnAlB4f38kT8QCteQRcV2drM2yjvWo0jy2AndbTPYKXDM07JH74GgEeHvC5VdxA1k3n42WfeRqrdGcHz0S1Sw==",
+      "dependencies": {
+        "@ctrl/tinycolor": "^4.2.0",
+        "@tanstack/vue-store": "^0.10.0",
+        "@vue/shared": "^3.5.32",
+        "clsx": "^2.1.1",
+        "dayjs": "^1.11.20",
+        "defu": "^6.1.7",
+        "es-toolkit": "^1.45.1",
+        "lodash-es": "^4.17.21",
+        "nprogress": "^0.2.0",
+        "tailwind-merge": "^3.5.0",
+        "theme-colors": "^0.1.0"
+      },
+      "exports": {
+        "./constants": {
+          "types": "./dist/constants/index.d.ts",
+          "default": "./dist/constants/index.mjs"
+        },
+        "./utils": {
+          "types": "./dist/utils/index.d.ts",
+          "default": "./dist/utils/index.mjs"
+        },
+        "./color": {
+          "types": "./dist/color/index.d.ts",
+          "default": "./dist/color/index.mjs"
+        },
+        "./cache": {
+          "types": "./dist/cache/index.d.ts",
+          "default": "./dist/cache/index.mjs"
+        },
+        "./store": {
+          "types": "./dist/store.d.ts",
+          "default": "./dist/store.mjs"
+        },
+        "./global-state": {
+          "types": "./dist/global-state.d.ts",
+          "default": "./dist/global-state.mjs"
+        }
+      }
+    },
+    {
+      "name": "@shennong-core/design",
+      "version": "5.7.1",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.4"
+      },
+      "integrity": "sha512-n/kU4hNNMhFxEfB5UGhkiDAEwev3GM4ZlIciMVHDsfOasDuOrykq5ks49Uzs2W3M/x1RMKSgC/RquIm8c9X/vg==",
+      "dependencies": {
+        "@iconify/json": "^2.2.460"
+      },
+      "exports": {
+        "./bem": {
+          "default": "./src/scss-bem/bem.scss"
+        },
+        "./theme": {
+          "default": "./src/css/global.css"
+        },
+        ".": {
+          "default": "./dist/index.mjs"
+        }
+      }
+    },
+    {
+      "name": "@shennong-core/shadcn-ui",
+      "version": "5.7.2",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.4"
+      },
+      "integrity": "sha512-fwr1u1uRmkQGL1N7jpPy4s29PZzbUEOnBTxu7orq8/o+keB6cONNR577pUyadD9uPhDHXoCIGIy5ragu3jIlsA==",
+      "dependencies": {
+        "@vueuse/core": "^14.2.1",
+        "class-variance-authority": "^0.7.1",
+        "lucide-vue-next": "^0.577.0",
+        "reka-ui": "^2.9.5",
+        "vee-validate": "^4.15.1",
+        "vue": "^3.5.32",
+        "@shennong-core/composables": "5.7.0",
+        "@shennong-core/icons": "5.7.0",
+        "@shennong-core/design": "5.7.1",
+        "@shennong-core/typings": "5.7.0",
+        "@shennong-core/shared": "5.7.1"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/src/index.d.ts",
+          "default": "./dist/index.mjs"
+        },
+        "./style.css": "./dist/shadcn-ui.css"
+      }
+    },
+    {
+      "name": "@shennong-core/popup-ui",
+      "version": "5.7.1",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.1"
+      },
+      "integrity": "sha512-xaQ2jg5XNi5AAbAfJLbgHYOGbgKepp08zgTIPu/lczILSeIwO30t0qqoX7EnGKDgK5g9PIghqFlRX2RT8wnPEg==",
+      "dependencies": {
+        "@vueuse/core": "^14.2.1",
+        "vue": "^3.5.32",
+        "@shennong-core/composables": "5.7.0",
+        "@shennong-core/icons": "5.7.0",
+        "@shennong-core/typings": "5.7.0",
+        "@shennong-core/shared": "5.7.1",
+        "@shennong-core/shadcn-ui": "5.7.2"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/src/index.d.ts",
+          "default": "./dist/index.mjs"
+        },
+        "./style.css": "./dist/popup-ui.css"
+      }
+    },
+    {
+      "name": "@shennong-core/form-ui",
+      "version": "5.7.1",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.1"
+      },
+      "integrity": "sha512-iw2hXQ6E8IcZG/E+pV/GFQrxNBrFgcu6DK5uuilNyc0qP2MG9hrwxgX7GjCS9alAkdk/er7JcpGiRjMbs+YQYw==",
+      "dependencies": {
+        "@vee-validate/zod": "^4.15.1",
+        "@vueuse/core": "^14.2.1",
+        "vee-validate": "^4.15.1",
+        "vue": "^3.5.32",
+        "zod": "^3.25.76",
+        "zod-defaults": "0.1.3",
+        "@shennong-core/composables": "5.7.0",
+        "@shennong-core/icons": "5.7.0",
+        "@shennong-core/shadcn-ui": "5.7.2",
+        "@shennong-core/typings": "5.7.0",
+        "@shennong-core/shared": "5.7.1"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/src/index.d.ts",
+          "default": "./dist/index.mjs"
+        },
+        "./style.css": "./dist/form-ui.css"
+      }
+    },
+    {
+      "name": "@shennong-core/preferences",
+      "version": "5.7.0",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.0"
+      },
+      "integrity": "sha512-9cNP8p4nWp15AAZ85mLm8qQgcE6hGWZBzSoQfJ4N0jt2KgpgQiCZD+pvmAtOq61V+B8qZP6xXCycG974Z8noJQ==",
+      "dependencies": {
+        "@vueuse/core": "^14.2.1",
+        "vue": "^3.5.32",
+        "@shennong-core/shared": "5.7.0",
+        "@shennong-core/typings": "5.7.0"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.mjs"
+        }
+      }
+    },
+    {
+      "name": "@shennong-core/shadcn-ui",
+      "version": "5.7.4",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.4"
+      },
+      "integrity": "sha512-naQTmPCGJjy42Mpd/GABNj71gVUU4/TGbCM7ztC+lUcidZUUNz51bGyN+EMBWCtrw4pvpbOTVyq0e3gCog5FhQ==",
+      "dependencies": {
+        "@vueuse/core": "^14.2.1",
+        "class-variance-authority": "^0.7.1",
+        "lucide-vue-next": "^0.577.0",
+        "reka-ui": "^2.9.5",
+        "vee-validate": "^4.15.1",
+        "vue": "^3.5.32",
+        "@shennong-core/composables": "5.7.0",
+        "@shennong-core/typings": "5.7.0",
+        "@shennong-core/shared": "5.7.1",
+        "@shennong-core/design": "5.7.4",
+        "@shennong-core/icons": "5.7.0"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/src/index.d.ts",
+          "default": "./dist/index.mjs"
+        },
+        "./style.css": "./dist/shadcn-ui.css"
+      }
+    },
+    {
+      "name": "@shennong/constants",
+      "version": "5.7.0",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.0"
+      },
+      "integrity": "sha512-55UVoL+Zt18+CtKlHenN/zQof5EmOQ4E/Vt4zNw29GJ0q/od1U4NHagZuEMG+C/ROuTVOM1dmXf/kmzCis5H6A==",
+      "dependencies": {
+        "@shennong-core/shared": "5.7.0"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.mjs"
+        }
+      }
+    },
+    {
+      "name": "@shennong/preferences",
+      "version": "5.7.0",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.0"
+      },
+      "integrity": "sha512-1/M+vHGEl8ntZY9RicwZQBpAiZdESz9v2QOWaU5kg7SIJfe+1y/p1/sSIiXY8qNzj/KK7LqoCqQfNBtNQaGS5Q==",
+      "dependencies": {
+        "@shennong-core/typings": "5.7.0",
+        "@shennong-core/preferences": "5.7.0"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.mjs"
+        }
+      }
+    },
+    {
+      "name": "@shennong/utils",
+      "version": "5.8.0-batch-b.20261001.1",
+      "exists": false,
+      "previousTags": {
+        "latest": "5.7.1"
+      },
+      "integrity": "sha512-WczRNbRopdpOM8Z/P5pBIOVx16gtJ1VN6cz91eazNQOtyI8LusD8p6bC0KswsXiKwQasGQ1YU4SwlrrdTJ4DVQ==",
+      "dependencies": {
+        "vue-router": "^5.0.4",
+        "@shennong-core/shared": "5.7.1",
+        "@shennong-core/typings": "5.7.0"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.mjs"
+        }
+      },
+      "file": "shennong-utils-5.8.0-batch-b.20261001.1.tgz",
+      "sha256": "8dcaee018f3b5ea6a4bc70a929e2865fd0fd7179447eecce8dd6dc13bebbffb0",
+      "bytes": 5372,
+      "fileCount": 5
+    },
+    {
+      "name": "@shennong/types",
+      "version": "5.7.0",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.0"
+      },
+      "integrity": "sha512-LI53ExIg0moOIHZ+ZjycKXidWVsSOJMt9+5TmoKnnVz34wv4aH7z9UpVzhego8yerXHGr7OMrlOxnwcKKH35tw==",
+      "dependencies": {
+        "vue": "^3.5.32",
+        "vue-router": "^5.0.4",
+        "@shennong-core/typings": "5.7.0"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.mjs"
+        }
+      }
+    },
+    {
+      "name": "@shennong/stores",
+      "version": "5.7.0",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.0"
+      },
+      "integrity": "sha512-A/KR/m157H+D39uv7VmC85AMJM4KhSDvlMyEZoNlQuienUoLuYXi4DgGfRTgrAv+737+wXud4kSC/A7FyM8QRg==",
+      "dependencies": {
+        "pinia": "^3.0.4",
+        "pinia-plugin-persistedstate": "^4.7.1",
+        "secure-ls": "^2.0.0",
+        "vue": "^3.5.32",
+        "vue-router": "^5.0.4",
+        "@shennong-core/shared": "5.7.0",
+        "@shennong-core/preferences": "5.7.0",
+        "@shennong-core/typings": "5.7.0"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.mjs"
+        }
+      }
+    },
+    {
+      "name": "@shennong/hooks",
+      "version": "5.8.1-server-list.20261007.1",
+      "exists": false,
+      "previousTags": {
+        "latest": "5.7.0"
+      },
+      "integrity": "sha512-gE0RNHpRCKhYLS7jOLOxGQqS8x8DLXr4JjPFMk8mWIg6q3AfBNkE41KFqPS7sXgDieNcW4cF4yNAwVRm1mh3jw==",
+      "dependencies": {
+        "@vueuse/core": "^14.2.1",
+        "vue": "^3.5.32",
+        "vue-router": "^5.0.4",
+        "watermark-js-plus": "^1.6.3",
+        "@shennong-core/composables": "5.7.0",
+        "@shennong/preferences": "5.7.0",
+        "@shennong/utils": "5.8.0-batch-b.20261001.1",
+        "@shennong/types": "5.7.0",
+        "@shennong/stores": "5.7.0"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.mjs"
+        }
+      },
+      "file": "shennong-hooks-5.8.1-server-list.20261007.1.tgz",
+      "sha256": "f1e024631f3bbb394b232f2dddd789d734c2fc5df693ecbb3240587ec986c1e6",
+      "bytes": 11725,
+      "fileCount": 5
+    },
+    {
+      "name": "@shennong/icons",
+      "version": "5.7.0",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.0"
+      },
+      "integrity": "sha512-YNDoQRYbQrA5Lv9kxTq7yJiJK55XRxLpQvDjTAbdrUY3t/b6LwH3Iq57BCWA8zjgJnPJF1uPyItZ4PUeM2u1XA==",
+      "dependencies": {
+        "@shennong-core/icons": "5.7.0"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/src/index.d.ts",
+          "default": "./dist/index.mjs"
+        }
+      }
+    },
+    {
+      "name": "@shennong/locales",
+      "version": "5.7.0",
+      "exists": true,
+      "previousTags": {
+        "latest": "5.7.0"
+      },
+      "integrity": "sha512-rc1GXKD0AoEPl2WfQ/b6CyV9k+hmnPIcvFn5maKany5RkLcfPGruEBAa9iFOO2Ce9vOq18MZR4tpGT08zVNyFg==",
+      "dependencies": {
+        "@intlify/core-base": "^11.3.2",
+        "vue": "^3.5.32",
+        "vue-i18n": "^11.3.2",
+        "@shennong-core/composables": "5.7.0"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.mjs"
+        }
+      }
+    },
+    {
+      "name": "@shennong/common-ui",
+      "version": "5.8.6-form-container.20261011.1",
+      "exists": false,
+      "previousTags": {
+        "latest": "5.7.3"
+      },
+      "integrity": "sha512-kHRGwupwCvcc36Li3gLpJ1bNufwhFjlaTBtFCcfwE/MIpkGTJuRU3ylhlAAAoMyWBwvomxYgH8PwsCu1RN7NuQ==",
+      "dependencies": {
+        "@vueuse/core": "^14.2.1",
+        "@vueuse/integrations": "^14.2.1",
+        "json-bigint": "^1.0.0",
+        "qrcode": "^1.5.4",
+        "tippy.js": "^6.3.7",
+        "vue": "^3.5.32",
+        "vue-json-viewer": "^3.0.4",
+        "vue-router": "^5.0.4",
+        "vue-tippy": "^6.7.1",
+        "@shennong-core/design": "5.7.4",
+        "@shennong-core/popup-ui": "5.7.1",
+        "@shennong-core/form-ui": "5.7.1",
+        "@shennong-core/preferences": "5.7.0",
+        "@shennong-core/shadcn-ui": "5.7.4",
+        "@shennong/constants": "5.7.0",
+        "@shennong/hooks": "5.8.1-server-list.20261007.1",
+        "@shennong-core/shared": "5.7.1",
+        "@shennong/icons": "5.7.0",
+        "@shennong/types": "5.7.0",
+        "@shennong/locales": "5.7.0"
+      },
+      "exports": {
+        "./form-layout": {
+          "types": "./dist/form-layout/index.d.ts",
+          "default": "./dist/form-layout/index.mjs"
+        },
+        "./form-layout/style.css": "./dist/form-layout/style.css",
+        ".": {
+          "types": "./dist/src/index.d.ts",
+          "default": "./dist/index.mjs"
+        },
+        "./es/tippy": {
+          "types": "./dist/src/components/tippy/index.d.ts",
+          "default": "./dist/index.mjs"
+        },
+        "./es/loading": {
+          "types": "./dist/src/components/loading/index.d.ts",
+          "default": "./dist/index.mjs"
+        },
+        "./document-preview": {
+          "types": "./dist/document-preview/index.d.ts",
+          "default": "./dist/document-preview/index.mjs"
+        },
+        "./antdv": {
+          "types": "./dist/src/antdv/index.d.ts",
+          "default": "./dist/antdv.mjs"
+        },
+        "./style.css": "./dist/common-ui.css"
+      },
+      "file": "shennong-common-ui-5.8.6-form-container.20261011.1.tgz",
+      "sha256": "253d97addfbef99b249973e860e845eaf6f643ba04aaa160061d990dd0ec6f1c",
+      "bytes": 94491,
+      "fileCount": 150
+    },
+    {
+      "name": "@shennong/utils",
+      "version": "5.8.2-decimal.20261009.1",
+      "exists": false,
+      "previousTags": {
+        "latest": "5.7.1"
+      },
+      "integrity": "sha512-bO5WRQg1Jfmtp+II1V74p0YTO0zTbBPC/QfD1vjlKRulHc5myrv/UVHqHVP5VOkrNEN/HaKUrW8NorSwmGqomg==",
+      "dependencies": {
+        "vue-router": "^5.0.4",
+        "decimal.js": "10.4.3",
+        "@shennong-core/shared": "5.7.1",
+        "@shennong-core/typings": "5.7.0"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.mjs"
+        },
+        "./decimal": {
+          "types": "./dist/decimal/index.d.ts",
+          "default": "./dist/decimal/index.mjs"
+        }
+      },
+      "file": "shennong-utils-5.8.2-decimal.20261009.1.tgz",
+      "sha256": "50fd579140c60b000ef5d5dfd6d3d6e62e5c966d9e3c236d2dba888beb29d3e8",
+      "bytes": 7813,
+      "fileCount": 8
+    },
+    {
+      "name": "@shennong/plugins",
+      "version": "5.7.4-document-preview.20261009.1",
+      "exists": false,
+      "previousTags": {
+        "latest": "5.7.1"
+      },
+      "integrity": "sha512-8ghKGI6NcdsW7MLtVqE5HKC6Aeo0xQLQN/q4LuezI/biQB7Ams9qGovHejLHDbr62JeV6Dh/ua7mSUrzzcH/4A==",
+      "dependencies": {
+        "@tiptap/core": "^3.22.3",
+        "@tiptap/extension-document": "^3.22.3",
+        "@tiptap/extension-highlight": "^3.22.3",
+        "@tiptap/extension-image": "^3.22.3",
+        "@tiptap/extension-link": "^3.22.3",
+        "@tiptap/extension-placeholder": "^3.22.3",
+        "@tiptap/extension-text-align": "^3.22.3",
+        "@tiptap/extension-text-style": "^3.22.3",
+        "@tiptap/extension-underline": "^3.22.3",
+        "@tiptap/pm": "^3.22.3",
+        "@tiptap/starter-kit": "^3.22.3",
+        "@tiptap/vue-3": "^3.22.3",
+        "@vueuse/core": "^14.2.1",
+        "@vueuse/motion": "^3.0.3",
+        "css-tree": "3.2.1",
+        "docx": "9.8.1",
+        "docx-preview": "0.4.0",
+        "dompurify": "3.4.16",
+        "echarts": "^6.0.0",
+        "exceljs": "4.4.0",
+        "fflate": "0.8.2",
+        "vue": "^3.5.32",
+        "vxe-pc-ui": "^4.13.21",
+        "vxe-table": "^4.18.11",
+        "@shennong-core/design": "5.7.4",
+        "@shennong-core/form-ui": "5.7.1",
+        "@shennong-core/shadcn-ui": "5.7.4",
+        "@shennong-core/shared": "5.7.1",
+        "@shennong/hooks": "5.8.1-server-list.20261007.1",
+        "@shennong-core/popup-ui": "5.7.1",
+        "@shennong/locales": "5.7.0",
+        "@shennong/preferences": "5.7.0",
+        "@shennong/icons": "5.7.0",
+        "@shennong/types": "5.7.0",
+        "@shennong/utils": "5.8.2-decimal.20261009.1"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/src/index.d.ts",
+          "default": "./dist/index.mjs"
+        },
+        "./echarts": {
+          "types": "./dist/src/echarts/index.d.ts",
+          "default": "./dist/index.mjs"
+        },
+        "./tiptap": {
+          "types": "./dist/src/tiptap/index.d.ts",
+          "default": "./dist/index.mjs"
+        },
+        "./vxe-table": {
+          "types": "./dist/src/vxe-table/index.d.ts",
+          "default": "./dist/index.mjs"
+        },
+        "./office": {
+          "types": "./dist/office/index.d.ts",
+          "default": "./dist/office/index.mjs"
+        },
+        "./document-preview/docx": {
+          "types": "./dist/document-preview/docx/index.d.ts",
+          "default": "./dist/document-preview/docx/index.mjs"
+        },
+        "./document-preview/xlsx": {
+          "types": "./dist/document-preview/xlsx/index.d.ts",
+          "default": "./dist/document-preview/xlsx/index.mjs"
+        },
+        "./motion": {
+          "types": "./dist/src/motion/index.d.ts",
+          "default": "./dist/index.mjs"
+        }
+      },
+      "file": "shennong-plugins-5.7.4-document-preview.20261009.1.tgz",
+      "sha256": "075c24c65585d90885ffb9928382e742431946ad606b51c42b3dcfe6a0a10ad0",
+      "bytes": 57184,
+      "fileCount": 40
+    },
+    {
+      "name": "@shennong/request",
+      "version": "5.7.1-error-identity.20261009.1",
+      "exists": false,
+      "previousTags": {
+        "latest": "5.7.0"
+      },
+      "integrity": "sha512-blLIj/431nbtzgZULQ5e13vpxfVolNLaUleikX74EjBJKDqgg6xDPPiW/1CoGSlNoQZjbm0KeNMCC+AFi4btBw==",
+      "dependencies": {
+        "axios": "^1.15.0",
+        "qs": "^6.15.1",
+        "@shennong/utils": "5.8.2-decimal.20261009.1",
+        "@shennong/locales": "5.7.0"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.mjs"
+        }
+      },
+      "file": "shennong-request-5.7.1-error-identity.20261009.1.tgz",
+      "sha256": "7765e608ea6c779ae913400103237c6e7541a4feccd02954e8207a4631655f5a",
+      "bytes": 5703,
+      "fileCount": 4
+    },
+    {
+      "name": "@shennong-core/menu-ui",
+      "version": "5.7.4-menu-popup.20261009.3",
+      "exists": false,
+      "previousTags": {
+        "latest": "5.7.3"
+      },
+      "integrity": "sha512-63CYGq3CZIv7zKv1EEo+GPkarM5benVRZGzpXqEqSL0quxsU5XioRAH+YTaPcDv+OtYHPrgFWWZLdX3e+wbDTA==",
+      "dependencies": {
+        "@vueuse/core": "^14.2.1",
+        "qs": "^6.15.1",
+        "vue": "^3.5.32",
+        "@shennong-core/design": "5.7.4",
+        "@shennong-core/shadcn-ui": "5.7.4",
+        "@shennong-core/composables": "5.7.0",
+        "@shennong-core/shared": "5.7.1",
+        "@shennong-core/icons": "5.7.0",
+        "@shennong-core/typings": "5.7.0"
+      },
+      "exports": {
+        ".": {
+          "types": "./dist/src/index.d.ts",
+          "default": "./dist/index.mjs"
+        },
+        "./style.css": "./dist/menu-ui.css"
+      },
+      "file": "shennong-core-menu-ui-5.7.4-menu-popup.20261009.3.tgz",
+      "sha256": "b85cea6f1d97371a0f9ef2cd6d14a10bbece1a1f72cadbe1178f5bd067ab181e",
+      "bytes": 13799,
+      "fileCount": 25
+    }
+  ]
+}

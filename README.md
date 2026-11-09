@@ -1,8 +1,6 @@
 # 神农信息系统 · 前端框架（shennong-frame）
 
-> 神农集团信息数字化平台的前端**框架 monorepo**。
-> 基于 [vue-vben-admin](https://github.com/vbenjs/vue-vben-admin) 二次开发，整体重命名为「神农信息系统」品牌，
-> 对外产出 `@shennong/*` / `@shennong-core/*` 系列编译包，供各业务项目消费。
+> 神农集团信息数字化平台的前端**框架 monorepo**。基于 [vue-vben-admin](https://github.com/vbenjs/vue-vben-admin) 二次开发，整体重命名为「神农信息系统」品牌，对外产出 `@shennong/*` / `@shennong-core/*` 系列编译包，供各业务项目消费。
 
 ---
 
@@ -70,10 +68,10 @@ shennong-frame/
 
 ## 四、环境要求
 
-| 项 | 版本 |
-|---|---|
-| Node.js | `^22.18.0` 或 `^24.0.0`（禁用 22.15.x 等旧 22）|
-| pnpm | `10.33.0`（见 `packageManager` 字段）|
+| 项      | 版本                                            |
+| ------- | ----------------------------------------------- |
+| Node.js | `^22.18.0` 或 `^24.0.0`（禁用 22.15.x 等旧 22） |
+| pnpm    | `10.33.0`（见 `packageManager` 字段）           |
 
 ---
 
@@ -108,12 +106,12 @@ pnpm -F @shennong/backend-mock run start   # 监听 http://localhost:5320
 ## 六、框架包说明
 
 | 包 | 作用 |
-|---|---|
+| --- | --- |
 | `@shennong-core/base` `composables` `preferences` `ui-kit` | 核心层：无业务依赖的基础能力 |
 | `@shennong/access` | 权限 / 动态路由 / 菜单 |
-| `@shennong/layouts` | 布局（BasicLayout / AuthPageLayout 等）|
-| `@shennong/common-ui` | 通用 UI（Page / Modal / Drawer 等）|
-| `@shennong/request` | 请求层（RequestClient、拦截器、SSE）|
+| `@shennong/layouts` | 布局（BasicLayout / AuthPageLayout 等） |
+| `@shennong/common-ui` | 通用 UI（Page / Modal / Drawer 等） |
+| `@shennong/request` | 请求层（RequestClient、拦截器、SSE） |
 | `@shennong/hooks` `plugins` | 通用 hooks / 插件 |
 | `@shennong/stores` `preferences` | 状态管理 / 偏好设置 |
 | `@shennong/constants` `icons` `locales` `styles` `types` `utils` | 常量 / 图标 / 国际化 / 样式 / 类型 / 工具 |
@@ -136,15 +134,14 @@ pnpm version                   # changeset version + 重装
 # 发布脚本见 PACKAGING-GUIDE.md
 ```
 
-完整的「打包模板 / 私服发布 / 主程序消费 / 乙方独立项目消费 / 踩坑速查」见
-[PACKAGING-GUIDE.md](./PACKAGING-GUIDE.md)。
+完整的「打包模板 / 私服发布 / 主程序消费 / 乙方独立项目消费 / 踩坑速查」见 [PACKAGING-GUIDE.md](./PACKAGING-GUIDE.md)。
 
 ---
 
 ## 八、文档索引
 
 | 文档 | 面向 | 内容 |
-|---|---|---|
+| --- | --- | --- |
 | [MIGRATION.md](./MIGRATION.md) | 框架维护者 / 运维 | 项目血统、上游同步、rebrand、私服运维 |
 | [PACKAGING-GUIDE.md](./PACKAGING-GUIDE.md) | 框架维护者 / 乙方 | 5 类包打包模板、发布消费全流程、10 个踩坑速查 |
 | `apps/erp-admin/README.md` | 业务开发者 | ERP 模板应用开发说明 |
@@ -154,5 +151,4 @@ pnpm version                   # changeset version + 重装
 
 ## 九、License
 
-本项目基于 [vue-vben-admin](https://github.com/vbenjs/vue-vben-admin)（MIT License）二次开发，
-框架部分沿用 MIT；神农集团业务代码与品牌资产版权归云南神农农业产业集团股份有限公司所有。
+本项目基于 [vue-vben-admin](https://github.com/vbenjs/vue-vben-admin)（MIT License）二次开发，框架部分沿用 MIT；神农集团业务代码与品牌资产版权归云南神农农业产业集团股份有限公司所有。
